@@ -1,0 +1,41 @@
+.landingpage-container{
+    margin-top: -1.5rem;
+    background-color: grey;
+}
+.landingpage-h2{
+    padding-top: 1rem;
+    text-align: center;
+}
+.address{
+    margin: 0rem 2rem;
+}
+.item{
+    padding-left: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.total{
+    padding-left: 3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+.form-elements{
+    display: flex;
+    justify-content: space-between;
+    width:110%
+}
+.print{
+    padding-right: 20rem;
+}
+.print-button{
+    border-radius: 10px;
+    width: 7rem;
+    height:2rem
+    
+}
+.print-input{
+    width: 20rem;
+    height: 15rem;
+    margin-left: 6rem;
+}

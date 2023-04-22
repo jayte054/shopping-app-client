@@ -1,0 +1,18 @@
+.benefit-container{
+    margin-top:-1rem;
+    padding-bottom: 1rem;
+    background-color: darkgray;
+    display:flex;
+    justify-content: space-between;
+}
+.dynamic-icon-container{
+ height:100%;
+ padding-left:7rem;
+}
+.dynamic-icon{
+ font-size: 16rem;
+}
+.list-container{
+    padding-right: 7rem;
+    line-height: 2rem;
+}

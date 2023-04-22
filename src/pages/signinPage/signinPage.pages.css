@@ -1,0 +1,15 @@
+.signin-container{
+    background-color: azure;
+    text-align: center;
+}
+.signin-detail{
+    font-weight: bold;
+}
+.signin-input{
+    height: 2rem;
+    width: 18rem;
+}
+ ::placeholder {
+    padding-left: 1rem;
+    font-style: italic;
+}

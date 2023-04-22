@@ -1,0 +1,12 @@
+.navbar-container{
+    background-color: orange;
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+}
+.navbar-title{
+    margin: 1rem 1rem;
+}
+.navbar-auth{
+    margin: 0 1rem;
+}

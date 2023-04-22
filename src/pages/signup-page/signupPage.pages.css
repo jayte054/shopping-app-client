@@ -1,0 +1,15 @@
+.signup-container{
+    background-color: azure;
+    text-align: center;
+}
+.signup-detail{
+    font-weight: bold;
+}
+.signup-input{
+    height: 2rem;
+    width: 18rem;
+}
+ ::placeholder {
+    padding-left: 1rem;
+    font-style: italic;
+}
