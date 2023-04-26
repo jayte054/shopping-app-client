@@ -19,7 +19,7 @@
     justify-content: space-between;
 }
 .homepage-print-button{
-    margin-right:3rem;
+    margin-right:2.3rem;
     width:7rem;
     height:2rem;
     border-radius:5rem;
@@ -33,7 +33,7 @@
     padding-bottom: 2rem;
     background-color: white;
     line-height: 1.5rem;
-    padding-left:2rem;
+    padding-left:1rem;
 }
 
 

@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import {SlNote} from "react-icons/sl"
 import NavBar from "../../components/Navbar/navbar.homepage"
 import { Footer } from "../../components/footer/footer.components"
 import "./homepage.pages.css"
@@ -14,6 +15,7 @@ export const Homepage = () => {
         }
     ])
     const [inputFields2, setInputFields2] = useState([""])
+    const [totalPrice, setTotalPrice] = useState(0);
 
     const addFields:any = () => {  
         return  setInputFields([...inputFields, {item:"", price: ""}])
@@ -25,6 +27,14 @@ export const Homepage = () => {
         setInputFields(data)
     }
     // let Naira = currencySymbol.symbol("Naira")
+
+    const calculateTotalPrice: any = () => {
+        let total = 0;
+        inputFields.forEach((input) => {
+          total += parseFloat(input.price);
+        });
+        setTotalPrice(total);
+      };
     
     const printCart = (event:any) => {
         event.preventDefault()
@@ -33,17 +43,17 @@ export const Homepage = () => {
     const item :any= () => {
         return (
             <>
+            <h3><SlNote/>Shopping Manager</h3>
              <span>My shopping list</span>
             <ul>
             {itemList.map((item, index) => (
                 <li key={index}>{item}</li>
             ))}
             </ul>
+            <span> total: ₦{totalPrice} </span>
             </>
-           
         )
     }
-   
     console.log(inputFields)    
     setInputFields2(item)
     //   console.log(data)
@@ -57,11 +67,6 @@ export const Homepage = () => {
         let data:any = [...inputFields]
         data[index][event.target.name]= event.target.value
         setInputFields(data)
-    }
-
-    const handleFormChange2 = (event: any) => {
-        console.log(event.target.value)
-        setInputFields2(event.target.value)
     }
     
    
@@ -107,9 +112,14 @@ export const Homepage = () => {
                 })}
             </form>
             <div className="total-container">
-            <button>Total</button>
-            <input />
-            </div>
+            <button onClick={calculateTotalPrice}>Total</button>
+            <input
+              type="number"
+              value={totalPrice}
+              onChange={() => {}}
+              placeholder="Total Price"
+            />
+          </div>
             
                 </div>
             <div className="print-container" >
