@@ -1,8 +1,11 @@
 import React, {useState} from "react"
 import {SlNote} from "react-icons/sl"
+import {FacebookShareButton, FacebookIcon, WhatsappShareButton, WhatsappIcon} from "react-share"
 import NavBar from "../../components/Navbar/navbar.homepage"
 import { Footer } from "../../components/footer/footer.components"
 import "./homepage.pages.css"
+import { stringify } from "querystring"
+import { ShareData } from "../../components/share/shareData.share"
 // import currencySymbol from "currency-symbol"
 // import { json } from "stream/consumers"
 
@@ -14,7 +17,7 @@ export const Homepage = () => {
             price: ""
         }
     ])
-    const [inputFields2, setInputFields2] = useState([""])
+    const [inputFields2, setInputFields2] = useState("")
     const [totalPrice, setTotalPrice] = useState(0);
 
     const addFields:any = () => {  
@@ -36,10 +39,17 @@ export const Homepage = () => {
         setTotalPrice(total);
       };
     
-    const printCart = (event:any) => {
+    const printCart: any = (event:any) => {
         event.preventDefault()
     //    alert(JSON.stringify(inputFields))
-    const itemList = inputFields.map(item => (`${item.item} -  ₦${item.price}`));
+//     const itemList = inputFields.map(item => (`${item.item} -  ₦${item.price}`));
+//     const cart:any = `
+//     Shopping Manager
+//     My shopping list:
+//     ${itemList.join("\n")}
+//     Total: ₦${totalPrice}
+// `;
+// setInputFields2(cart);
     const item :any= () => {
         return (
             <>
@@ -60,7 +70,21 @@ export const Homepage = () => {
     //   return data
     }
 
-    const getData: any = () =>  setInputFields(inputFields)
+    const shareData: any = () => {
+        const itemList = inputFields.map(item => `${item.item} - ₦${item.price}`);
+        const cart = `
+        Shopping Manager
+        My shopping list:
+        ${itemList.join("\n")}
+        Total: ₦${totalPrice}`;
+      
+        return cart;
+      };
+
+    //   const message: any = document.write(shareData())
+    //   const sharedMessage: any = document.write(message)
+
+    
     const itemList = inputFields.map(item => `${item.item} - $${item.price}`);
     
     const handleFormChange = (index: number, event: any) => {
@@ -128,8 +152,18 @@ export const Homepage = () => {
                     <div className="homepage-print-input">
                         {inputFields2}
                     </div>
-                   
+                  
             </div>
+            </div>
+            <div className="socialsShareContainer">
+                <p> Share on: <br /> 
+                                <ShareData description = {shareData()} />
+                                <WhatsappShareButton
+                                url={`${(shareData())}`}
+                                >  
+                                    <WhatsappIcon  size="32" round/>
+                                </WhatsappShareButton>
+                </p>
             </div>
             <Footer />
         </React.Fragment>

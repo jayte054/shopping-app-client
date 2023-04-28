@@ -63,3 +63,12 @@
     width:5rem;
     margin-left:6px;
 }
+.socialsShareContainer{
+    text-align: center;
+    background-color: azure;
+    margin-top: -1rem;
+    padding-top: 0.5rem;
+    margin-bottom: -1rem;
+    padding-bottom:0.5rem
+    
+}
