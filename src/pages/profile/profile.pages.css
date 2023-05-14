@@ -1,0 +1,16 @@
+.profile-container{
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+}
+.profile-input-container{
+    font-weight: bold;
+    line-height: 0.5rem;
+    padding-left: 2rem;
+}
+.profileInput{
+    height:2rem; 
+    width: 15rem;
+    border-top: none;
+    border-right:none;
+    border-left:none;
+}

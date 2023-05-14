@@ -3,10 +3,11 @@ import React from 'react';
 import {Route, BrowserRouter as Router, Routes} from "react-router-dom"
 import './App.css';
 import LandingPage from "./components/landingpage/landingpage.components"
-import { SignUpPage } from './pages/signup-page/signupPage.pages';
-import { SignInPage } from './pages/signinPage/signinPage.pages';
+import  SignUpPage  from './pages/signup-page/signupPage.pages';
+import  SignInPage  from './pages/signinPage/signinPage.pages';
 import { Homepage } from './pages/homepage/homepage.pages';
 import { Profile } from './pages/profile/profile.pages';
+// import  Signout  from './components/signout';
 
 function App() {
   // const mainRoutes = {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/signin" element = {<SignInPage />} />
         <Route path="/homepage" element={<Homepage />} />
         <Route path="/profile" element={<Profile />} />
+        {/* <Route path="/signout" element={<Signout />} /> */}
         </Routes>
       </Router>
     </React.Fragment>
@@ -34,4 +36,4 @@ function App() {
   ;
 }
 
-export default App;
+export default (App);

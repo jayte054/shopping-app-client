@@ -1,13 +1,11 @@
 import React, {useState} from "react"
 import {SlNote} from "react-icons/sl"
-import {FacebookShareButton, FacebookIcon, WhatsappShareButton, WhatsappIcon} from "react-share"
+import { WhatsappShareButton, WhatsappIcon} from "react-share"
 import NavBar from "../../components/Navbar/navbar.homepage"
 import { Footer } from "../../components/footer/footer.components"
 import "./homepage.pages.css"
-import { stringify } from "querystring"
 import { ShareData } from "../../components/share/shareData.share"
-// import currencySymbol from "currency-symbol"
-// import { json } from "stream/consumers"
+
 
 export const Homepage = () => {
     
@@ -41,19 +39,10 @@ export const Homepage = () => {
     
     const printCart: any = (event:any) => {
         event.preventDefault()
-    //    alert(JSON.stringify(inputFields))
-//     const itemList = inputFields.map(item => (`${item.item} -  ₦${item.price}`));
-//     const cart:any = `
-//     Shopping Manager
-//     My shopping list:
-//     ${itemList.join("\n")}
-//     Total: ₦${totalPrice}
-// `;
-// setInputFields2(cart);
     const item :any= () => {
         return (
             <>
-            <h3><SlNote/>Shopping Manager</h3>
+            <h3><SlNote style={{fontWeight: "bold"}}/>Shopping Manager</h3>
              <span>My shopping list</span>
             <ul>
             {itemList.map((item, index) => (
@@ -81,19 +70,15 @@ export const Homepage = () => {
         return cart;
       };
 
-    //   const message: any = document.write(shareData())
-    //   const sharedMessage: any = document.write(message)
-
     
-    const itemList = inputFields.map(item => `${item.item} - $${item.price}`);
+    const itemList = inputFields.map(item => `${item.item} - ₦${item.price}`);
     
     const handleFormChange = (index: number, event: any) => {
         let data:any = [...inputFields]
         data[index][event.target.name]= event.target.value
         setInputFields(data)
     }
-    
-   
+      
     return (
         <React.Fragment>
             <NavBar />
@@ -102,7 +87,6 @@ export const Homepage = () => {
                 <p style={{fontWeight:"bold"}}>Welcome Justin, Let's assist you in having an effortless shopping experience</p>
             <p style={{fontWeight:"bold"}}>Cart:</p>
             
-    
             <form className="homepage-form" >
                 {inputFields.map((input, index) => {
                     return (
@@ -140,9 +124,15 @@ export const Homepage = () => {
             <input
               type="number"
               value={totalPrice}
-              onChange={() => {}}
               placeholder="Total Price"
             />
+            <h4 style={{marginBottom:"0rem"}}>Note</h4>
+            <p >To expeirence payments without any charge , please use  
+                <a style={{fontWeight:"bold", marginLeft:"5px", color:"green"}} 
+                href="https://mywallet.enaira.gov.ng/registration/" 
+                target="_blank">
+                e₦aira Wallet
+                </a> </p>
           </div>
             
                 </div>
@@ -157,12 +147,15 @@ export const Homepage = () => {
             </div>
             <div className="socialsShareContainer">
                 <p> Share on: <br /> 
-                                <ShareData description = {shareData()} />
+                <div>
+                <ShareData description = {shareData()} />
                                 <WhatsappShareButton
                                 url={`${(shareData())}`}
                                 >  
-                                    <WhatsappIcon  size="32" round/>
+                                    <WhatsappIcon  size="32" round color="black"/>
                                 </WhatsappShareButton>
+                </div>
+                                
                 </p>
             </div>
             <Footer />
