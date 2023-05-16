@@ -43,6 +43,17 @@ export const signoutService = () => {
  return removeToken();
 };
 
+export const getAuthToken = async (): Promise<string> => {
+  // Retrieve the authentication token from a secure location (e.g., local storage)
+  const token = localStorage.getItem('accessToken');
+  if (token) {
+    return token;
+  } else {
+    // Handle the case when the authentication token is not available
+    throw new Error('Authentication token not found');
+  }
+};
+
 export const saveToken = (accessToken: string) => {
     localStorage.setItem("accessToken", accessToken);
   };

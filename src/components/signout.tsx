@@ -21,7 +21,16 @@ import {inject, observer} from "mobx-react"
             setErrorMessage(errorMessage)
         }
     }
-    return null
+    return (
+        // <span className="nabvar-auth" 
+        // onClick=
+        <>
+        {handleSignout}
+        </>
+        // >
+            // Signout
+        // </span>
+    )
 }
 
 export default inject("userStore")(observer(Signout))
