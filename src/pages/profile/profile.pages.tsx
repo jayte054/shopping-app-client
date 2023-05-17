@@ -16,6 +16,8 @@ export const Profile = () => {
             <input type="text" placeholder="last name" className="profileInput"/>
             <p>Phone Number :</p>
             <input type="number" placeholder="mobile number" className="profileInput"/><br/>
+            <p>Address</p>
+            <input type="string" placeholder="address" className="profileInput"/><br/>
             <button type="submit" style={{marginTop:"1rem"}}>Submit</button>
             </div>
          

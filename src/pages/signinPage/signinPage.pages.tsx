@@ -20,7 +20,7 @@ console.log(userStore)
           console.log(username, password)
            const result = await SignIn({username, password});
           console.log("userStore",userStore);
-           document.location.href = "/homepage";
+           document.location.href = "/auth/homepage";
         } catch (error: any) {
           console.log(error)
           const errorMessage = error.response?.data?.message;

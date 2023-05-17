@@ -26,7 +26,6 @@ const NavBar = ({userStore}: any) => {
         </h1>
         <div className="navbar-auth"> 
         <Link className="navbar-auth" to = "/auth/profile" > Profile </Link>
-        <Link className="navbar-auth" to="/auth/shoppinghistory">Shopping History</Link>
         <span className="navbar-auth" onClick={(e) => Signout(e)}> Signout </span>
       
         </div>

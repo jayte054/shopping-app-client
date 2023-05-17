@@ -23,6 +23,9 @@ export const Homepage = () => {
     }
 
     const removeFields: any = (index: number) => {
+        if (index === inputFields.length - 1) {
+            return
+        }
         let data = [...inputFields]
         data.splice(index, 1)
         setInputFields(data)
@@ -47,7 +50,7 @@ export const Homepage = () => {
             <ul>
             {itemList.map((item, index) => (
                 <li key={index}>{item}</li>
-            ))}
+            ))} 
             </ul>
             <span> total: ₦{totalPrice} </span>
             </>
@@ -137,7 +140,11 @@ export const Homepage = () => {
             
                 </div>
             <div className="print-container" >
-            <button className="homepage-print-button" type="button" onClick={printCart}>Print</button>
+                <div style={{display:"flex", flexDirection:"column", margin:"1rem"}}>
+                <button className="homepage-print-button" type="button" onClick={printCart}>Print</button>
+                <button className="homepage-print-button" type="button" onClick={printCart}>Save</button>
+                </div>
+            
            
                     <div className="homepage-print-input">
                         {inputFields2}

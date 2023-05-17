@@ -9,7 +9,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {signinService, signoutService, signupService, removeToken, loadToken, saveToken} from './services/auth.service';
+import { createList, fetchLists } from './services/history.services';
 import {userStore} from './stores/user.stores';
+import { historyStore } from './stores/history.stores';
 
 let stores: any = {}
 
@@ -20,8 +22,11 @@ const history = syncHistoryWithStore(browserHistory,
                                     stores.routerStore);
 
 const authService = { signinService, signoutService, signupService, removeToken, loadToken, saveToken };
+const historyService = {createList, fetchLists}
 stores.authService = authService;
+stores.historyService = historyService
 stores.userStore= userStore;
+stores.historyStore = historyStore
 // 
 
 const root = ReactDOM.createRoot(
