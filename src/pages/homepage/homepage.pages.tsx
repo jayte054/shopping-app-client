@@ -1,13 +1,24 @@
 import React, {useState} from "react"
+import {inject} from "mobx-react"
+
 import {SlNote} from "react-icons/sl"
 import { WhatsappShareButton, WhatsappIcon} from "react-share"
 import NavBar from "../../components/Navbar/navbar.homepage"
 import { Footer } from "../../components/footer/footer.components"
 import "./homepage.pages.css"
 import { ShareData } from "../../components/share/shareData.share"
+import { createList_HistoryStore, historyStore } from "../../stores/history.stores"
+import axios from "axios"
+import { BASE_URL } from "../../services/auth.service"
+import { listInput, loadToken } from "../../services/history.services"
+
+export interface CreateListDto {
+    item: string;
+    price: string
+}
 
 
-export const Homepage = () => {
+ const Homepage = () => {
     
     const [inputFields, setInputFields] = useState([
         {
@@ -81,6 +92,78 @@ export const Homepage = () => {
         data[index][event.target.name]= event.target.value
         setInputFields(data)
     }
+
+    // const savePrintCart = async (e: any) => {
+    //     e.preventDefault()
+    //     let access_token = null;
+    //     const token = localStorage.getItem("accessToken");
+    //     access_token = token;
+    //     console.log(access_token);
+    //     console.log("print");
+      
+    //     const shoppingList: CreateListDto[] = inputFields.map((field) => ({
+    //         item: field.item,
+    //         price: field.price,
+    //       }));
+      
+    //     console.log(shoppingList);
+      
+    //     const accessToken: any = await loadToken();
+      
+    //     if (accessToken === access_token) {
+    //       console.log(true);
+    //     } else {
+    //       console.log(false);
+    //     }
+      
+    //     console.log(accessToken);
+    //     const {createList_HistoryStore} = historyStore
+    //     try {
+    //       const response = await createList_HistoryStore(shoppingList, accessToken);
+    //       console.log(response);
+    //       window.alert("Shopping List saved successfully");
+    //     } catch (error) {
+    //       console.log(error);
+    //       window.alert("Failed to save Shopping List");
+    //     }
+    //   };
+
+    const savePrintCart = async (e:any) => {
+        e.preventDefault()
+        let access_token = null
+        const token = localStorage.getItem( "accessToken")
+        access_token = token
+        console.log(access_token)
+        console.log("print")
+        const shoppingList : listInput[]= inputFields.map((fields) => ({item :fields.item, price: fields.price}))
+        // const input = inputFields
+        // const shoppingList = input
+        console.log(shoppingList)
+        const accessToken: any = await loadToken();
+        if (accessToken === access_token){
+            console.log(true)
+        } else console.log(false) 
+        console.log(accessToken)
+         const {createList_HistoryStore} = historyStore
+        try {
+          const response = await createList_HistoryStore(shoppingList, accessToken);
+        //  const response = await axios.post(`${BASE_URL}/shopper/create-list`,
+        //                         shoppingList,
+        //                         {
+        //                             headers: {
+        //                             Authorization: `Bearer ${accessToken}`,
+        //                             },
+        //                         }
+        //                         );
+                                    console.log(response)
+          window.alert("Shopping List saved successfully");
+        } catch (error) {
+          console.log(error);
+          window.alert("Failed to save Shopping List");
+        }
+      };
+
+   
       
     return (
         <React.Fragment>
@@ -142,7 +225,7 @@ export const Homepage = () => {
             <div className="print-container" >
                 <div style={{display:"flex", flexDirection:"column", margin:"1rem"}}>
                 <button className="homepage-print-button" type="button" onClick={printCart}>Print</button>
-                <button className="homepage-print-button" type="button" onClick={printCart}>Save</button>
+                <button className="homepage-print-button" type="button" onClick={(e) => savePrintCart(e)}>Save</button>
                 </div>
             
            
@@ -170,148 +253,4 @@ export const Homepage = () => {
     )
 }
 
-// export const Homepage = () => {
-//     const [formValues, setFormValues] = useState([{ name: "", email : ""}])
-
-//     let handleChange = (i:any, e:any) => {
-//         let newFormValues:any = [...formValues];
-//         newFormValues[i][e.target.name] = e.target.value;
-//         setFormValues(newFormValues);
-//      }
-        
-//     let addFormFields = () => {
-//         setFormValues([...formValues, { name: "", email: "" }])
-//      }
-    
-//     let removeFormFields = (i:any) => {
-//         let newFormValues = [...formValues];
-//         newFormValues.splice(i, 1);
-//         setFormValues(newFormValues)
-//     }
-
-//     let handleSubmit =(event: { preventDefault: () => void }) => {
-//         event.preventDefault()
-//         alert(JSON.stringify(formValues))
-//     }
-//     return (
-//         <form  onSubmit={handleSubmit}>
-//           {formValues.map((element, index) => (
-//             <div className="form-inline" key={index}>
-//               <label>Name</label>
-//               <input type="text" name="name" value={element.name || ""} onChange={e => handleChange(index, e)} />
-//               <label>Email</label>
-//               <input type="text" name="email" value={element.email || ""} onChange={e => handleChange(index, e)} />
-//               {
-//                 index ? 
-//                   <button type="button"  className="button remove" onClick={() => removeFormFields(index)}>Remove</button> 
-//                 : null
-//               }
-//             </div>
-//           ))}
-//           <div className="button-section">
-//               <button className="button add" type="button" onClick={() => addFormFields()}>Add</button>
-//               <button className="button submit" type="submit">Submit</button>
-//           </div>
-//       </form>
-//     )
-// }
-
-// import React, {useState} from "react"
-// import NavBar from "../../components/Navbar/navbar.homepage"
-// import { Footer } from "../../components/footer/footer.components"
-// import "./homepage.pages.css"
-// import { json } from "stream/consumers"
-
-// export const Homepage = () => {
-    
-//     const [inputFields, setInputFields] = useState([
-//         {
-//             item: "",
-//             price: ""
-//         }
-//     ])
-
-//     const addFields:any = () => {  
-//         return setInputFields([...inputFields, {item:"", price: ""}])
-//     }
-
-//     const removeFields: any = (index: number) => {
-//         let data = [...inputFields]
-//         data.splice(index, 1)
-//         setInputFields(data)
-//     }
-
-//     const printCart = (event:any) => {
-//         event.preventDefault()
-//         alert(JSON.stringify(inputFields))
-//     }
-
-//     const handleFormChange = (index: number, event: any) => {
-//         let data:any = [...inputFields]
-//         data[index][event.target.name]= event.target.value
-//         setInputFields(data)
-//     }
-
-//     // Create a new array itemList to hold the list of items in the desired format
-//     const itemList = inputFields.map(item => `${item.item} - $${item.price}`)
-
-//     return (
-//         <React.Fragment>
-//             <NavBar />
-//             <div className="homepage-container">
-//                 <div>
-//                     <p style={{fontWeight:"bold"}}>Welcome Justin, Let's assist you in having an effortless shopping experience</p>
-//                     <p style={{fontWeight:"bold"}}>Cart:</p>
-
-//                     <form className="homepage-form" >
-//                         {inputFields.map((input, index) => {
-//                             return (
-//                                 <div key={index}>
-//                                     <label>Item:</label>
-//                                     <input 
-//                                         type="text"
-//                                         name="item" 
-//                                         placeholder="item" 
-//                                         value={input.item || ""} 
-//                                         onChange={event => handleFormChange(index, event)}
-//                                         className="homepage-item-input"
-//                                         required
-//                                     />
-//                                     <label style={{marginLeft:"4px"}}>Price:</label>
-//                                     <input  
-//                                         type="number"
-//                                         name="price" 
-//                                         placeholder="price" 
-//                                         value={input.price || ""}
-//                                         onChange={event => handleFormChange(index, event)}
-//                                         className="homepage-price-input"
-//                                         required
-//                                     />
-//                                     <button className="add-button" type="button" onClick={() =>  addFields()}> Add More Items</button>
-//                                     <button className="remove-button" type="button" onClick={() => removeFields(index)}>Remove Item</button>
-//                                 </div>
-//                             )
-//                         })}
-//                     </form>
-
-//                     <div className="total-container">
-//                         <button>Total</button>
-//                         <input />
-//                     </div>
-//                 </div>
-
-//                 <div className="print-container">
-//                     <button className="homepage-print-button" type="button" onClick={printCart}>Print</button>
-//                     {/* Use the itemList array to display the list of items */}
-//                     <ul>
-//                         {itemList.map((item, index) => (
-//                             <li key={index}>{item}</li>
-//                         ))}
-//                     </ul>
-//                 </div>
-//             </div>
-
-//             <Footer />
-//         </React.Fragment>
-//     )
-// }
+export default inject("historyStore", "routerStore")(Homepage)

@@ -29,8 +29,8 @@ const List = ({id, item, price, }: any) => {
         })
     }
 
-    const handleClick = () => {
-        renderShoppingLists()
+    const handleClick = ():any => {
+      return  renderShoppingLists()
     }
    
     return (

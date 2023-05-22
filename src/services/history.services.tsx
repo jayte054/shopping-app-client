@@ -3,11 +3,41 @@ import { BASE_URL } from "./auth.service"
 import queryString from "query-string"
 // const queryString = require("query-string")
 
-export const createList = async ({item, price}: any): Promise<any> => {
-    const result = await axios.post(`${BASE_URL}/shopper/create-list`, {item, price})
-    console.log(result)
-    return window.alert("Shopping Itenary created successfully")
+// export const createList = async ({item, price}: any): Promise<any> => {
+//     const options = getCommonOptions() 
+//     const result = await axios.post(`${BASE_URL}/shopper/create-list`, {item, price}, options)
+//     console.log(result) 
+//     const accessToken = result.data.accessToken;
+//     saveToken(accessToken);
+//     return window.alert("Shopping Itenary created successfully")
+// }
+
+export interface listInput {
+    item: string;
+    price: string;
 }
+
+export const createList = async (shoppingList: any, accessToken: string): Promise<any> => {
+    try {
+      const response = await axios.post(`${BASE_URL}/shopper/create-list`, shoppingList, {
+        headers: {
+          Authorization: `Bearer ${accessToken}`
+        }
+      });
+      console.log(response)
+      console.log(response.data)
+      return response.data;
+    } catch (error) {
+        console.log(error)
+      throw error;
+    }
+  };
+
+
+
+
+
+
 
 export const fetchLists = async() => {
     const queryObj = {}
@@ -39,8 +69,12 @@ const getCommonOptions = () => {
     }
 }
 
-const loadToken = async() => {
+ export const loadToken = async() => {
     const token = await localStorage.getItem("accessToken")
     accessToken = token
     return token
 }
+ 
+export const saveToken = (accessToken: string) => {
+    localStorage.setItem("accessToken", accessToken);
+  };
