@@ -17,13 +17,49 @@ export interface listInput {
     price: string;
 }
 
-export const createList = async (shoppingList: any, accessToken: string): Promise<any> => {
+// const axios = require('axios');
+// const qs = require('qs');
+// let data = qs.stringify({
+//   'item': 'car',
+//   'price': '10000',
+//   'item': 'land',
+//   'price': '320',
+//   'item': 'ticket',
+//   'price': '2500' 
+// });
+
+// let config = {
+//   method: 'post',
+//   maxBodyLength: Infinity,
+//   url: 'localhost:3002/shopper/create-list',
+//   headers: { 
+//     'Content-Type': 'application/x-www-form-urlencoded', 
+//     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFkbWludXNlckBnbWFpbC5jb20iLCJpYXQiOjE2ODQ5MzQzOTcsImV4cCI6MTY4NDkzNzk5N30.AB-rjuypkGj6xVKVZFSz-AOE-eCNwpgtibj-7aa_qYM'
+//   },
+//   data : data
+// };
+
+// axios.request(config)
+// .then((response) => {
+//   console.log(JSON.stringify(response.data));
+// })
+// .catch((error) => {
+//   console.log(error);
+// });
+
+
+export const createList = async (item:string, price: string): Promise<any> => {
     try {
-      const response = await axios.post(`${BASE_URL}/shopper/create-list`, shoppingList, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`
-        }
-      });
+      const response = await axios.post(`${BASE_URL}/shopper/create-list`,{item, price} 
+      // {
+    //     data: JSON.stringify({item, price}),
+    //     headers: {
+    //       Authorization: `Bearer ${accessToken}`
+    //     }
+    //   }
+    );
+
+    //   console.log("shorpingList:",shoppingList,"token:",accessToken)
       console.log(response)
       console.log(response.data)
       return response.data;
@@ -32,10 +68,6 @@ export const createList = async (shoppingList: any, accessToken: string): Promis
       throw error;
     }
   };
-
-
-
-
 
 
 

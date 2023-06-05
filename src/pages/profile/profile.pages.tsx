@@ -1,18 +1,71 @@
+
 import NavBar from "../../components/Navbar/navbar.homepage"
 import "./profile.pages.css"
 import { Footer } from "../../components/footer/footer.components"
 import { profileStore } from "../../stores/profileStore"
 import { profileInput } from "../../services/profileService"
-import { useState } from "react"
+import { useEffect, useState, useContext, useMemo, MouseEventHandler } from "react"
 import {inject} from "mobx-react"
+import { v4 as uuidv4 } from 'uuid'
+import { signinService } from "../../services/auth.service"
+import { AuthContext } from "../../context/authContext/authContext"
 
 
  const Profile = () => {
+    const {user} = useContext(AuthContext)
+    console.log(user)
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
     const [address, setAddress] = useState("")
     const [accessToken, setAccessToken] = useState(localStorage.getItem("accessToken") || "")
+    
+    
+   
+    const getProfile = async (profileId: string, accessToken: any): Promise<void> => {
+        console.log("get")
+      profileId  = user?.id 
+      console.log(profileId)
+      accessToken = localStorage.getItem("accessToken")
+        console.log(localStorage.getItem("accessToken"))
+        // e.preventDefault();
+        const { getProfile } = profileStore;
+        try {
+          const profileData = await getProfile(profileId, accessToken);
+          const {firstname, lastname, phoneNumber, address} = profileData.data
+          setFirstName(profileData.firstName);
+          setLastName(profileData.lastName);
+          setPhoneNumber(profileData.phoneNumber);
+          setAddress(profileData.address);
+          console.log(profileData.firstName, profileData.lastname, profileData.phoneNumber, profileData.address)
+        //   setIsLoading(false);
+        } catch (error: any) {
+          if (error.response && error.response.status === 404) {
+            // Handle 404 error here
+            console.log('Profile not found');
+            // Display an error message or perform any necessary actions
+          } else {
+            console.log(error);
+            throw error;
+          }
+        }
+      }; 
+
+      const handleViewProfile: MouseEventHandler<HTMLButtonElement> = (profileId: any) => {
+        // event.preventDefault();
+        const accessToken = localStorage.getItem("accessToken");
+        getProfile(profileId, accessToken);
+      };
+
+    //   useEffect(() => {
+    //     if (profileId) {
+    //       getProfile(profileId);
+    //     }
+    //   }, [profileId]);
+    
+    
+    
+    
 
     const handleSubmit = async(e:any) => {
         
@@ -27,12 +80,17 @@ import {inject} from "mobx-react"
         const {createProfile} = profileStore
         try{
             await createProfile(input, accessToken)
+           
+
             window.alert("profile saved successfully")
+            
         }catch(error: any){
             console.log(error)
             throw error
         }
     }
+
+    const contextValue = useMemo(() => ({ user }), [user]);
 
     return (
         <div>
@@ -70,9 +128,12 @@ import {inject} from "mobx-react"
                     onClick={(e) => handleSubmit(e)}>
                         Submit
             </button>
-            </div>
+             </div>
+
+            <button type="button" onClick={handleViewProfile}>View Profile</button> 
+                {/* <p>first name: {firstName}</p> */}
          
-            </div>
+            </div> 
           
             <Footer />
         </div>

@@ -26,31 +26,16 @@ import { useState } from "react";
 import  {signinService, removeToken, signupService}  from "../services/auth.service";
 
    async function SignIn({username, password}: any): Promise<any> {
-    // const [user, setUser] = useState<any>({});
     const result = await signinService({username, password});
-    // setUser(result);
+    console.log(result)
     return result
   }
-// async function SignIn(username: string, password: string): Promise<any> {
-//     const [user, setUser] = useState<any>({});
-  
-//     try {
-//       const result = await signinService(username, password);
-//       setUser(result);
-//       return result;
-//     } catch (error) {
-//       // Handle any errors that occurred during the sign-in process
-//       throw error;
-//     }
-//   }
 
   async function SignUp(username: string, password: string): Promise<any> {
      return await signupService(username, password);
   }
 
   async function SignOut() {
-    // const [Username, setUsername] = useState<any>({})
-    // setUsername("");
     removeToken();
   }
 

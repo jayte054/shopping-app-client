@@ -10,6 +10,7 @@ import  Profile  from './pages/profile/profile.pages';
  import {getAuthToken} from "./services/auth.service"
 import { ProtectAuthRoute } from './components/privateRoute.component';
 import  ShoppingHistoryPage  from './pages/ShoppingHistoryPage/shoppingHistory.pages';
+import { UserProvider } from './context/authContext/authContext';
 
 
  function App() {
@@ -17,6 +18,7 @@ import  ShoppingHistoryPage  from './pages/ShoppingHistoryPage/shoppingHistory.p
   return (
     <React.Fragment>
       <Router>
+        {/* <UserProvider> */}
         <Routes>
         <Route path ="/" element = {<LandingPage />} />
         <Route path ="/signup" element ={<SignUpPage />} />
@@ -27,7 +29,9 @@ import  ShoppingHistoryPage  from './pages/ShoppingHistoryPage/shoppingHistory.p
         <Route path="/auth/shoppinghistory" element={<ShoppingHistoryPage />} />
         </Route>
         </Routes>
+      {/* </UserProvider> */}
       </Router>
+     
     </React.Fragment>
   )
   ;

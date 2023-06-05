@@ -11,6 +11,8 @@ import { createList_HistoryStore, historyStore } from "../../stores/history.stor
 import axios from "axios"
 import { BASE_URL } from "../../services/auth.service"
 import { listInput, loadToken } from "../../services/history.services"
+import { userStore } from "../../stores/user.stores"
+import {check} from "../signinPage/signinPage.pages"
 
 export interface CreateListDto {
     item: string;
@@ -19,7 +21,14 @@ export interface CreateListDto {
 
 
  const Homepage = () => {
-    
+    // const checkReturn = async({username, password}: any): Promise<any> => {
+    //  const response: any =  await console.log(check({username, password}))
+    //  console.log(response)
+    //  return response
+    // }
+
+    // checkReturn({username:"justine@gmail.com", password:"Pass123."})
+ 
     const [inputFields, setInputFields] = useState([
         {
             item: "",
@@ -128,17 +137,23 @@ export interface CreateListDto {
     //     }
     //   };
 
-    const savePrintCart = async (e:any) => {
+    const createList = async(item: string,price: string): Promise<any> =>{
+        const {createList_HistoryStore} = historyStore
+        return await createList_HistoryStore(item, price)
+    }
+
+    const savePrintCart = async (e:React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
         let access_token = null
         const token = localStorage.getItem( "accessToken")
         access_token = token
         console.log(access_token)
         console.log("print")
-        const shoppingList : listInput[]= inputFields.map((fields) => ({item :fields.item, price: fields.price}))
-        // const input = inputFields
-        // const shoppingList = input
-        console.log(shoppingList)
+          const shoppingList : any = inputFields.map((fields) => ({item :fields.item, price: fields.price}))
+        // const shoppingList: CreateListDto[] = inputFields.map((field) => ({
+        //     item: field.item,
+        //     price: field.price,
+        //   }));
         const accessToken: any = await loadToken();
         if (accessToken === access_token){
             console.log(true)
@@ -162,6 +177,38 @@ export interface CreateListDto {
           window.alert("Failed to save Shopping List");
         }
       };
+
+    
+// const axios = require('axios');
+// import axios from "axios"
+const qs = require('qs');
+
+
+
+// const savePrintCart = () => {
+//     let data = JSON.stringify({
+//         'item': 'car',
+//         'price': '10000' 
+//       });
+// let config = {
+//     method: 'post',
+//     maxBodyLength: Infinity,
+//     url: 'http://localhost:3002/shopper/create-list',
+//     headers: { 
+//       'Content-Type': 'application/x-www-form-urlencoded', 
+//       'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFkbWludXNlckBnbWFpbC5jb20iLCJpYXQiOjE2ODQ5MzQzOTcsImV4cCI6MTY4NDkzNzk5N30.AB-rjuypkGj6xVKVZFSz-AOE-eCNwpgtibj-7aa_qYM'
+//     },
+//     data : data
+//   };
+  
+//   axios.request(config)
+//   .then((response: any) => {
+//     console.log(JSON.stringify(response.data));
+//   })
+//   .catch((error: any) => {
+//     console.log(error);
+//   });
+// }
 
    
       
@@ -225,7 +272,9 @@ export interface CreateListDto {
             <div className="print-container" >
                 <div style={{display:"flex", flexDirection:"column", margin:"1rem"}}>
                 <button className="homepage-print-button" type="button" onClick={printCart}>Print</button>
-                <button className="homepage-print-button" type="button" onClick={(e) => savePrintCart(e)}>Save</button>
+                <button className="homepage-print-button" type="button" onClick={(e:  React.MouseEvent<HTMLButtonElement>) => savePrintCart(e)}>Save</button>
+                {/* <button className="homepage-print-button" type="button" onClick={savePrintCart}>Save</button> */}
+
                 </div>
             
            

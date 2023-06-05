@@ -14,6 +14,7 @@ import {userStore} from './stores/user.stores';
 import { historyStore } from './stores/history.stores';
 import { CreateProfile } from './services/profileService';
 import { profileStore } from './stores/profileStore';
+import { UserProvider } from './context/authContext/authContext';
 
 let stores: any = {}
 
@@ -39,9 +40,12 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <UserProvider>
     <Provider {...stores}>
     <App />
     </Provider>
+    </UserProvider>
+    
   </React.StrictMode>
 );
 

@@ -1,4 +1,4 @@
-import { CreateProfile, profileInput } from "../services/profileService"
+import { CreateProfile, GetProfile, profileInput } from "../services/profileService"
 
 const createProfile = async(profileInput: profileInput, accessToken: any ) => {
     try{
@@ -9,6 +9,17 @@ const createProfile = async(profileInput: profileInput, accessToken: any ) => {
     }
 }
 
+const getProfile = async(profileId: any, accessToken: any): Promise<any> => {
+    try{
+      const profileData =  await GetProfile(profileId, accessToken)
+      return profileData
+    }catch(error: any){
+        console.log(error)
+        throw error
+    }
+}
+
 export const profileStore = {
-    createProfile
+    createProfile,
+    getProfile
 }

@@ -1,24 +1,4 @@
-// import  axios, {AxiosResponse}  from "axios"
-// import BaseHttpService from "./base-http.service";
 
-// export default class AuthService extends BaseHttpService {
-//     async signin(username:string, password: string): Promise<string> {
-//         const result: AxiosResponse = await axios.post(`${this.BASE_URL}/auth/signin`, {username, password})
-//         const accessToken = result.data.accessToken;
-//         this.saveToken(accessToken)
-//         return result.data.username
-//     }
-
-//     async signup(username: string, password: string): Promise<string> {
-//         return (
-//         await axios.post(`${this.BASE_URL}/auth/signup`, {username, password})
-//         )
-//     }
-
-//     async signout() {
-//         this.removeToken()
-//     }
-// }
 
 import axios from "axios";
 
@@ -29,9 +9,14 @@ export const signinService = async ({username, password}:any): Promise<any> => {
   const result = await axios.post(`${BASE_URL}/auth/signin`, { username, password });
   const accessToken = result.data.accessToken;
   saveToken(accessToken);
-  console.log(result)
-  return result.data.username;
+  console.log(result.data.username.user.id)
+  const profileId = result.data.username.user.id
+  const userData = {username: result.data.username, profileId};
+  return userData
 };
+
+const {profileId}: any = signinService
+console.log(profileId)
 
 export const signupService = async (username: string, password: string): Promise<string> => {
   const result = await axios.post(`${BASE_URL}/auth/signup`, { username, password });
@@ -42,6 +27,15 @@ export const signupService = async (username: string, password: string): Promise
 export const signoutService = () => {
  return removeToken();
 };
+
+// export const signinServiceId = async ({username, password}:any): Promise<any> => {
+//   console.log(username, password)
+//   const result = await axios.post(`${BASE_URL}/auth/signin`, { username, password });
+//   const accessToken = result.data.accessToken;
+//   saveToken(accessToken);
+//   console.log(result.data.username.user.id)
+//   return result.data.username.user.id;
+// };
 
 export const getAuthToken = async (): Promise<string> => {
   // Retrieve the authentication token from a secure location (e.g., local storage)

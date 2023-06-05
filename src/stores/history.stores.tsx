@@ -8,9 +8,9 @@ import { createList, fetchLists, listInput } from "../services/history.services"
 
 let itenary: any[] = [];
 
-export const createList_HistoryStore = async (shoppingList: any, accessToken: string): Promise<any> => {
+export const createList_HistoryStore = async (item:string, price:string): Promise<any> => {
   try {
-    const result = await createList(shoppingList, accessToken);
+    const result = await createList(item, price);
     console.log(result)
     // itenary.push(result);
     console.log(result)
