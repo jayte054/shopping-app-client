@@ -17,8 +17,8 @@ import { UserProvider } from './context/authContext/authContext';
 
   return (
     <React.Fragment>
+      <UserProvider>
       <Router>
-        {/* <UserProvider> */}
         <Routes>
         <Route path ="/" element = {<LandingPage />} />
         <Route path ="/signup" element ={<SignUpPage />} />
@@ -29,9 +29,9 @@ import { UserProvider } from './context/authContext/authContext';
         <Route path="/auth/shoppinghistory" element={<ShoppingHistoryPage />} />
         </Route>
         </Routes>
-      {/* </UserProvider> */}
       </Router>
-     
+      </UserProvider>
+         
     </React.Fragment>
   )
   ;

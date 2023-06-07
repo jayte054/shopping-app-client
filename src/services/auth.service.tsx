@@ -9,14 +9,14 @@ export const signinService = async ({username, password}:any): Promise<any> => {
   const result = await axios.post(`${BASE_URL}/auth/signin`, { username, password });
   const accessToken = result.data.accessToken;
   saveToken(accessToken);
-  console.log(result.data.username.user.id)
-  const profileId = result.data.username.user.id
-  const userData = {username: result.data.username, profileId};
+  console.log(result.data.user.id)
+  const profileId = result.data.user.id
+  const userData = {user: result.data.user, profileId};
+  console.log(userData)
   return userData
 };
 
-const {profileId}: any = signinService
-console.log(profileId)
+
 
 export const signupService = async (username: string, password: string): Promise<string> => {
   const result = await axios.post(`${BASE_URL}/auth/signup`, { username, password });

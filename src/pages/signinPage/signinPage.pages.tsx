@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import "./signinPage.pages.css"
 import { inject } from "mobx-react"
 import NavBarSignIn from "../../components/Navbar/navbar.signin"
@@ -18,12 +18,14 @@ export const check = async({username, password}:any): Promise<any> => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [errorMessage, setErrorMessage] = useState(null)
+    const { user, updateUser} = useContext(AuthContext)
+    const navigate = useNavigate()
 
      const {SignIn} = userStore
       console.log(userStore)
-     const {updateUser} = useContext(AuthContext)
-  console.log(updateUser)
-    const handleSubmit = async (e: React.SyntheticEvent) => {
+       console.log(user)
+
+      const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
       console.log("hit")
       
@@ -31,10 +33,11 @@ export const check = async({username, password}:any): Promise<any> => {
           console.log(username, password)
            const userData = await SignIn({username, password});
            console.log(userData)
-          console.log("userStore",userStore);
-           document.location.href = "/auth/homepage";
            updateUser(userData)
-          return userData
+          console.log(user)
+
+           navigate("/auth/homepage", { state: { data: userData.user.username }, replace: true }) ;
+          
         } catch (error: any) {
           console.log(error)
           const errorMessage = error.response?.data?.message;

@@ -1,6 +1,7 @@
-import React, {useState} from "react"
+import React, {useContext, useState} from "react"
+import { useLocation } from "react-router-dom"
 import {inject} from "mobx-react"
-
+import { AuthContext } from "../../context/authContext/authContext"
 import {SlNote} from "react-icons/sl"
 import { WhatsappShareButton, WhatsappIcon} from "react-share"
 import NavBar from "../../components/Navbar/navbar.homepage"
@@ -12,22 +13,31 @@ import axios from "axios"
 import { BASE_URL } from "../../services/auth.service"
 import { listInput, loadToken } from "../../services/history.services"
 import { userStore } from "../../stores/user.stores"
-import {check} from "../signinPage/signinPage.pages"
 
 export interface CreateListDto {
     item: string;
     price: string
 }
 
+const name: any = []
 
  const Homepage = () => {
-    // const checkReturn = async({username, password}: any): Promise<any> => {
-    //  const response: any =  await console.log(check({username, password}))
-    //  console.log(response)
-    //  return response
-    // }
-
-    // checkReturn({username:"justine@gmail.com", password:"Pass123."})
+    const {user} = useContext(AuthContext)
+    const username = user && user.user ? user.user.username : "";
+    //  name.push(user.user.username)
+    //  localStorage.setItem(name, JSON.stringify(name))
+    //  const storedContextData = sessionStorage.getItem(name)
+    //  const username = storedContextData ? JSON.parse(storedContextData) : null
+    //  name.push(username)
+    const location = useLocation()
+     console.log(location.state)
+    //   const name = location.state && location.state.data.user.username
+    // name.push(location.state && location.state.data.user.username)
+    //  console.log(state)
+    //  const username = state
+    //  console.log(username)
+   
+    // console.log(user.user.username)
  
     const [inputFields, setInputFields] = useState([
         {
@@ -137,31 +147,23 @@ export interface CreateListDto {
     //     }
     //   };
 
-    const createList = async(item: string,price: string): Promise<any> =>{
-        const {createList_HistoryStore} = historyStore
-        return await createList_HistoryStore(item, price)
-    }
+    // const createList = async({item ,price}: listInput, accessToken: any): Promise<any> =>{
+    //     const {createList_HistoryStore} = historyStore
+    //     return await createList_HistoryStore({item, price}, accessToken)
+    // }
 
     const savePrintCart = async (e:React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault()
-        let access_token = null
         const token = localStorage.getItem( "accessToken")
-        access_token = token
-        console.log(access_token)
         console.log("print")
-          const shoppingList : any = inputFields.map((fields) => ({item :fields.item, price: fields.price}))
-        // const shoppingList: CreateListDto[] = inputFields.map((field) => ({
-        //     item: field.item,
-        //     price: field.price,
-        //   }));
+         
+        const shoppingList : any = inputFields.map((fields) => ({item :fields.item, price: fields.price}))
+      
         const accessToken: any = await loadToken();
-        if (accessToken === access_token){
-            console.log(true)
-        } else console.log(false) 
-        console.log(accessToken)
+       
          const {createList_HistoryStore} = historyStore
         try {
-          const response = await createList_HistoryStore(shoppingList, accessToken);
+          const response = await createList_HistoryStore(shoppingList, token);
         //  const response = await axios.post(`${BASE_URL}/shopper/create-list`,
         //                         shoppingList,
         //                         {
@@ -170,18 +172,13 @@ export interface CreateListDto {
         //                             },
         //                         }
         //                         );
-                                    console.log(response)
+             console.log(response)
           window.alert("Shopping List saved successfully");
         } catch (error) {
           console.log(error);
           window.alert("Failed to save Shopping List");
         }
       };
-
-    
-// const axios = require('axios');
-// import axios from "axios"
-const qs = require('qs');
 
 
 
@@ -217,7 +214,7 @@ const qs = require('qs');
             <NavBar />
             <div className="homepage-container">
                 <div>
-                <p style={{fontWeight:"bold"}}>Welcome Justin, Let's assist you in having an effortless shopping experience</p>
+                <p style={{fontWeight:"bold"}}>Welcome {`${username ? username : name}`}, Let's assist you in having an effortless shopping experience</p>
             <p style={{fontWeight:"bold"}}>Cart:</p>
             
             <form className="homepage-form" >

@@ -48,18 +48,10 @@ export interface listInput {
 // });
 
 
-export const createList = async (item:string, price: string): Promise<any> => {
+export const createList = async ({item, price}:listInput, accessToken: any): Promise<any> => {
     try {
-      const response = await axios.post(`${BASE_URL}/shopper/create-list`,{item, price} 
-      // {
-    //     data: JSON.stringify({item, price}),
-    //     headers: {
-    //       Authorization: `Bearer ${accessToken}`
-    //     }
-    //   }
-    );
+      const response = await axios.post(`${BASE_URL}/shopper/create-list`, {item, price}, accessToken);
 
-    //   console.log("shorpingList:",shoppingList,"token:",accessToken)
       console.log(response)
       console.log(response.data)
       return response.data;
@@ -90,7 +82,6 @@ export const fetchLists = async() => {
    
 }
 
-let accessToken = null
 
 const getCommonOptions = () => {
     const token = loadToken()
@@ -103,7 +94,6 @@ const getCommonOptions = () => {
 
  export const loadToken = async() => {
     const token = await localStorage.getItem("accessToken")
-    accessToken = token
     return token
 }
  

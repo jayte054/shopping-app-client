@@ -12,8 +12,9 @@ import { AuthContext } from "../../context/authContext/authContext"
 
 
  const Profile = () => {
-    const {user} = useContext(AuthContext)
-    console.log(user)
+    const {user, updateUser} = useContext(AuthContext)
+    const {updateProfile} = useContext(AuthContext)
+    console.log(user.profileId)
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
@@ -24,7 +25,7 @@ import { AuthContext } from "../../context/authContext/authContext"
    
     const getProfile = async (profileId: string, accessToken: any): Promise<void> => {
         console.log("get")
-      profileId  = user?.id 
+      profileId  = user.profileId 
       console.log(profileId)
       accessToken = localStorage.getItem("accessToken")
         console.log(localStorage.getItem("accessToken"))
@@ -32,12 +33,13 @@ import { AuthContext } from "../../context/authContext/authContext"
         const { getProfile } = profileStore;
         try {
           const profileData = await getProfile(profileId, accessToken);
-          const {firstname, lastname, phoneNumber, address} = profileData.data
+          // const {firstname, lastname, phoneNumber, address} = profileData.data
           setFirstName(profileData.firstName);
           setLastName(profileData.lastName);
           setPhoneNumber(profileData.phoneNumber);
           setAddress(profileData.address);
-          console.log(profileData.firstName, profileData.lastname, profileData.phoneNumber, profileData.address)
+          console.log(profileData.firstName, profileData.lastName, profileData.phoneNumber, profileData.address)
+          updateProfile(profileData)
         //   setIsLoading(false);
         } catch (error: any) {
           if (error.response && error.response.status === 404) {
@@ -90,7 +92,7 @@ import { AuthContext } from "../../context/authContext/authContext"
         }
     }
 
-    const contextValue = useMemo(() => ({ user }), [user]);
+    const contextValue = useMemo(() => ({ user, updateUser }), [user]);
 
     return (
         <div>
