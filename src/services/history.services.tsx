@@ -1,7 +1,11 @@
 import axios from "axios"
 import { BASE_URL } from "./auth.service"
 import queryString from "query-string"
+import { useContext } from "react";
+import AuthContext from "../context/authContext/authContext";
 // const queryString = require("query-string")
+
+
 
 // export const createList = async ({item, price}: any): Promise<any> => {
 //     const options = getCommonOptions() 
@@ -12,10 +16,7 @@ import queryString from "query-string"
 //     return window.alert("Shopping Itenary created successfully")
 // }
 
-export interface listInput {
-    item: string;
-    price: string;
-}
+
 
 // const axios = require('axios');
 // const qs = require('qs');
@@ -47,12 +48,24 @@ export interface listInput {
 //   console.log(error);
 // });
 
+export class ListInput {
+    item?: string;
+    price?: string ;
+}
 
-export const createList = async ({item, price}:listInput, accessToken: any): Promise<any> => {
+export const CreateList = async (listInput:ListInput, accessToken:any ): Promise<any> => {
+    const url = `${BASE_URL}/shopper/createlist`
+     accessToken = localStorage.getItem("accessToken")
+    const config = {
+        headers: {
+            "authorization":`Bearer ${accessToken}`
+        }
+    }
     try {
-      const response = await axios.post(`${BASE_URL}/shopper/create-list`, {item, price}, accessToken);
-
-      console.log(response)
+        // const response = await axios.get(url, {item, price}, config)
+      const response = await axios.post(`${BASE_URL}/shopper/createlist`, listInput, config);
+        console.log(accessToken)
+      console.log(response.data)
       console.log(response.data)
       return response.data;
     } catch (error) {
@@ -63,24 +76,20 @@ export const createList = async ({item, price}:listInput, accessToken: any): Pro
 
 
 
-export const fetchLists = async() => {
-    const queryObj = {}
-    const options = getCommonOptions()
-    const queryStr = queryString.stringify(queryObj)
-
-    try{
-        const response = await axios.get(`${BASE_URL}/shopper/items`, options)
-        const data = await response.data
-        return  data
-    }catch(error: any){
-        const {statusCode} = error.response.data
-        if(statusCode !== 401){
-            throw error
-        }
-        return 401
+  export const fetchShoppingLists = async ( accessToken: string): Promise<any> => {
+    const url = `${BASE_URL}/shopper/items/`;
+    const config = {
+      headers: {
+        "authorization": `Bearer ${accessToken}`
+      }
+    };
+    try {
+      const response = await axios.get(url, config);
+      return JSON.stringify(response.data);
+    } catch (error) {
+      throw error;
     }
-   
-}
+  };
 
 
 const getCommonOptions = () => {

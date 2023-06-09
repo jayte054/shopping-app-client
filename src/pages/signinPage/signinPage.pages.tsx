@@ -1,7 +1,9 @@
 import React, { useState, useContext } from "react"
 import { Link, useNavigate } from "react-router-dom"
-import "./signinPage.pages.css"
 import { inject } from "mobx-react"
+import toastify from "toastify-js"
+import 'toastify-js/src/toastify.css'
+import "./signinPage.pages.css"
 import NavBarSignIn from "../../components/Navbar/navbar.signin"
 import { Footer } from "../../components/footer/footer.components"
 import ErrorMessage from "../../components/ErrorMessage"
@@ -35,12 +37,25 @@ export const check = async({username, password}:any): Promise<any> => {
            console.log(userData)
            updateUser(userData)
           console.log(user)
-
+          toastify({
+            text:`${username} signin successful`,
+            backgroundColor: "green",
+            close:true,
+            gravity: "top",
+            duration: 3000
+          }).showToast()
            navigate("/auth/homepage", { state: { data: userData.user.username }, replace: true }) ;
           
         } catch (error: any) {
           console.log(error)
           const errorMessage = error.response?.data?.message;
+          toastify({
+            text: "signin unsuccessful",
+            duration: 3000,
+            backgroundColor: "red",
+            gravity: "top",
+            close: true
+          }).showToast()
           console.log(errorMessage)
           setErrorMessage(errorMessage);
         }

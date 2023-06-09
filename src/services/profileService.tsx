@@ -26,20 +26,6 @@ export const CreateProfile = async(profileInput: profileInput, accessToken: any)
     
 }
 
-// export const GetProfile = async(profileId: any, accessToken: any):Promise<any> => {
-//     try {
-//         const response = await axios.get(`${BASE_URL}/profile/${profileId}`,{
-//             headers: {
-//                 Authorization: `Bearer ${accessToken}`
-//             }
-//         }) 
-//         return response.data
-//     }catch(error) {
-//         console.log(error)
-//         throw error
-//     }
-// }
-
 
 
 export const GetProfile = async(id: any, accessToken:any):Promise<any> => {

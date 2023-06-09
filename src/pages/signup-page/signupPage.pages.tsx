@@ -3,6 +3,8 @@ import { Link } from "react-router-dom"
 import "./signupPage.pages.css"
 import {useState} from "react"
 import {inject} from "mobx-react"
+import toastify from "toastify-js"
+import "toastify-js/src/toastify.css"
 import NavBarSignUp from "../../components/Navbar/navbar.signup"
 import { Footer } from "../../components/footer/footer.components"
 import ErrorMessage from "../../components/ErrorMessage"
@@ -18,10 +20,23 @@ import ErrorMessage from "../../components/ErrorMessage"
             e.preventDefault()
              await SignUp(username, password)
             document.location.href="/signin"
-
+            toastify({
+                text:"signup successful",
+                duration:3000,
+                gravity:"top",
+                backgroundColor: "green",
+                close: true
+            }).showToast()
         }catch(error: any){
             const errorMessage = error.response.data.message
             setErrorMessage(errorMessage)
+            toastify({
+                text:"signup unsuccessful",
+                duration:3000,
+                gravity:"top",
+                backgroundColor: "red",
+                close: true
+            }).showToast()
         }
     }
 

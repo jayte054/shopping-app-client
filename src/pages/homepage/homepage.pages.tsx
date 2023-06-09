@@ -8,10 +8,10 @@ import NavBar from "../../components/Navbar/navbar.homepage"
 import { Footer } from "../../components/footer/footer.components"
 import "./homepage.pages.css"
 import { ShareData } from "../../components/share/shareData.share"
-import { createList_HistoryStore, historyStore } from "../../stores/history.stores"
+import { CreateList_HistoryStore, historyStore } from "../../stores/history.stores"
 import axios from "axios"
 import { BASE_URL } from "../../services/auth.service"
-import { listInput, loadToken } from "../../services/history.services"
+import { ListInput, loadToken } from "../../services/history.services"
 import { userStore } from "../../stores/user.stores"
 
 export interface CreateListDto {
@@ -19,16 +19,10 @@ export interface CreateListDto {
     price: string
 }
 
-const name: any = []
 
  const Homepage = () => {
     const {user} = useContext(AuthContext)
     const username = user && user.user ? user.user.username : "";
-    //  name.push(user.user.username)
-    //  localStorage.setItem(name, JSON.stringify(name))
-    //  const storedContextData = sessionStorage.getItem(name)
-    //  const username = storedContextData ? JSON.parse(storedContextData) : null
-    //  name.push(username)
     const location = useLocation()
      console.log(location.state)
     //   const name = location.state && location.state.data.user.username
@@ -88,8 +82,6 @@ const name: any = []
     }
     console.log(inputFields)    
     setInputFields2(item)
-    //   console.log(data)
-    //   return data
     }
 
     const shareData: any = () => {
@@ -112,58 +104,24 @@ const name: any = []
         setInputFields(data)
     }
 
-    // const savePrintCart = async (e: any) => {
-    //     e.preventDefault()
-    //     let access_token = null;
-    //     const token = localStorage.getItem("accessToken");
-    //     access_token = token;
-    //     console.log(access_token);
-    //     console.log("print");
-      
-    //     const shoppingList: CreateListDto[] = inputFields.map((field) => ({
-    //         item: field.item,
-    //         price: field.price,
-    //       }));
-      
-    //     console.log(shoppingList);
-      
-    //     const accessToken: any = await loadToken();
-      
-    //     if (accessToken === access_token) {
-    //       console.log(true);
-    //     } else {
-    //       console.log(false);
-    //     }
-      
-    //     console.log(accessToken);
-    //     const {createList_HistoryStore} = historyStore
-    //     try {
-    //       const response = await createList_HistoryStore(shoppingList, accessToken);
-    //       console.log(response);
-    //       window.alert("Shopping List saved successfully");
-    //     } catch (error) {
-    //       console.log(error);
-    //       window.alert("Failed to save Shopping List");
-    //     }
-    //   };
-
-    // const createList = async({item ,price}: listInput, accessToken: any): Promise<any> =>{
-    //     const {createList_HistoryStore} = historyStore
-    //     return await createList_HistoryStore({item, price}, accessToken)
-    // }
 
     const savePrintCart = async (e:React.MouseEvent<HTMLButtonElement>) => {
+       const userDetails = user.accessToken
         e.preventDefault()
         const token = localStorage.getItem( "accessToken")
         console.log("print")
+       console.log(userDetails)
          
-        const shoppingList : any = inputFields.map((fields) => ({item :fields.item, price: fields.price}))
+        // const shoppingList : ListInput[] = inputFields.map((fields) => ({item :fields.item, price: fields.price}))
+        const shoppingListItems: any[] = inputFields.map((fields) => fields.item);
+        const shoppingListPrices: any[] = inputFields.map((fields) => fields.price);
+        // const shoppingList : ListInput[] = inputFields.map((fields) => ({item :fields.item, price: fields.price}))
       
         const accessToken: any = await loadToken();
        
-         const {createList_HistoryStore} = historyStore
+         const {CreateList_HistoryStore} = historyStore
         try {
-          const response = await createList_HistoryStore(shoppingList, token);
+          const response = await CreateList_HistoryStore(shoppingListItems, shoppingListPrices, userDetails);
         //  const response = await axios.post(`${BASE_URL}/shopper/create-list`,
         //                         shoppingList,
         //                         {
@@ -180,33 +138,6 @@ const name: any = []
         }
       };
 
-
-
-// const savePrintCart = () => {
-//     let data = JSON.stringify({
-//         'item': 'car',
-//         'price': '10000' 
-//       });
-// let config = {
-//     method: 'post',
-//     maxBodyLength: Infinity,
-//     url: 'http://localhost:3002/shopper/create-list',
-//     headers: { 
-//       'Content-Type': 'application/x-www-form-urlencoded', 
-//       'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkFkbWludXNlckBnbWFpbC5jb20iLCJpYXQiOjE2ODQ5MzQzOTcsImV4cCI6MTY4NDkzNzk5N30.AB-rjuypkGj6xVKVZFSz-AOE-eCNwpgtibj-7aa_qYM'
-//     },
-//     data : data
-//   };
-  
-//   axios.request(config)
-//   .then((response: any) => {
-//     console.log(JSON.stringify(response.data));
-//   })
-//   .catch((error: any) => {
-//     console.log(error);
-//   });
-// }
-
    
       
     return (
@@ -214,7 +145,7 @@ const name: any = []
             <NavBar />
             <div className="homepage-container">
                 <div>
-                <p style={{fontWeight:"bold"}}>Welcome {`${username ? username : name}`}, Let's assist you in having an effortless shopping experience</p>
+                <p style={{fontWeight:"bold"}}>Welcome {`${username ? username : ""}`}, Let's assist you in having an effortless shopping experience</p>
             <p style={{fontWeight:"bold"}}>Cart:</p>
             
             <form className="homepage-form" >
@@ -269,11 +200,9 @@ const name: any = []
             <div className="print-container" >
                 <div style={{display:"flex", flexDirection:"column", margin:"1rem"}}>
                 <button className="homepage-print-button" type="button" onClick={printCart}>Print</button>
-                <button className="homepage-print-button" type="button" onClick={(e:  React.MouseEvent<HTMLButtonElement>) => savePrintCart(e)}>Save</button>
-                {/* <button className="homepage-print-button" type="button" onClick={savePrintCart}>Save</button> */}
+                <button className="homepage-print-button" type="button" onClick={(e: React.MouseEvent<HTMLButtonElement>) => savePrintCart(e)}>Save</button>
 
                 </div>
-            
            
                     <div className="homepage-print-input">
                         {inputFields2}

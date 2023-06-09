@@ -1,25 +1,41 @@
-import React, { useState } from "react"
+import React, { useEffect, useContext } from "react";
+// import { historyStore } from "../store/historyStore";
+// import AuthContext from "../context/authContext/authContext";
 
-export const ShoppingHistory = () => {
-    const [errorMessage, setErrorMessage] = useState<string | null>(null)
+// const ShoppingList: React.FC = () => {
+//   const { FetchLists_HistoryStore, itenary } = historyStore;
+//   const { user }: any = useContext(AuthContext);
 
-    const handleClick = (e:any) => {
-        e.preventDefault()
-        console.log("history")
+//   useEffect(() => {
+//     const fetchShoppingLists = async () => {
+//       try {
+//         const accessToken = user.accessToken;
+//         await FetchLists_HistoryStore(accessToken);
+//       } catch (error) {
+//         console.log(error);
+//       }
+//     };
 
-        try{
-            alert("history of shopping lists")
-            console.log("history")
-        }catch(error:any){
-            const errorMessage = "you have no shopping-lists"
-            setErrorMessage(errorMessage)
-        }
-    }
+//     fetchShoppingLists();
+//   }, [FetchLists_HistoryStore, user.accessToken]);
 
-    return (
-        <div>
-        <button type="button" onClick={(e) => handleClick(e)}> Shopping History </button>
-    </div>
-    )
-       
-}
+//   return (
+//     <div>
+//       <h2>Shopping Lists</h2>
+//       {itenary.map((shoppingList: any, index: number) => (
+//         <div key={index}>
+//           <h3>Date: {shoppingList.date}</h3>
+//           <ul>
+//             {shoppingList.items.map((item: any, itemIndex: number) => (
+//               <li key={itemIndex}>
+//                 Item: {item.item}, Price: {item.price}
+//               </li>
+//             ))}
+//           </ul>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default ShoppingList;

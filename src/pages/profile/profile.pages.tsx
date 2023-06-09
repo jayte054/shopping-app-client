@@ -1,19 +1,19 @@
-
-import NavBar from "../../components/Navbar/navbar.homepage"
+import { useEffect, useState, useContext, useMemo, MouseEventHandler } from "react"
+import {inject} from "mobx-react"
+import { v4 as uuidv4 } from 'uuid'
+import toastify from 'toastify-js';
+import 'toastify-js/src/toastify.css'
+import NavBar from "../../components/Navbar/navbar.profile"
 import "./profile.pages.css"
 import { Footer } from "../../components/footer/footer.components"
 import { profileStore } from "../../stores/profileStore"
 import { profileInput } from "../../services/profileService"
-import { useEffect, useState, useContext, useMemo, MouseEventHandler } from "react"
-import {inject} from "mobx-react"
-import { v4 as uuidv4 } from 'uuid'
 import { signinService } from "../../services/auth.service"
 import { AuthContext } from "../../context/authContext/authContext"
 
 
  const Profile = () => {
     const {user, updateUser} = useContext(AuthContext)
-    const {updateProfile} = useContext(AuthContext)
     console.log(user.profileId)
     const [firstName, setFirstName] = useState("")
     const [lastName, setLastName] = useState("")
@@ -29,24 +29,43 @@ import { AuthContext } from "../../context/authContext/authContext"
       console.log(profileId)
       accessToken = localStorage.getItem("accessToken")
         console.log(localStorage.getItem("accessToken"))
-        // e.preventDefault();
         const { getProfile } = profileStore;
         try {
           const profileData = await getProfile(profileId, accessToken);
-          // const {firstname, lastname, phoneNumber, address} = profileData.data
           setFirstName(profileData.firstName);
           setLastName(profileData.lastName);
           setPhoneNumber(profileData.phoneNumber);
           setAddress(profileData.address);
           console.log(profileData.firstName, profileData.lastName, profileData.phoneNumber, profileData.address)
-          updateProfile(profileData)
-        //   setIsLoading(false);
+          
+          toastify({
+            text: "profile data retrieved successfully!",
+            duration: 3000,
+            gravity: "top", 
+            backgroundColor: "green",
+            close: true,
+          }).showToast();
+         
         } catch (error: any) {
           if (error.response && error.response.status === 404) {
-            // Handle 404 error here
+           
+            toastify({
+              text:"profile data not found",
+              duration: 3000,
+              gravity: "top",
+              backgroundColor: "red",
+              close: true
+            }).showToast()
             console.log('Profile not found');
-            // Display an error message or perform any necessary actions
+          
           } else {
+            toastify({
+              text:"profile data not found",
+              duration: 3000,
+              gravity: "top",
+              backgroundColor: "red",
+              close: true
+            }).showToast()
             console.log(error);
             throw error;
           }
@@ -54,19 +73,9 @@ import { AuthContext } from "../../context/authContext/authContext"
       }; 
 
       const handleViewProfile: MouseEventHandler<HTMLButtonElement> = (profileId: any) => {
-        // event.preventDefault();
         const accessToken = localStorage.getItem("accessToken");
         getProfile(profileId, accessToken);
-      };
-
-    //   useEffect(() => {
-    //     if (profileId) {
-    //       getProfile(profileId);
-    //     }
-    //   }, [profileId]);
-    
-    
-    
+      }; 
     
 
     const handleSubmit = async(e:any) => {
@@ -82,12 +91,23 @@ import { AuthContext } from "../../context/authContext/authContext"
         const {createProfile} = profileStore
         try{
             await createProfile(input, accessToken)
-           
-
-            window.alert("profile saved successfully")
+            toastify({
+              text:"profile successfully updated",
+              duration:3000,
+              gravity:"top",
+              backgroundColor: "green",
+              close: true
+          }).showToast()
             
         }catch(error: any){
             console.log(error)
+            toastify({
+              text:"profile update unsuccessful",
+              duration:3000,
+              gravity:"top",
+              backgroundColor: "red",
+              close: true
+          }).showToast()
             throw error
         }
     }
@@ -126,14 +146,17 @@ import { AuthContext } from "../../context/authContext/authContext"
                    value = {address}
                    onChange={e => setAddress(e.target.value)}/><br/>
             <button type="submit" 
-                    style={{marginTop:"1rem"}} 
+                    style={{marginTop:"1rem", width:"7rem", height: "2rem"}} 
                     onClick={(e) => handleSubmit(e)}>
                         Submit
             </button>
+            <button type="button" 
+                    style={{marginLeft:"1rem", width:"7rem", height:"2rem"}}
+                    onClick={handleViewProfile}>View Profile</button> 
+
              </div>
 
-            <button type="button" onClick={handleViewProfile}>View Profile</button> 
-                {/* <p>first name: {firstName}</p> */}
+                
          
             </div> 
           

@@ -11,7 +11,7 @@ export const signinService = async ({username, password}:any): Promise<any> => {
   saveToken(accessToken);
   console.log(result.data.user.id)
   const profileId = result.data.user.id
-  const userData = {user: result.data.user, profileId};
+  const userData = {user: result.data.user, profileId, accessToken};
   console.log(userData)
   return userData
 };

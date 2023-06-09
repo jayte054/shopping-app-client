@@ -9,7 +9,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {signinService, signoutService, signupService, removeToken, loadToken, saveToken} from './services/auth.service';
-import { createList, fetchLists } from './services/history.services';
+import { CreateList, fetchShoppingLists } from './services/history.services';
 import {userStore} from './stores/user.stores';
 import { historyStore } from './stores/history.stores';
 import { CreateProfile } from './services/profileService';
@@ -25,7 +25,7 @@ const history = syncHistoryWithStore(browserHistory,
                                     stores.routerStore);
 
 const authService = { signinService, signoutService, signupService, removeToken, loadToken, saveToken };
-const historyService = {createList, fetchLists}
+const historyService = {CreateList, fetchShoppingLists}
 const profileService = {CreateProfile}
 stores.authService = authService;
 stores.historyService = historyService

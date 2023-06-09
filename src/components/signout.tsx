@@ -16,6 +16,7 @@ import {inject, observer} from "mobx-react"
         try{
             await SignOut()
             document.location.href = "/"
+        
         }catch(error: any){
            const errorMessage = error.response.data.message
             setErrorMessage(errorMessage)
