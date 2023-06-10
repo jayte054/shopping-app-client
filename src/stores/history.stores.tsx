@@ -26,7 +26,7 @@ export const CreateList_HistoryStore = async (
       results.push(result);
     }
     Itenary.push(results);
-    return results;
+    // return results;
   } catch (error) {
     console.log(error);
     throw error;

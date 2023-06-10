@@ -59,6 +59,17 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
   const { FetchLists_HistoryStore } = historyStore;
   const { user } = useContext(AuthContext);
   const [itenary, setItenary] = useState<any>([]);
+  const [currentPage, setCurrentPage] = useState<any>(1)
+  const [count, setCount] = useState(0)
+
+  const recordsPerPage = 10;
+  const lastIndex = currentPage * recordsPerPage;
+  const firstIndex = lastIndex - recordsPerPage;
+  const records = itenary.slice(firstIndex, lastIndex)
+  const nPage = Math.ceil(itenary.length / recordsPerPage)
+//   const numbers = [...Array(nPage + 1).keys()].slice(1)
+  const numbers = Array.from({ length: nPage }, (_, i) => i + 1);
+
 
 //   useEffect(() => {
 //     const fetchShoppingLists = async () => {
@@ -86,13 +97,39 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
     //   const parsedLists = JSON.parse(lists); // Parse the JSON string response
     const Lists = lists.split(",")
     const parsedLists = JSON.parse(Lists)
+    parsedLists.sort((a:any,b: any) => b - a)
       console.log("Shopping Lists:", parsedLists);
       setItenary(parsedLists);
+      setCount(parsedLists.length)
       return lists
     } catch (error) {
       console.log(error);
     }
   };
+
+  const changeCurrentPage = (id: any) => {
+    setCurrentPage(id)
+  }
+  const nextPage = () => {
+    if(currentPage !== nPage) {
+        setCurrentPage(currentPage + 1)
+    }
+  }
+  const prevPage = () => {
+    if(currentPage !== 1) {
+        setCurrentPage(currentPage  - 1)
+    }
+  }
+
+//   useEffect(() => {
+//     count()
+// },[])
+//   const count: any = () => {
+//     let initialCount = 0
+//     initialCount+= 1
+//     console.log(initialCount)
+//     return initialCount
+//   }
 
   return (
     <React.Fragment>
@@ -111,18 +148,20 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
         <table>
           <thead>
             <tr>
+                <th>ID</th>
               <th>Item</th>
               <th>Price</th>
-              {/* <th>Status</th> */}
+              <th>Date</th>
             </tr>
           </thead>
           <tbody>
-            {itenary && itenary.length > 0 ? (
-              itenary.map((item: any, itemIndex: number) => (
+            {records && records.length > 0 ? (
+              records.map((item: any, index: number) => (
                 <tr key={item.id}>
+                  <td>{index + 1}</td>
                   <td>{item.item}</td>
                   <td>{item.price}</td>
-                  {/* <td>{item.status}</td> */}
+                  <td>{item.date}</td>
                 </tr>
               ))
             ) : (
@@ -132,11 +171,30 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
             )}
           </tbody>
         </table>
+        <p>Total Items: {count}</p>
+        <nav>
+            <ul className="pagination">
+                <li className="pageItem">
+                    <span className = "pageLink" onClick={prevPage}>Prev</span>
+                </li>
+                {numbers.map((n, i) => (
+                    <li className = {`page-item ${currentPage === n ? "active" : ""}`} key={i}>
+                        <span className = "pageLink" onClick = {changeCurrentPage}>{n}</span>
+                    </li>
+                ))}
+                
+                <li className="page-item">
+                    <span className="pageLink" onClick={nextPage}>Next</span>
+
+                </li>
+            </ul>
+        </nav>
         <Footer />
       </div>
       </div>
     </React.Fragment>
   );
+  
 };
 
 export default inject("historyStore")(observer(ShoppingHistoryPage));

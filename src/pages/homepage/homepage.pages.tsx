@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react"
+import React, {useCallback, useContext, useEffect, useState} from "react"
 import { useLocation } from "react-router-dom"
 import {inject} from "mobx-react"
 import { AuthContext } from "../../context/authContext/authContext"
@@ -8,11 +8,9 @@ import NavBar from "../../components/Navbar/navbar.homepage"
 import { Footer } from "../../components/footer/footer.components"
 import "./homepage.pages.css"
 import { ShareData } from "../../components/share/shareData.share"
-import { CreateList_HistoryStore, historyStore } from "../../stores/history.stores"
-import axios from "axios"
-import { BASE_URL } from "../../services/auth.service"
-import { ListInput, loadToken } from "../../services/history.services"
-import { userStore } from "../../stores/user.stores"
+import {  historyStore } from "../../stores/history.stores"
+import toastify from "toastify-js"
+
 
 export interface CreateListDto {
     item: string;
@@ -54,7 +52,6 @@ export interface CreateListDto {
         data.splice(index, 1)
         setInputFields(data)
     }
-    // let Naira = currencySymbol.symbol("Naira")
 
     const calculateTotalPrice: any = () => {
         let total = 0;
@@ -94,7 +91,6 @@ export interface CreateListDto {
       
         return cart;
       };
-
     
     const itemList = inputFields.map(item => `${item.item} - ₦${item.price}`);
     
@@ -104,44 +100,125 @@ export interface CreateListDto {
         setInputFields(data)
     }
 
+    
+      
+    // const savePrintCart = useCallback(
+    //     async (e: React.MouseEvent<HTMLButtonElement>) => {
+    //       const userDetails = user.accessToken;
+    //       e.preventDefault();
+    //       const token = localStorage.getItem("accessToken");
+    //       console.log("print");
+    //       console.log(userDetails);
+    
+    //       const shoppingListItems: any[] = inputFields.map(
+    //         (fields) => fields.item
+    //       );
+    //       const shoppingListPrices: any[] = inputFields.map(
+    //         (fields) => fields.price
+    //       );
+    
+    //       const { CreateList_HistoryStore } = historyStore;
+    //       try {
+    //         const response = await CreateList_HistoryStore(
+    //           shoppingListItems,
+    //           shoppingListPrices,
+    //           userDetails
+    //         );
+    //         console.log(response);
+    //         window.alert("Shopping List saved successfully");
+    //       } catch (error) {
+    //         console.log(error);
+    //         window.alert("Failed to save Shopping List");
+    //       }
+    //     },
+    //     [inputFields, user.accessToken]
+    //   );
 
-    const savePrintCart = async (e:React.MouseEvent<HTMLButtonElement>) => {
+    //  useEffect(() =>{
+    //     function save(){
+    //         const userDetails = user.accessToken
+    //          // e.preventDefault()
+    //          const token = localStorage.getItem( "accessToken")
+    //          console.log("print")
+    //         console.log(userDetails)
+              
+    //          const shoppingListItems: any[] = inputFields.map((fields) => fields.item);
+    //          const shoppingListPrices: any[] = inputFields.map((fields) => fields.price);
+                  
+    //           const {CreateList_HistoryStore} = historyStore
+    //          try {
+    //            const response = await CreateList_HistoryStore(shoppingListItems, shoppingListPrices, userDetails);
+    //               console.log(response)
+    //            window.alert("Shopping List saved successfully");
+    //          } catch (error) {
+    //            console.log(error);
+    //            window.alert("Failed to save Shopping List");
+    //          }
+    //        };
+    //         save()
+
+    // }
+    //   }, [inputFields, user.accessToken]);
+
+    const savePrintCart = async () => {
        const userDetails = user.accessToken
-        e.preventDefault()
+        // e.preventDefault()
         const token = localStorage.getItem( "accessToken")
         console.log("print")
        console.log(userDetails)
          
-        // const shoppingList : ListInput[] = inputFields.map((fields) => ({item :fields.item, price: fields.price}))
         const shoppingListItems: any[] = inputFields.map((fields) => fields.item);
         const shoppingListPrices: any[] = inputFields.map((fields) => fields.price);
-        // const shoppingList : ListInput[] = inputFields.map((fields) => ({item :fields.item, price: fields.price}))
-      
-        const accessToken: any = await loadToken();
-       
+             
          const {CreateList_HistoryStore} = historyStore
         try {
           const response = await CreateList_HistoryStore(shoppingListItems, shoppingListPrices, userDetails);
-        //  const response = await axios.post(`${BASE_URL}/shopper/create-list`,
-        //                         shoppingList,
-        //                         {
-        //                             headers: {
-        //                             Authorization: `Bearer ${accessToken}`,
-        //                             },
-        //                         }
-        //                         );
              console.log(response)
-          window.alert("Shopping List saved successfully");
+          toastify({
+            text : "Shopping List saved successfully",
+            gravity: "top",
+            backgroundColor: "green",
+            duration: 3000,
+            close: true
+          }).showToast();
         } catch (error) {
           console.log(error);
           window.alert("Failed to save Shopping List");
         }
       };
 
-   
+    // const savePrintCart = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    //     e.preventDefault();
+    //     const {CreateList_HistoryStore} = historyStore
+    //     const shoppingListItems: string[] = inputFields.map((fields) => fields.item);
+    //     const shoppingListPrices: string[] = inputFields.map((fields) => fields.price);
+      
+    //     try {
+    //       const userDetails = user.accessToken;
+    //       const accessToken: any = await loadToken();
+      
+    //       const existingList = await CreateList_HistoryStore(shoppingListItems, shoppingListPrices, userDetails);
+    //       const isDuplicate = existingList && existingList.length > 0 && existingList.some((list: any) => {
+    //         const itemIndex = shoppingListItems.findIndex((item) => item === list.item);
+    //         const priceIndex = shoppingListPrices.findIndex((price) => price === list.price);
+    //         return itemIndex !== -1 && priceIndex !== -1;
+    //       });
+      
+    //       if (isDuplicate) {
+    //         window.alert("Shopping List already exists");
+    //         return;
+    //       }
+      
+    //       await CreateList_HistoryStore(shoppingListItems, shoppingListPrices, userDetails);
+    //       window.alert("Shopping List saved successfully");
+    //     } catch (error) {
+    //       console.log(error);
+    //       window.alert("Failed to save Shopping List");
+    //     }
+    //   };
       
     return (
-        <React.Fragment>
+        <>
             <NavBar />
             <div className="homepage-container">
                 <div>
@@ -176,7 +253,6 @@ export interface CreateListDto {
                             <button className="add-button" type= "button" onClick={() =>  addFields()}> Add More Items</button>
                             <button className="remove-button" type= "button" onClick={()=> removeFields(index) }>Remove Item</button>
                         </div>
-                        
                     )
                 })}
             </form>
@@ -200,8 +276,7 @@ export interface CreateListDto {
             <div className="print-container" >
                 <div style={{display:"flex", flexDirection:"column", margin:"1rem"}}>
                 <button className="homepage-print-button" type="button" onClick={printCart}>Print</button>
-                <button className="homepage-print-button" type="button" onClick={(e: React.MouseEvent<HTMLButtonElement>) => savePrintCart(e)}>Save</button>
-
+                <button className="homepage-print-button" type="button" onClick={savePrintCart}>Save</button>
                 </div>
            
                     <div className="homepage-print-input">
@@ -224,7 +299,7 @@ export interface CreateListDto {
                 </p>
             </div>
             <Footer />
-        </React.Fragment>
+        </>
     )
 }
 

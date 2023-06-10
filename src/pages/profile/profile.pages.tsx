@@ -156,8 +156,6 @@ import { AuthContext } from "../../context/authContext/authContext"
 
              </div>
 
-                
-         
             </div> 
           
             <Footer />
