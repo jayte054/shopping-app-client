@@ -1,0 +1,289 @@
+.shoppingHistory-containers{
+    position: relative;
+    background-color: azure;
+    padding: 1rem;
+    padding-left: 3rem;
+    /* z-index: 1; */
+    /* width: 100% */
+}
+
+.fetchHistory-button{
+ margin-top: 1rem;
+ border-radius: 2rem;
+ height: 2rem;
+ width: 9rem;
+}
+
+.fetchHistory-button:hover{
+    background-color: rgb(77, 77, 201);
+    cursor:pointer;
+}
+
+.table-container{
+    justify-content: center;
+    align-items: center;
+    margin:2rem;
+    width: 65%;
+    height: 100%;
+    background-color: rgb(169, 169, 240);
+    text-align: justify;
+    border-collapse: collapse;
+
+}
+  
+.table-container th, .table-container td {
+    border: 1px solid black;
+    padding-top: 1rem;
+    padding-left: 1rem;
+  }
+
+  .pagination-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-Weight:bold;
+    cursor: pointer;
+}
+
+.page-item{
+    margin:0.5rem;
+    border: 1px solid black;
+    padding-left: 1rem;
+    padding-right:1rem;
+    border-radius: 5rem;
+}
+
+.page-item:hover{
+    background-color: rgb(77, 77, 201)
+}
+
+@media (max-width: 375px) {
+    .shoppingHistory-containers {
+        background-color: azure;
+        padding: 1rem;
+        padding-left: 3rem;
+        /* z-index: 1; */
+        /* width: 100% */
+      }
+      
+      .fetchHistory-button {
+        margin-top: 1rem;
+        border-radius: 2rem;
+        height: 2rem;
+        width: 9rem;
+      }
+      
+      .fetchHistory-button:hover {
+        background-color: rgb(77, 77, 201);
+        cursor: pointer;
+      }
+      
+      .table-container {
+        justify-content: center;
+        align-items: center;
+        margin: 2rem;
+        width: 65%;
+        height: 100%;
+        background-color: rgb(169, 169, 240);
+        text-align: justify;
+        border-collapse: collapse;
+      }
+      
+      .table-container th,
+      .table-container td {
+        border: 1px solid black;
+        padding-top: 1rem;
+        padding-left: 1rem;
+      }
+      
+      .pagination-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      
+      .page-item {
+        margin: 0.5rem;
+        border: 1px solid black;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 5rem;
+      }
+      
+      .page-item:hover {
+        background-color: rgb(77, 77, 201);
+      }
+      
+      @media (max-width: 375px) {
+        .shoppingHistory-containers {
+          width: 100%;
+          padding-left: 1rem;
+        }
+      
+        .fetchHistory-button {
+          width: 100%;
+        }
+      
+        .table-container {
+          width: 100%;
+          margin: 1rem;
+        }
+      }
+  }
+
+  @media(max-width: 390px) {
+    .fetchHistory-button {
+        width: 40%;
+        margin-top:.5rem;
+      }
+  }
+
+  @media(max-widt: 412px) {
+    .shoppingHistory-container {
+        background-color: azure;
+        padding: 1rem;
+        padding-left: 2rem; /* Adjust padding for smaller screens */
+      }
+      
+      .fetchHistory-button {
+        border-radius: 2rem;
+        height: 2rem;
+        width: 8rem; /* Adjust width for smaller screens */
+      }
+      
+      .fetchHistory-button:hover {
+        background-color: rgb(77, 77, 201);
+        cursor: pointer;
+      }
+      
+      .table-container {
+        justify-content: center;
+        align-items: center;
+        margin: 1rem; /* Adjust margin for smaller screens */
+        width: 100%; /* Adjust width for smaller screens */
+        height: 100%;
+        background-color: rgb(169, 169, 240);
+        text-align: justify;
+        border-collapse: collapse;
+      }
+      
+      .table-container th,
+      .table-container td {
+        border: 1px solid black;
+        padding-top: 1rem;
+        padding-left: 1rem;
+      }
+      
+      .pagination-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      
+      .page-item {
+        margin: 0.5rem;
+        border: 1px solid black;
+        padding-left: 0.5rem; /* Adjust padding for smaller screens */
+        padding-right: 0.5rem; /* Adjust padding for smaller screens */
+        border-radius: 5rem;
+      }
+      
+      .page-item:hover {
+        background-color: rgb(77, 77, 201);
+      }
+  }
+
+  @media(max-width: 414px) {
+    .shoppingHistory-containers {
+        position: relative;
+        background-color: azure;
+        padding: 1rem;
+        padding-left: 3rem;
+        z-index: 1;
+      }
+      
+      .fetchHistory-button {
+        border-radius: 2rem;
+        height: 2rem;
+        width: 9rem;
+      }
+      
+      .fetchHistory-button:hover {
+        background-color: rgb(77, 77, 201);
+        cursor: pointer;
+      }
+      
+      .table-container {
+        justify-content: center;
+        align-items: center;
+        margin: 2rem;
+        width: 65%;
+        height: 100%;
+        background-color: rgb(169, 169, 240);
+        text-align: justify;
+        border-collapse: collapse;
+      }
+      
+      .table-container th,
+      .table-container td {
+        border: 1px solid black;
+        padding-top: 1rem;
+        padding-left: 1rem;
+      }
+      
+      .pagination-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-Weight: bold;
+        cursor: pointer;
+      }
+      
+      .page-item {
+        margin: 0.5rem;
+        border: 1px solid black;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-radius: 5rem;
+      }
+      
+      .page-item:hover {
+        background-color: rgb(77, 77, 201);
+      }
+      
+      @media (max-width: 414px) {
+        .shoppingHistory-containers {
+          padding-left: 2rem;
+          padding-right: 3rem;
+          width: 121%;
+
+        }
+      
+        .table-container {
+          width: 80%;
+        }
+      }
+      
+  }
+  
+  @media(max-width: 540px) {
+    .shoppingHistory-containers{
+        width: 103%
+    }
+  }
+
+  @media(max-width: 280px) {
+    .shoppingHistory-containers{
+      padding: 1rem 7.5rem 1rem 3rem;
+    }
+  }
+
+  @media(max-width: 360px){
+    .shoppingHistory-containers{
+      width: 94%;
+    } 
+  }

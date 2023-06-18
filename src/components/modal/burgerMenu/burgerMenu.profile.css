@@ -1,0 +1,99 @@
+.burgerMenu-container{
+    position:absolute;
+    background-color: rgb(116, 184, 230);
+    display: flex;
+    flex-direction: column;
+    top: 4.6rem;
+    right:1rem;
+    width: 8rem;
+    padding-bottom:1rem;
+    z-index: 10;
+}
+
+.closeMenu{
+    color: black; 
+    text-align: right;
+    margin-right:.5rem;
+    font-size: .9rem;
+    cursor:pointer;
+}
+.link-container{
+    margin-left: 1rem;
+}
+
+#shoppingHistory-link{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: .1rem;
+}
+
+@media(max-width: 375px){
+    #shoppingHistory-link{
+        margin-left: -1rem;
+    }
+}
+
+ @media(max-width: 412px){
+  .burgerMenu-container{
+    right: 4.5rem;
+    color: white;
+  }
+
+  .closeMenu{
+    margin-top: .5rem;
+  }
+ }
+
+ @media(max-width: 360px) {
+  .burgerMenu-container{
+    background-color: red;
+    padding-top:1rem;
+    top: 5.5rem;
+    width: 5rem;
+    height: 3.7rem;
+    right:.1rem;
+  }
+
+  .closeMenu{
+    margin-bottom: -1rem;
+    margin-top: -.5rem;
+  }
+
+  .link-container{
+    margin-right: 1.6rem;
+    padding-right:2rem;
+  }
+ }
+
+ @media(max-width: 414px){
+  .burgerMenu-container{
+    right:.1rem;
+    margin-top: .2rem
+  }
+
+  #shoppingHistory-link{
+    margin-left:-1rem;
+  }
+
+  .closeMenu{
+    padding-top:.5rem;
+  }
+ }
+
+ @media(max-width: 390px) {
+  .burgerMenu-container{
+    top: 5.8rem;
+    margin-right:.2rem;
+  }
+ }
+
+ @media(max-width: 280px) {
+  .burgerMenu-container{
+   top: 3.7rem;
+   width: 7rem;
+  }
+
+  .link-container{
+    padding-top: 1rem;
+  }
+  }

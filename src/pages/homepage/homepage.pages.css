@@ -1,12 +1,14 @@
 .homepage-container{
+    position:relative;
     background-color: azure;
     margin-top:-0.5rem;
     padding-left:2rem;
     padding-top: 1rem;
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    /* width: 100%; */
     padding-bottom:1rem;
+    /* z-index: 2 */
 }
 .homepage-form{
     padding-left:1rem;
@@ -34,6 +36,8 @@
     background-color: white;
     line-height: 1.5rem;
     padding-left:1rem;
+    overflow: auto;
+
 }
 
 
@@ -75,4 +79,566 @@
 
 WhatsappIcon{
     color:black
+}
+
+@media(max-width: 412px) {
+    .homepage-container {
+        background-color: azure;
+        margin-top: -0.5rem;
+        margin-right: 2rem;
+        padding-left: 1rem; /* Adjust padding for smaller screens */
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column; /* Change flex direction for smaller screens */
+        /* width: 80%; */
+        padding-bottom: 1rem;
+      }
+      
+      .homepage-form {
+        padding-left: 1rem; /* Adjust padding for smaller screens */
+        font-weight: bold;
+      }
+      
+      .print-container {
+        margin-top: 3rem; /* Adjust margin for smaller screens */
+        padding-right: 1rem; /* Adjust padding for smaller screens */
+        display: flex;
+        flex-direction: column; /* Change flex direction for smaller screens */
+      }
+      
+      .homepage-print-button {
+        margin-right: 1.5rem; /* Adjust margin for smaller screens */
+        width: 7rem;
+        height: 2rem;
+        border-radius: 5rem;
+        font-weight: bold;
+      }
+      
+      .homepage-print-input {
+        border-color: black;
+        border-style: double;
+        width: 100%; /* Adjust width for smaller screens */
+        text-transform: uppercase;
+        padding-bottom: 1rem; /* Adjust padding for smaller screens */
+        background-color: white;
+        line-height: 1.5rem;
+        padding-left: 1rem;
+        overflow: auto;
+      }
+      
+      .add-button {
+        font-weight: bold;
+        height: 2rem;
+        margin-left: 3px;
+      }
+      
+      .remove-button {
+        font-weight: bold;
+        height: 2rem;
+        margin-left: 3px;
+      }
+      
+      .total-container {
+        margin-top: 1rem;
+        margin-left: 1rem;
+      }
+      
+      .total-container button {
+        font-weight: bold;
+      }
+      
+      .homepage-input{
+        display:flex;
+        flex-direction:column;
+      }
+      .homepage-item-input {
+        height: 2rem;
+        margin-left: 6px;
+      }
+      
+      .homepage-price-input {
+        height: 2rem;
+        width: 5rem;
+        margin-left: 6px;
+      }
+      
+      .socialsShareContainer {
+        text-align: center;
+        background-color: azure;
+        margin-top: -1rem;
+        padding-top: 0.5rem;
+        margin-bottom: -1rem;
+        padding-bottom: 0.5rem;
+      }
+      
+      WhatsappIcon {
+        color: black;
+      }
+      
+}
+
+@media(max-width : 375px) {
+    .homepage-container {
+        background-color: azure;
+        margin-top: -0.5rem;
+        padding-left: 1rem; /* Adjust padding for smaller screens */
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column; /* Change flex direction for smaller screens */
+        width: 105%;
+        padding-bottom: 1rem;
+      }
+      
+      .homepage-form {
+        padding-left: 1rem; /* Adjust padding for smaller screens */
+        font-weight: bold;
+      }
+      
+      .print-container {
+        margin-top: 2rem; /* Adjust margin for smaller screens */
+        padding-right: 1rem; /* Adjust padding for smaller screens */
+        display: flex;
+        flex-direction: column; /* Change flex direction for smaller screens */
+      }
+      
+      .homepage-print-button {
+        margin-right: 1.5rem; /* Adjust margin for smaller screens */
+        width: 7rem;
+        height: 2rem;
+        border-radius: 5rem;
+        font-weight: bold;
+      }
+      
+      .homepage-print-input {
+        border-color: black;
+        border-style: double;
+        width: 90%; /* Adjust width for smaller screens */
+        text-transform: uppercase;
+        padding-bottom: 1rem; /* Adjust padding for smaller screens */
+        background-color: white;
+        line-height: 1.5rem;
+        padding-left: 1rem;
+        overflow: auto;
+      }
+      
+      .add-button {
+        font-weight: bold;
+        height: 2rem;
+        margin-left: 3px;
+        width: 50%
+      }
+      
+      .remove-button {
+        font-weight: bold;
+        height: 2rem;
+        margin-left: 3px;
+        width: 50%
+      }
+      
+      .total-container {
+        margin-top: 1rem;
+        margin-left: 1rem;
+      }
+      
+      .total-container button {
+        font-weight: bold;
+      }
+      
+      .homepage-item-input {
+        height: 2rem;
+        margin-left: 6px;
+        width:70%;
+      }
+      
+      .homepage-price-input {
+        height: 2rem;
+        width: 5rem;
+        margin-left: 6px;
+      }
+      
+      .socialsShareContainer {
+        text-align: center;
+        background-color: azure;
+        margin-top: -1rem;
+        padding-top: 0.5rem;
+        margin-bottom: -1rem;
+        padding-bottom: 0.5rem;
+      }
+      
+      WhatsappIcon {
+        color: black;
+      }
+      
+}
+
+@media(max-width : 414px) {
+    .homepage-container {
+        background-color: azure;
+        margin-top: -0.5rem;
+        padding-left: 1rem; /* Adjust padding for smaller screens */
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column; /* Change flex direction for smaller screens */
+        width: 140%;
+        padding-bottom: 1rem;
+      }
+      
+      .homepage-form {
+        padding-left: 1rem; /* Adjust padding for smaller screens */
+        font-weight: bold;
+        
+      }
+      
+      .print-container {
+        margin-top: 2rem; /* Adjust margin for smaller screens */
+        padding-right: 1rem; /* Adjust padding for smaller screens */
+        display: flex;
+        flex-direction: column; /* Change flex direction for smaller screens */
+      }
+      
+      .homepage-print-button {
+        margin-right: 1.5rem; /* Adjust margin for smaller screens */
+        width: 7rem;
+        height: 2rem;
+        border-radius: 5rem;
+        font-weight: bold;
+      }
+      
+      .homepage-print-input {
+        border-color: black;
+        border-style: double;
+        width: 70%; /* Adjust width for smaller screens */
+        text-transform: uppercase;
+        padding-bottom: 1rem; /* Adjust padding for smaller screens */
+        background-color: white;
+        line-height: 1.5rem;
+        padding-left: 1rem;
+        margin-right:6rem;
+        overflow: auto;
+      }
+      
+      .add-button {
+        font-weight: bold;
+        height: 2rem;
+        margin-left: 3px;
+        margin-top: .5rem
+      }
+      
+      .remove-button {
+        font-weight: bold;
+        height: 2rem;
+        margin-left: 3px;
+      }
+      
+      .total-container {
+        margin-top: 1rem;
+        margin-left: 1rem;
+      }
+      
+      .total-container button {
+        font-weight: bold;
+      }
+      
+      .homepage-item-input {
+        height: 2rem;
+        margin-left: 6px;
+      }
+      
+      .homepage-price-input {
+        height: 2rem;
+        width: 5rem;
+        margin-left: 6px;
+      }
+      
+      .socialsShareContainer {
+        text-align: center;
+        background-color: azure;
+        margin-top: -1rem;
+        padding-top: 0.5rem;
+        margin-bottom: -1rem;
+        padding-bottom: 0.5rem;
+        width:105%;
+      }
+      
+      WhatsappIcon {
+        color: black;
+      }
+      
+}
+
+@media(max-width: 540px) {
+    .homepage-container {
+        background-color: azure;
+        margin-top: -0.5rem;
+        padding-left: 1rem; /* Adjust padding for smaller screens */
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column; /* Change flex direction for smaller screens */
+        width: 100%;
+        padding-bottom: 1rem;
+      }
+      
+      .homepage-form {
+        padding-left: 1rem; /* Adjust padding for smaller screens */
+        font-weight: bold;
+      }
+      
+      .print-container {
+        margin-top: 2rem; /* Adjust margin for smaller screens */
+        padding-right: 1rem; /* Adjust padding for smaller screens */
+        display: flex;
+        flex-direction: column; /* Change flex direction for smaller screens */
+      }
+      
+      .homepage-print-button {
+        margin-right: 1.5rem; /* Adjust margin for smaller screens */
+        width: 7rem;
+        height: 2rem;
+        border-radius: 5rem;
+        font-weight: bold;
+      }
+      
+      .homepage-print-input {
+        border-color: black;
+        border-style: double;
+        width: 100%; /* Adjust width for smaller screens */
+        text-transform: uppercase;
+        padding-bottom: 1rem; /* Adjust padding for smaller screens */
+        background-color: white;
+        line-height: 1.5rem;
+        padding-left: 1rem;
+        overflow: auto;
+      }
+      
+      .add-button {
+        font-weight: bold;
+        height: 2rem;
+        margin-left: 3px;
+      }
+      
+      .remove-button {
+        font-weight: bold;
+        height: 2rem;
+        margin-left: 3px;
+      }
+      
+      .total-container {
+        margin-top: 1rem;
+        margin-left: 1rem;
+      }
+      
+      .total-container button {
+        font-weight: bold;
+      }
+      
+      .homepage-item-input {
+        height: 2rem;
+        margin-left: 6px;
+      }
+      
+      .homepage-price-input {
+        height: 2rem;
+        width: 5rem;
+        margin-left: 6px;
+      }
+      
+      .socialsShareContainer {
+        text-align: center;
+        background-color: azure;
+        margin-top: -1rem;
+        padding-top: 0.5rem;
+        margin-bottom: -1rem;
+        padding-bottom: 0.5rem;
+      }
+      
+      WhatsappIcon {
+        color: black;
+      }
+      
+}
+
+@media(max-width: 280px) {
+    .homepage-container {
+        background-color: azure;
+        margin-top: -0.5rem;
+        padding-left: 0.5rem; /* Adjust padding for smaller screens */
+        padding-top: 0.5rem; /* Adjust padding for smaller screens */
+        display: flex;
+        flex-direction: column; /* Change flex direction for smaller screens */
+        width: 110%;
+        padding-bottom: 0.5rem; /* Adjust padding for smaller screens */
+      }
+      
+      .homepage-form {
+        padding-left: 0.5rem; /* Adjust padding for smaller screens */
+        font-weight: bold;
+      }
+      
+      .print-container {
+        margin-top: 1.5rem; /* Adjust margin for smaller screens */
+        padding-right: 0.5rem; /* Adjust padding for smaller screens */
+        display: flex;
+        flex-direction: column; /* Change flex direction for smaller screens */
+      }
+      
+      .homepage-print-button {
+        margin-right: 1rem; /* Adjust margin for smaller screens */
+        width: 6rem; /* Adjust width for smaller screens */
+        height: 2rem;
+        border-radius: 5rem;
+        font-weight: bold;
+      }
+      
+      .homepage-print-input {
+        border-color: black;
+        border-style: double;
+        width: 100%; /* Adjust width for smaller screens */
+        text-transform: uppercase;
+        padding-bottom: 1rem; /* Adjust padding for smaller screens */
+        background-color: white;
+        line-height: 1.5rem;
+        padding-left: 0.5rem; /* Adjust padding for smaller screens */
+        overflow: auto;
+      }
+      
+      .add-button {
+        font-weight: bold;
+        height: 2rem;
+        margin-left: 3px;
+      }
+      
+      .remove-button {
+        font-weight: bold;
+        height: 2rem;
+        margin-left: 3px;
+      }
+      
+      .total-container {
+        margin-top: 1rem;
+        margin-left: 0.5rem; /* Adjust margin for smaller screens */
+      }
+      
+      .total-container button {
+        font-weight: bold;
+      }
+      
+      .homepage-item-input {
+        height: 2rem;
+        margin-left: 3px; /* Adjust margin for smaller screens */
+      }
+      
+      .homepage-price-input {
+        height: 2rem;
+        width: 4rem; /* Adjust width for smaller screens */
+        margin-left: 3px; /* Adjust margin for smaller screens */
+      }
+      
+      .socialsShareContainer {
+        text-align: center;
+        background-color: azure;
+        margin-top: -0.5rem;
+        padding-top: 0.5rem;
+        margin-bottom: -0.5rem;
+        padding-bottom: 0.5rem;
+      }
+      
+      WhatsappIcon {
+        color: black;
+      }
+      
+      .footer-container {
+        width: 100%
+      }
+}
+
+@media(max-width: 412px) {
+    .homepage-container {
+        background-color: azure;
+        margin-top: -0.5rem;
+        padding-left: 1rem; /* Adjust padding for smaller screens */
+        padding-top: 1rem; /* Adjust padding for smaller screens */
+        display: flex;
+        flex-direction: column; /* Change flex direction for smaller screens */
+        width: 120%;
+        padding-bottom: 1rem; /* Adjust padding for smaller screens */
+      }
+      
+      .homepage-form {
+        padding-left: 0.5rem; /* Adjust padding for smaller screens */
+        font-weight: bold;
+      }
+      
+      .print-container {
+        margin-top: 2rem; /* Adjust margin for smaller screens */
+        padding-right: 1rem; /* Adjust padding for smaller screens */
+        display: flex;
+        flex-direction: column; /* Change flex direction for smaller screens */
+      }
+      
+      .homepage-print-button {
+        margin-right: 2.3rem;
+        width: 7rem;
+        height: 2rem;
+        border-radius: 5rem;
+        font-weight: bold;
+      }
+      
+      .homepage-print-input {
+        border-color: black;
+        border-style: double;
+        width: 16rem; /* Adjust width for smaller screens */
+        text-transform: uppercase;
+        padding-bottom: 2rem; /* Adjust padding for smaller screens */
+        background-color: white;
+        line-height: 1.5rem;
+        padding-left: 0.5rem; /* Adjust padding for smaller screens */
+        overflow: auto;
+      }
+      
+      .add-button {
+        font-weight: bold;
+        height: 2rem;
+        margin-left: 3px;
+      }
+      
+      .remove-button {
+        font-weight: bold;
+        height: 2rem;
+        margin-left: 3px;
+      }
+      
+      .total-container {
+        margin-top: 1rem;
+        margin-left: 1rem; /* Adjust margin for smaller screens */
+      }
+      
+      .total-container button {
+        font-weight: bold;
+      }
+      
+      .homepage-item-input {
+        height: 2rem;
+        margin-left: 6px; /* Adjust margin for smaller screens */
+      }
+      
+      .homepage-price-input {
+        height: 2rem;
+        width: 5rem;
+        margin-left: 6px; /* Adjust margin for smaller screens */
+      }
+      
+      .socialsShareContainer {
+        text-align: center;
+        background-color: azure;
+        margin-top: -1rem;
+        padding-top: 0.5rem;
+        margin-bottom: -1rem;
+        padding-bottom: 0.5rem;
+        width: 123%;
+      }
+      
+      WhatsappIcon {
+        color: black;
+      }
+      
 }

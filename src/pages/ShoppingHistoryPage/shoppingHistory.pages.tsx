@@ -1,59 +1,10 @@
-// // import React, {useContext} from "react"
-// // import { ShoppingHistory } from "../../components/history/shoppingHistory.component"
-// // import { Footer } from "../../components/footer/footer.components"
-// // import NavbarShoppingPage from "../../components/Navbar/navbar.shoppingPage"
-// // import { historyStore} from "../../stores/history.stores"
-// // import {inject, observer} from "mobx-react"
-// // import AuthContext from "../../context/authContext/authContext"
-
-
-
-
-// //  const ShoppingHistoryPage = () => {
-// //     const {user} = useContext(AuthContext)
-    
-// //     const renderShoppingLists: any = async()=> {
-// //       const accessToken = localStorage.getItem
-// //         const {FetchLists_HistoryStore} = historyStore
-// //       try{
-// //         const response = await FetchLists_HistoryStore(accessToken)
-// //         return response
-
-// //       }catch(error){
-// //         alert("couldn't ftech shopping list")
-// //         console.log(error)
-// //       }
-// //     }
-
-// //     const handleClick = ():any => {
-// //       return  renderShoppingLists()
-// //     }
-   
-// //     return (
-// //         <React.Fragment>
-// //             <div>
-// //             <NavbarShoppingPage />
-// //             <h2>Please Click on the button below to view your shopping lists</h2>
-// //             {/* <ShoppingHistory /> */}
-// //             <h3>Shopping Lists</h3>
-// //               <button type="button" onClick = {handleClick} >Shopping History</button>  
-// //               <p>{renderShoppingLists}</p>
-// //             <Footer />
-// //             </div>
-        
-// //         </React.Fragment>
-       
-// //     )
-// // }
-
-// // export default inject("historyStore")(observer(ShoppingHistoryPage))
-
 import React, { useContext, useEffect, useState } from "react";
 import { inject, observer } from "mobx-react";
+import toastify from "toastify-js";
 import AuthContext from "../../context/authContext/authContext";
-import { historyStore } from "../../stores/history.stores";
 import { Footer } from "../../components/footer/footer.components";
 import NavbarShoppingPage from "../../components/Navbar/navbar.shoppingPage";
+import "./shoppingHistory.css"
 
 const ShoppingHistoryPage = ({ historyStore }: any) => {
   const { FetchLists_HistoryStore } = historyStore;
@@ -62,32 +13,14 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
   const [currentPage, setCurrentPage] = useState<any>(1)
   const [count, setCount] = useState(0)
 
+  const username = user && user.user ? user.user.username : ""
   const recordsPerPage = 10;
   const lastIndex = currentPage * recordsPerPage;
   const firstIndex = lastIndex - recordsPerPage;
   const records = itenary.slice(firstIndex, lastIndex)
   const nPage = Math.ceil(itenary.length / recordsPerPage)
-//   const numbers = [...Array(nPage + 1).keys()].slice(1)
   const numbers = Array.from({ length: nPage }, (_, i) => i + 1);
 
-
-//   useEffect(() => {
-//     const fetchShoppingLists = async () => {
-//       try {
-//         const accessToken = user.accessToken;
-//         const lists =  JSON.stringify(FetchLists_HistoryStore(accessToken));
-//         console.log(lists)
-//         const parsedLists = JSON.parse(lists); // Parse the JSON string response
-//         console.log("Shopping Lists:", lists);
-//         return setItenary(lists);
-        
-//       } catch (error) {
-//         console.log(error);
-//       }
-//     };
-  
-//     fetchShoppingLists();
-//   }, [FetchLists_HistoryStore, user.accessToken]);
 
   const fetchShoppingLists = async () => {
     try {
@@ -101,8 +34,23 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
       console.log("Shopping Lists:", parsedLists);
       setItenary(parsedLists);
       setCount(parsedLists.length)
+      toastify({
+        text: "shopping history fetched successfully",
+        backgroundColor: "blue",
+        gravity: "top",
+        close: true,
+        duration: 3000
+      }).showToast()
       return lists
+     
     } catch (error) {
+        toastify({
+            text: "fetching shopping history unsuccessful",
+            backgroundColor: "red",
+            gravity: "top",
+            close: true,
+            duration: 3000
+          }).showToast()
       console.log(error);
     }
   };
@@ -121,34 +69,31 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
     }
   }
 
-//   useEffect(() => {
-//     count()
-// },[])
-//   const count: any = () => {
-//     let initialCount = 0
-//     initialCount+= 1
-//     console.log(initialCount)
-//     return initialCount
-//   }
 
   return (
     <React.Fragment>
       <div>
         <NavbarShoppingPage />
-        <h2>Please Click on the button below to view your shopping lists</h2>
-        <h3>Shopping Lists</h3>
+        <div className="shoppingHistory-containers">
+        <span style={{position:"relative", fontWeight:"bold",
+                    fontSize:"1.5rem",
+                    width:"310px",
+    }}>Shopping History</span><br/>
+        <span style={{ paddingTop:"5rem",
+
+        }}>Please Click on the button below to view your shopping history</span>
 
         <div>
-        <button type="button" onClick={fetchShoppingLists}>
-                fetch list
+        <button className="fetchHistory-button" type="button" onClick={fetchShoppingLists}>
+                fetch history
             </button>
            
-        
-
-        <table>
-          <thead>
+        <div className="shoppingHistory-sub-container">
+            <h3>{`${username ? username : "My"}`} shopping history</h3>
+            <table className ="table-container">
+          <thead className="table-header">
             <tr>
-                <th>ID</th>
+              <th>ID</th>
               <th>Item</th>
               <th>Price</th>
               <th>Date</th>
@@ -166,31 +111,40 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
               ))
             ) : (
               <tr>
-                <td colSpan={3}>No shopping list available</td>
+                <td colSpan={4}>No shopping list available</td>
               </tr>
             )}
           </tbody>
         </table>
-        <p>Total Items: {count}</p>
+        </div>
+
+      
+        <p style={{fontWeight : "bold"}}>Total Items: {count}</p>
+        <div className="pagination-container">
         <nav>
-            <ul className="pagination">
-                <li className="pageItem">
+            <div className="pagination">
+                <span className="page-item">
                     <span className = "pageLink" onClick={prevPage}>Prev</span>
-                </li>
+                </span>
                 {numbers.map((n, i) => (
-                    <li className = {`page-item ${currentPage === n ? "active" : ""}`} key={i}>
+                    <span className = {`page-item ${currentPage === n ? "active" : ""}`} 
+                          key={i}
+                          style={{border:"none", padding: "0"}}>
                         <span className = "pageLink" onClick = {changeCurrentPage}>{n}</span>
-                    </li>
+                    </span>
                 ))}
                 
-                <li className="page-item">
+                <span className="page-item">
                     <span className="pageLink" onClick={nextPage}>Next</span>
 
-                </li>
-            </ul>
+                </span>
+            </div>
         </nav>
-        <Footer />
+        </div>
+        
+        </div>
       </div>
+      <Footer />
       </div>
     </React.Fragment>
   );

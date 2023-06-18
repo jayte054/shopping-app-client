@@ -27,7 +27,7 @@ const NavBar = ({userStore}: any) => {
     }
  
     return (
-        <div className="navbar-container">
+        <div  className="navbar-containers">
         <h1 className="navbar-title"> 
         <Link style={{color: "black"}} to = "/auth/homepage">
         <SlNote />
@@ -35,7 +35,7 @@ const NavBar = ({userStore}: any) => {
         </Link>
         </h1>
         <div className="navbar-auth"> 
-        <Link className="navbar-auth" 
+        <Link id="profile-link" style={{paddingLeft:"2.5rem"}}className="navbar-auth" 
               to = "/auth/profile" > 
               Profile 
         </Link>

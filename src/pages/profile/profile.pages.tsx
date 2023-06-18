@@ -112,7 +112,7 @@ import { AuthContext } from "../../context/authContext/authContext"
         }
     }
 
-    const contextValue = useMemo(() => ({ user, updateUser }), [user]);
+    // const contextValue = useMemo(() => ({ user, updateUser }), [user]);
 
     return (
         <div>
@@ -145,19 +145,23 @@ import { AuthContext } from "../../context/authContext/authContext"
                    className="profileInput"
                    value = {address}
                    onChange={e => setAddress(e.target.value)}/><br/>
+            <div className="profile-button">
             <button type="submit" 
                     style={{marginTop:"1rem", width:"7rem", height: "2rem"}} 
                     onClick={(e) => handleSubmit(e)}>
                         Submit
             </button>
             <button type="button" 
+                    id="view-profile"
                     style={{marginLeft:"1rem", width:"7rem", height:"2rem"}}
-                    onClick={handleViewProfile}>View Profile</button> 
+                    onClick={handleViewProfile}>View Profile
+            </button> 
+            </div>       
+           
 
              </div>
 
             </div> 
-          
             <Footer />
         </div>
     )

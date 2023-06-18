@@ -160,12 +160,9 @@ export interface CreateListDto {
     // }
     //   }, [inputFields, user.accessToken]);
 
-    const savePrintCart = async () => {
+    const savePrintCart = async (e:any) => {
+        e.preventDefault()
        const userDetails = user.accessToken
-        // e.preventDefault()
-        const token = localStorage.getItem( "accessToken")
-        console.log("print")
-       console.log(userDetails)
          
         const shoppingListItems: any[] = inputFields.map((fields) => fields.item);
         const shoppingListPrices: any[] = inputFields.map((fields) => fields.price);
@@ -183,7 +180,13 @@ export interface CreateListDto {
           }).showToast();
         } catch (error) {
           console.log(error);
-          window.alert("Failed to save Shopping List");
+          toastify({
+            text: "shopping list unsuccessfully saved",
+            gravity: "top",
+            duration: 3000,
+            close: true,
+            backgroundColor: "red"
+          }).showToast();
         }
       };
 
@@ -218,7 +221,7 @@ export interface CreateListDto {
     //   };
       
     return (
-        <>
+        <div>
             <NavBar />
             <div className="homepage-container">
                 <div>
@@ -229,7 +232,7 @@ export interface CreateListDto {
                 {inputFields.map((input, index) => {
                     return (
                         
-                            <div key={index}>
+                            <div className="homepage-input" key={index}>
                             <label>Item:</label>
                             <input 
                                 type="text"
@@ -285,7 +288,7 @@ export interface CreateListDto {
                   
             </div>
             </div>
-            <div className="socialsShareContainer">
+            <div style={{}} className="socialsShareContainer">
                 <p> Share on: <br /> 
                 <div>
                 <ShareData description = {shareData()} />
@@ -299,7 +302,7 @@ export interface CreateListDto {
                 </p>
             </div>
             <Footer />
-        </>
+        </div>
     )
 }
 

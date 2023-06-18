@@ -2,10 +2,11 @@ import {BsInstagram} from "react-icons/bs"
 import {BsTwitter} from "react-icons/bs"
 import {BsFacebook} from "react-icons/bs"
 import {GiLion} from "react-icons/gi"
-import "./footer.components.css"
+import "./footer-components.css"
+
 export const Footer = () => {
     return (
-        <div className="footer-container">
+        <div className="container">
             <div>
             <span className="footer-title"> please follow and engage us with your feedbacks on any of the platforms below </span>
            <div className="socials">
