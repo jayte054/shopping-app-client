@@ -5,20 +5,35 @@
     flex-direction: column;
     top: 4.6rem;
     right:1rem;
-    width: 8rem;
+    /* width: 9rem; */
+    padding-top: 0rem;
+    padding-right: 1rem;
     padding-bottom:1rem;
+    padding-left:0rem;
     z-index: 10;
 }
 
 .closeMenu{
     color: black; 
-    text-align: right;
-    margin-right:.5rem;
+    /* text-align: left; */
+    margin-top:-1rem;
+    /* padding-left: 2rem; */
+    /* font-size: .9rem; */
+    /* padding-top:0rem; */
     cursor:pointer;
 }
 .link-container{
-  font-weight:bold;
-    margin-left: 1rem;
+    width: 8rem;
+    padding-right: 2rem;
+    /* padding-right: 2rem; */
+    font-weight: bold;
+}
+
+#shoppingHistory-link{
+    /* display: flex; */
+    /* align-items: center; */
+    flex-wrap: wrap;
+    /* margin-top:2rem; */
 }
 
 

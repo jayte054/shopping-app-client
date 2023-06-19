@@ -6,11 +6,29 @@ import { useEffect, useState } from "react"
 import { inject, observer } from "mobx-react"
 import toastify from "toastify-js"
 import "toastify-js/src/toastify.css"
+import { GiHamburgerMenu } from "react-icons/gi"
+import { BurgerMenu } from "../modal/burgerMenu/burgerMenu.homepage"
 
 
 const NavBar = ({userStore}: any) => {
+    const [showModal, setShowModal] = useState(true)
+    const [displayBurgerMenu, setDisplayBurgerMenu] = useState(false)
+    const [showIcon, setShowIcon] = useState(true)
     const navigate = useNavigate()
     const {SignOut} = userStore
+
+    const openModal = () => {
+        setShowModal(!showModal)
+    }
+
+    const displayBurger = () => {
+        setDisplayBurgerMenu((pre) => !pre)
+        setShowIcon(false)
+    }
+
+    const toggleVisibility = () => {
+        setShowIcon(!showIcon)
+    }
 
     const Signout = async(e: any) => {
         e.preventDefault()
@@ -34,7 +52,20 @@ const NavBar = ({userStore}: any) => {
         Shopping Manager
         </Link>
         </h1>
-        <div className="navbar-auth"> 
+        <div  className="burger-div">
+            {showIcon && <GiHamburgerMenu className="burger-icon"
+                            onClick={displayBurger}
+            />}
+            {displayBurgerMenu && (
+            <BurgerMenu
+                showIcon={showIcon}
+                toggleVisibility={toggleVisibility}
+                displayBurgerMenu={displayBurgerMenu}
+                setDisplayBurgerMenu={setDisplayBurgerMenu} />
+            )}
+        </div>
+
+        {/* <div className="navbar-auth"> 
         <Link id="profile-link" style={{paddingLeft:"2.5rem"}}className="navbar-auth" 
               to = "/auth/profile" > 
               Profile 
@@ -49,7 +80,7 @@ const NavBar = ({userStore}: any) => {
               Signout 
               </span>
       
-        </div>
+        </div> */}
         </div>
     )
 }
