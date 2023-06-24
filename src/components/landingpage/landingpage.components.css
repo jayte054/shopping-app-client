@@ -187,8 +187,7 @@
   }
 
   @media(max-width: 768px){
-    
-
+    .landingpage-container
     .item-input{
         width: 15%
     }

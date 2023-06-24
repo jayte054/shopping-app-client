@@ -66,8 +66,9 @@ export const check = async({username, password}:any): Promise<any> => {
 
     return (
         <React.Fragment>
-            <div className = "signin-container">
             <NavBarSignIn />
+            <div className = "signin-container">
+
             <h2>please sign in with your details below</h2>
 
             {errorMessage && <ErrorMessage message={errorMessage} />}

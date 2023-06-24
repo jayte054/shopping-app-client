@@ -1,6 +1,7 @@
 .signup-container{
     background-color: azure;
     text-align: center;
+    padding-bottom: 1rem;
 }
 .signup-detail{
     font-weight: bold;
@@ -12,4 +13,28 @@
  ::placeholder {
     padding-left: 1rem;
     font-style: italic;
+}
+
+@media(max-width: 375px){
+    .signup-container{
+        width:117%;
+    }
+}
+
+@media(max-width: 414px){
+    .signup-container{
+        width:116%;
+    }
+}
+
+@media(max-width: 540px){
+    .signup-container{
+        width: 116%
+    }
+}
+
+@media(max-width:280px){
+    .signup-container{
+        width:154%;
+    }
 }

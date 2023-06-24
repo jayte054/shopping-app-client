@@ -1,6 +1,8 @@
 .signin-container{
     background-color: azure;
     text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem
 }
 .signin-detail{
     font-weight: bold;
@@ -12,4 +14,34 @@
  ::placeholder {
     padding-left: 1rem;
     font-style: italic;
+}
+
+@media(max-width: 375px) {
+    .signin-container{
+        width: 122%
+    }
+}
+
+@media(max-width: 414px) {
+    .signin-container{
+        width: 122%
+    }
+}
+
+@media(max-width: 360px){
+    .signin-container{
+        width:118%
+    }
+}
+
+@media(max-width: 540px){
+    .signin-container{
+        width:115%;
+    }
+}
+
+@media(max-width: 280px){
+    .signin-container{
+        width:154%;
+    }
 }

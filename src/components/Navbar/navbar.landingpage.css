@@ -1,4 +1,4 @@
-.navbar-containers{
+.navs-container{
     position:relative;
     background-color: rgb(66, 173, 245);
     display: flex;
@@ -7,11 +7,12 @@
     /* width:100%; */
     z-index:1;
 }
-.navbar-title{
+.navs-title{
     color: black;
     margin: 1rem 1rem;
+    font-size:1.5rem;
 }
-.navbar-auth{
+.navs-auth{
     margin:  1rem; 
 }
 
@@ -19,108 +20,31 @@
     margin-left: .5rem;
 }
 
- 
-
-  @media(max-width: 540px){
-    .navbar-auth{
-        padding-top: 1.5rem;
-    }
-  }
-
-  @media(max-width: 375px){
-    .navbar-title{
-        font-size: 1.3rem;
-        /* position:left; */
+@media(max-width: 375px){
+    .navs-container{
+        padding:.1rem;
+        width: 124.5%;
+        /* font-size:.5rem; */
     }
 
-    .navbar-auth{
-        padding-bottom: 1.4rem;
-    }
-    
-    .signin-link{
-        margin: 0px  0px 0px 335px;
+    .navs-title{
+        margin-right:3rem;
+        font-size:1.2rem;
     }
 }
 
 @media(max-width: 414px){
-    .navbar-title{
-        font-size: 1.5rem;
-        padding-top: .4rem
-        /* position:left; */
+    .navs-container{
+        width: 123%;
     }
 
-    .navbar-auth{
-        padding-bottom: 1.2rem;
-    }
-    
-    .signin-link{
-        margin: 0px  0px 0px 265px;
+    .navs-title{
+        margin-right:6rem;
     }
 }
 
 @media(max-width: 390px){
-    .navbar-title{
-        font-size: 1.5rem;
-        padding-top: .0rem
-        /* position:left; */
-    }
-
-    .navbar-auth{
-        padding-bottom: 1.2rem;
-    }
-    
-    .signin-link{
-        margin: 0px  0px 0px 355px;
-    }
-}
-
-@media(max-width: 393px){
-    .navbar-title{
-        font-size: 1.5rem;
-        padding-top: .3rem;
-        padding-right: 1rem;
-        /* position:left; */
-    }
-
-    .navbar-auth{
-        padding-bottom: 1.2rem;
-    }
-    
-    .signin-link{
-        margin: 0px  0px 0px 355px;
-    }
-}
-
-@media(max-width: 360px){
-    .navbar-title{
-        font-size: 1.1rem;
-        padding-top: .3rem;
-        padding-right: 0rem;
-    }
-
-     /* .navbar-auth{
-        padding-bottom: 1.1rem;
-    } */
-    
-   .signin-link{
-        margin: 0px  0px 0px 205px;
-    }
-}
-
- @media (max-width: 412px){
-    .navbar-auth{
-        padding-bottom: .3rem;
-    }
-    .signin-link{
-        margin: 0px  0px 0px 335px;
-    }
-} 
-
-@media(max-width: 280px){
-    .navbar-title{
-        padding: 0rem;
-    }
-    .signin-link{
-        margin: 15px  0px 0px 208px;
+    .navs-container{
+        width:123.5%;
     }
 }
