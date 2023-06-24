@@ -1,4 +1,114 @@
-.benefit-container{
+.benefit-container {
+    margin-top: -1rem;
+    padding-bottom: 1rem;
+    background-color: darkgray;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .dynamic-icon-container {
+    height: 100%;
+    padding-left: 7rem;
+  }
+  
+  .dynamic-icon {
+    font-size: 16rem;
+  }
+  
+  .list-container {
+    padding-right: 7rem;
+    line-height: 2rem;
+  }
+  
+  @media (max-width: 375px) {
+    .benefit-container {
+      margin-top:0rem;  
+      padding: 1rem;
+      width:123.5%;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .dynamic-icon-container {
+      padding-left: 0;
+      margin-bottom: 1rem;
+    }
+  
+    .dynamic-icon {
+      font-size: 10rem;
+    }
+  
+    .list-container {
+      padding-right: 0;
+      text-align: center;
+    }
+  }
+
+
+   @media (max-width: 414px) {
+    .benefit-container {
+      margin-top:0rem;  
+      padding: 1rem;
+      width:123%;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .dynamic-icon-container {
+      padding-left: 0;
+      margin-bottom: 1rem;
+    }
+  
+    .dynamic-icon {
+      font-size: 10rem;
+    }
+  
+    .list-container {
+      padding-right: 0;
+      text-align: center;
+    }
+  }
+
+  @media(max-width: 360px){
+    .benefit-container{
+        padding:.3rem;
+        width: 118%
+    }
+  }
+
+  @media(max-width: 540px) {
+        .benefit-container {
+          margin-top:0rem;  
+          padding-bottom: 1rem;
+          width:115%;
+          flex-direction: column;
+          align-items: center;
+        }
+      
+        .dynamic-icon-container {
+          padding-left: 0;
+          margin-bottom: 1rem;
+        }
+      
+        .dynamic-icon {
+          font-size: 10rem;
+        }
+      
+        .list-container {
+          padding-right: 0;
+          text-align: center;
+        }
+      } 
+  
+      @media screen and  (max-width:280px){
+        .benefit-container{
+            padding:0rem;
+            width:154%;
+        }
+      }
+  
+
+/* .benefit-container{
     margin-top:-1rem;
     padding-bottom: 1rem;
     background-color: darkgray;
@@ -15,4 +125,4 @@
 .list-container{
     padding-right: 7rem;
     line-height: 2rem;
-}
+} */

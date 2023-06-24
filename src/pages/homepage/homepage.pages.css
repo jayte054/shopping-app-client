@@ -275,12 +275,12 @@ WhatsappIcon{
     .homepage-container {
         background-color: azure;
         margin-top: -0.5rem;
-        padding-left: 1rem; /* Adjust padding for smaller screens */
-        padding-top: 1rem;
+        /* padding-left: 1rem; /* Adjust padding for smaller screens */
+       /* padding-top: 1rem; */
         display: flex;
         flex-direction: column; /* Change flex direction for smaller screens */
         width: 140%;
-        padding-bottom: 1rem;
+        padding: 4.5rem;
       }
       
       .homepage-form {
@@ -290,6 +290,7 @@ WhatsappIcon{
       }
       
       .print-container {
+        width:70%;
         margin-top: 2rem; /* Adjust margin for smaller screens */
         padding-right: 1rem; /* Adjust padding for smaller screens */
         display: flex;
@@ -357,7 +358,7 @@ WhatsappIcon{
         padding-top: 0.5rem;
         margin-bottom: -1rem;
         padding-bottom: 0.5rem;
-        width:105%;
+        width:121%;
       }
       
       WhatsappIcon {
@@ -557,7 +558,7 @@ WhatsappIcon{
         padding-top: 1rem; /* Adjust padding for smaller screens */
         display: flex;
         flex-direction: column; /* Change flex direction for smaller screens */
-        width: 120%;
+        width: 101%;
         padding-bottom: 1rem; /* Adjust padding for smaller screens */
       }
       
@@ -642,4 +643,16 @@ WhatsappIcon{
         color: black;
       }
       
+}
+
+@media(max-width: 393px){
+  .homepage-container{
+    width:100%;
+  }
+}
+
+@media(max-width: 360px){
+  .homepage-container{
+    padding:2.5rem
+  }
 }

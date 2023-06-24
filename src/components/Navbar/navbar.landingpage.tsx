@@ -1,6 +1,6 @@
 // import { SignUpPage } from "../../pages/signup-page/signupPage.pages"
 import { Link, Outlet } from "react-router-dom"
-import "./navbar.css"
+import "./navbar.landingpage.css"
 import {SlNote} from "react-icons/sl"
 const NavBar = () => {
  
@@ -13,8 +13,8 @@ const NavBar = () => {
         </Link>
         </h1>
         <div className="navbar-auth"> 
-        <Link className="navbar-auth" to = "/signin" > Sign In </Link>
-        <Link className="navbar-auth" to ="/signup" > Sign Up </Link>
+        <Link className="signin-link" to = "/signin" > Sign In </Link>
+        <Link className="signup-link" to ="/signup" > Sign Up </Link>
         </div>
         </div>
     )

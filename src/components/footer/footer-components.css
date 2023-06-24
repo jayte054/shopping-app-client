@@ -1,4 +1,4 @@
-.container{
+/* .container{
   background-color: #5A5064;
     padding-top:2rem;
     display: flex;
@@ -11,7 +11,7 @@
     font-weight: bold;
     margin-top: 20px;
     /* color: red */
-}
+/*}
 .socials{
     padding-left: 5rem;
 }
@@ -31,8 +31,8 @@
     font-size:10rem;
 }
 
-@media(max-width: 375px) {
-    .footer-container {
+@media(max-width: 375px) { */
+    .container {
         background-color: #5A5064;
         padding-top: 2rem;
         display: flex;
@@ -73,6 +73,9 @@
       }
       
       @media (max-width: 375px) {
+        .container{
+          margin-top:1rem;
+        }
         .footer-title,
         .socials,
         .footer-end {
@@ -88,7 +91,7 @@
         }
       }
       
-}
+
 @media(max-width: 390px) {
  .container{
   /* width: max-content */

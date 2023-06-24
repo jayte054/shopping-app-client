@@ -60,45 +60,45 @@ const LandingPage = () => {
         <div className="form-elements">
           <form>
             <span className="item"> Item </span>
-            <input type="text" />
+            <input className="item-input" type="text" />
             <span className="item"> price </span>
-            <input type="number" name="price1" /> <br />
+            <input className="price-input" type="number" name="price1" /> <br />
             <span className="item"> Item </span>
-            <input type="text" />
+            <input className="item-input" type="text" />
             <span className="item"> price </span>
-            <input type="number" name="price2" /> <br />
+            <input className="price-input" type="number" name="price2" /> <br />
             <span className="item"> Item </span>
-            <input type="text" />
+            <input className="item-input" type="text" />
             <span className="item"> price </span>
-            <input type="number" name="price3" /> <br />
+            <input className="price-input" type="number" name="price3" /> <br />
             <span className="item"> Item </span>
-            <input type="text" />
+            <input className="item-input" type="text" />
             <span className="item"> price </span>
-            <input type="number" name="price4" /> <br />
+            <input className="price-input" type="number" name="price4" /> <br />
             <span className="item"> Item </span>
-            <input type="text" />
+            <input className="item-input" type="text" />
             <span className="item"> price </span>
-            <input type="number" name="price5" /> <br />
+            <input className="price-input" type="number" name="price5" /> <br />
             <span className="item"> Item </span>
-            <input type="text" />
+            <input className="item-input" type="text" />
             <span className="item"> price </span>
-            <input type="number" name="price6" /> <br />
+            <input className="price-input" type="number" name="price6" /> <br />
             <span className="item"> Item </span>
-            <input type="text" />
+            <input className="item-input" type="text" />
             <span className="item"> price </span>
-            <input type="number" name="price7" /> <br />
+            <input className="price-input" type="number" name="price7" /> <br />
             <span className="item"> Item </span>
-            <input type="text" />
+            <input className="item-input" type="text" />
             <span className="item"> price </span>
-            <input type="number" name="price8" /> <br />
+            <input className="price-input" type="number" name="price8" /> <br />
             <span className="item"> Item </span>
-            <input type="text" />
+            <input className="item-input" type="text" />
             <span className="item"> price </span>
-            <input type="number" name="price9" /> <br />
+            <input className="price-input" type="number" name="price9" /> <br />
             <span className="item"> Item </span>
-            <input type="text" />
+            <input className="item-input" type="text" />
             <span className="item"> price </span>
-            <input type="number" name="price10" /> <br />
+            <input className="price-input" type="number" name="price10" /> <br />
             <button
               type="button"
               style={{

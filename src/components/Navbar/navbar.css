@@ -21,6 +21,11 @@
     margin-top:.5rem;
 }
 
+.modalSignout-link{
+  cursor: pointer;
+  color:black
+}
+
 @media (max-width: 375px) {
     .navbar-containers {
       position: relative;
@@ -35,9 +40,9 @@
       margin-right: 3rem;
       
     }
-    .navbar-auth {
+    /* .navbar-auth {
         padding-bottom: 0rem
-    }
+    } */
 
      #profile-link {
         margin-left: -3rem;
@@ -106,6 +111,9 @@
       padding-right:2.2rem;
     }
 
+    .navbar-title{
+      font-size: 1.4rem;
+    }
     .burger-icon{
       padding-left: 15rem
     }
@@ -157,7 +165,7 @@
             margin-left:4rem;
           }
          .burger-icon{
-          margin-right:2rem;
+          margin-right:1rem;
           margin-bottom:.8rem;
 
          }
@@ -180,6 +188,7 @@
           
           .navbar-title {
             margin-left: 6rem; /* Adjust margin for smaller screens */
+            z-index: 1
           }
           
           .navbar-auth {
@@ -196,9 +205,11 @@
 
         .burger-icon{
             margin-top:  -.5rem;
-            margin-left:  14.5rem;
-
-            left: 1rem;
+            /* display: flex;
+            justify-content: flex-end; */
+            margin-left:  -14.5rem; 
+            /* display:block;
+            /* right: 3rem; */
             padding-top: 2rem;
         }
     }

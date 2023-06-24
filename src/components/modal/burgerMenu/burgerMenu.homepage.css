@@ -6,7 +6,7 @@
     top: 4.6rem;
     right:1rem;
     /* width: 9rem; */
-    padding-top: 0rem;
+    padding-top: 1rem;
     padding-right: 1rem;
     padding-bottom:1rem;
     padding-left:0rem;
@@ -24,7 +24,7 @@
 }
 .link-container{
     width: 8rem;
-    padding-right: 2rem;
+    margin-right: 2rem;
     /* padding-right: 2rem; */
     font-weight: bold;
 }
@@ -32,18 +32,21 @@
 #shoppingHistory-link{
     /* display: flex; */
     /* align-items: center; */
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     /* margin-top:2rem; */
 }
 
-
-
+@media(max-width: 375px){
+    .burgerMenu-container{
+        padding-top: 0rem;
+    }
+}
 
 
  @media(max-width: 412px){
   .burgerMenu-container{
     right: 4.5rem;
-    color: white;
+    padding-top: 0rem;
   }
 
   .closeMenu{
@@ -51,24 +54,7 @@
   }
  }
 
- @media(max-width: 360px) {
-  .burgerMenu-container{
-    padding-top:1rem;
-    top: 5.5rem;
-    width: 5rem;
-    height: 3.7rem;
-    right:.1rem
-  }
 
-  .closeMenu{
-    margin-bottom: -1rem;
-    margin-top: -.5rem;
-  }
-
-  .link-container{
-    margin-right: 1.6rem
-  }
- }
 
  @media(max-width: 414px){
   .burgerMenu-container{
@@ -80,6 +66,7 @@
  @media(max-width: 390px) {
   .burgerMenu-container{
     top: 5.8rem;
+    padding-top: 0rem;
   }
  }
 
@@ -92,4 +79,29 @@
   .link-container{
     padding-top: 1rem;
   }
+  }
+
+  @media(max-width: 393px){
+    .burgerMenu-container{
+        padding-top: 0rem;
+    }
+  }
+
+  @media(max-width: 360px) {
+     .burgerMenu-container{
+        height:7rem !important;
+    }
+    .closeMenu{
+        /* margin-right:2rem; */
+        padding-bottom:2rem;
+        
+    }
+    .link-container{
+        margin-top:-1rem;
+        /* padding-right:2rem; */
+        width:6rem;
+        padding-right:2rem;
+        color:black
+        /* height: 6rem */
+    }
   }
