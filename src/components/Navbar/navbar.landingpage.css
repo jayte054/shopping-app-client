@@ -3,7 +3,7 @@
     background-color: rgb(66, 173, 245);
     display: flex;
     align-items:center;
-    justify-content: flex-end;
+    justify-content: space-between;
     /* width:100%; */
     z-index:1;
 }
@@ -13,7 +13,7 @@
     font-size:1.5rem;
 }
 .navs-auth{
-    margin:  1rem; 
+    margin:  1rem ; 
 }
 
 .signup-link{
@@ -22,29 +22,60 @@
 
 @media(max-width: 375px){
     .navs-container{
-        padding:.1rem;
-        width: 124.5%;
+        padding:0rem 0rem 0rem 2rem;
+        width: 123.5%;
         /* font-size:.5rem; */
     }
 
     .navs-title{
         margin-right:3rem;
-        font-size:1.2rem;
+        font-size:1.3rem;
     }
 }
 
-@media(max-width: 414px){
+ @media(max-width: 414px){
     .navs-container{
-        width: 123%;
+        padding:0rem 1rem;
+        width: 123.5%
+    }
+}
+
+/*@media(max-width: 390px){
+    .navs-container{
+        width:123.5%;
     }
 
     .navs-title{
-        margin-right:6rem;
+        font-size: 1.3rem;
     }
 }
 
-@media(max-width: 390px){
+@media(max-width: 393px){
+    .navs-title{
+        font-size: 1.3rem;
+
+    }
+}*/
+
+@media(max-width: 360px){
     .navs-container{
-        width:123.5%;
+        width: 118%;
+    }
+    .navs-title{
+        font-size: 1.2rem;
+
+    }
+}
+
+@media(max-width: 540px){
+     .navs-container{
+        width: 115%;
+    }
+}
+
+@media(max-width: 280px){
+    .navs-container{
+        width: 143%;
+        font-size:.5rem
     }
 }

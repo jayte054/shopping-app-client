@@ -653,6 +653,9 @@ WhatsappIcon{
 
 @media(max-width: 360px){
   .homepage-container{
-    padding:2.5rem
+    padding:2rem
+  }
+  .socialsShareContainer{
+    padding:0.5rem;
   }
 }
