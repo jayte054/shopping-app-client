@@ -10,8 +10,8 @@ export const Footer = () => {
             <div>
             <span className="footer-title"> please follow and engage us with your feedbacks on any of the platforms below </span>
            <div className="socials">
-           <p><a href="#"> <BsInstagram /> @shoppingapp </a></p>
-            <p><a href="#"> <BsTwitter /> @shoppingapp </a></p>
+           <p><a href="https://www.instagram.com/shoppingmanager317/" target="blank"> <BsInstagram /> @shoppingmanager317 </a></p>
+            <p><a href="https://twitter.com/Shoppingapp317" target="blank"> <BsTwitter /> @shoppingapp317 </a></p>
             <p><a href="#"> <BsFacebook /> @shoppingapp </a></p>
            </div>
            <div className="footer-end">
@@ -19,14 +19,14 @@ export const Footer = () => {
             <span>Email</span> <br />
             <input type="email" placeholder="email address" required /> <br />
             <button>Submit</button>
-            <p>contact us @ <a href="#"> shoppingappadmin@gmail.com </a></p>
+            <p>contact us @ <a href="#"> shoppingmanager317@gmail.com </a></p>
            </div>
             </div>
           
            <div className="developer-column">
             <p>Developed by J.T</p>
             <GiLion className="lion-icon"/>
-            <p>Contact @ <a href="#"> ewelikejustin@gmail.com </a></p>
+            <p>Contact @ <a href="#"> donoscar054@yahoo.com </a></p>
            </div>
         </div>
     )

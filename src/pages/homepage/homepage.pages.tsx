@@ -253,7 +253,7 @@ export interface CreateListDto {
                                 className="homepage-price-input"
                                 required
                             />
-                            <button className="add-button" type= "button" onClick={() =>  addFields()}> Add More Items</button>
+                            <button className="add-button" type= "button" onClick={() =>  addFields()}> Add Item</button>
                             <button className="remove-button" type= "button" onClick={()=> removeFields(index) }>Remove Item</button>
                         </div>
                     )
