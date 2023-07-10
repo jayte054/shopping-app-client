@@ -170,9 +170,19 @@ export interface CreateListDto {
          const {CreateList_HistoryStore} = historyStore
         try {
           const response = await CreateList_HistoryStore(shoppingListItems, shoppingListPrices, userDetails);
+          const isDuplicate = response && response.length > 0 && response.some((list: any) => {
+                    const itemIndex = shoppingListItems.findIndex((item) => item === list.item);
+                    const priceIndex = shoppingListPrices.findIndex((price) => price === list.price);
+                    return itemIndex !== -1 && priceIndex !== -1;
+                  });
+              
+                  if (isDuplicate) {
+                    window.alert("Shopping List already exists");
+                    return;
+                  }
              console.log(response)
           toastify({
-            text : "Shopping List saved successfully",
+            text : "Shopping List saved successfully", 
             gravity: "top",
             backgroundColor: "green",
             duration: 3000,
@@ -190,36 +200,51 @@ export interface CreateListDto {
         }
       };
 
-    // const savePrintCart = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    // const savePrintCart = async (e: any) => {
     //     e.preventDefault();
-    //     const {CreateList_HistoryStore} = historyStore
-    //     const shoppingListItems: string[] = inputFields.map((fields) => fields.item);
-    //     const shoppingListPrices: string[] = inputFields.map((fields) => fields.price);
+    //     const userDetails = user.accessToken;
       
+    //     const shoppingListItems: any[] = inputFields.map((fields) => fields.item);
+    //     const shoppingListPrices: any[] = inputFields.map((fields) => fields.price);
+      
+    //     const { CreateList_HistoryStore } = historyStore;
     //     try {
-    //       const userDetails = user.accessToken;
-    //       const accessToken: any = await loadToken();
+    //       const existingList = await CreateList_HistoryStore(
+    //         shoppingListItems,
+    //         shoppingListPrices,
+    //         userDetails
+    //       );
       
-    //       const existingList = await CreateList_HistoryStore(shoppingListItems, shoppingListPrices, userDetails);
-    //       const isDuplicate = existingList && existingList.length > 0 && existingList.some((list: any) => {
-    //         const itemIndex = shoppingListItems.findIndex((item) => item === list.item);
-    //         const priceIndex = shoppingListPrices.findIndex((price) => price === list.price);
-    //         return itemIndex !== -1 && priceIndex !== -1;
-    //       });
-      
-    //       if (isDuplicate) {
-    //         window.alert("Shopping List already exists");
-    //         return;
+    //       if (existingList && existingList.length > 0) {
+    //         toastify({
+    //           text: "Shopping List already exists",
+    //           gravity: "top",
+    //           backgroundColor: "red",
+    //           duration: 3000,
+    //           close: true
+    //         }).showToast();
+    //         // return;
     //       }
       
-    //       await CreateList_HistoryStore(shoppingListItems, shoppingListPrices, userDetails);
-    //       window.alert("Shopping List saved successfully");
+    //       toastify({
+    //         text: "Shopping List saved successfully",
+    //         gravity: "top",
+    //         backgroundColor: "green",
+    //         duration: 3000,
+    //         close: true
+    //       }).showToast();
     //     } catch (error) {
     //       console.log(error);
-    //       window.alert("Failed to save Shopping List");
+    //       toastify({
+    //         text: "Shopping list unsuccessfully saved",
+    //         gravity: "top",
+    //         duration: 3000,
+    //         close: true,
+    //         backgroundColor: "red"
+    //       }).showToast();
     //     }
     //   };
-      
+    
     return (
         <div>
             <NavBar />
