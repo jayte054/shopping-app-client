@@ -15,6 +15,8 @@ import { historyStore } from './stores/history.stores';
 import { CreateProfile } from './services/profileService';
 import { profileStore } from './stores/profileStore';
 import { UserProvider } from './context/authContext/authContext';
+import { fetchDirectory } from './services/directoryServices';
+import { directoryStore } from './stores/directory.stores';
 
 let stores: any = {}
 
@@ -27,12 +29,15 @@ const history = syncHistoryWithStore(browserHistory,
 const authService = { signinService, signoutService, signupService, removeToken, loadToken, saveToken };
 const historyService = {CreateList, fetchShoppingLists}
 const profileService = {CreateProfile}
+const directoryService = {fetchDirectory}
 stores.authService = authService;
 stores.historyService = historyService
 stores.profileService = profileService
+stores.directoryService = directoryService
 stores.userStore= userStore;
 stores.historyStore = historyStore
 stores.profileStore = profileStore
+stores.directoryStore = directoryStore
 // 
 
 const root = ReactDOM.createRoot(

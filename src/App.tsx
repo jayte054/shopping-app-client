@@ -11,6 +11,8 @@ import  Profile  from './pages/profile/profile.pages';
 import { ProtectAuthRoute } from './components/privateRoute.component';
 import  ShoppingHistoryPage  from './pages/ShoppingHistoryPage/shoppingHistory.pages';
 import { UserProvider } from './context/authContext/authContext';
+import { DirectoryPage } from './pages/DirectoryPage/directoryPage';
+import { CreateEntryPage } from './pages/DirectoryPage/createDirectoryentryPage';
 
 
  function App() {
@@ -27,6 +29,8 @@ import { UserProvider } from './context/authContext/authContext';
         <Route path="/auth/homepage"  element={<Homepage />} />
         <Route path="/auth/profile" element={<Profile />} />
         <Route path="/auth/shoppinghistory" element={<ShoppingHistoryPage />} />
+        <Route path="/auth/directory" element={<DirectoryPage />} />
+        <Route path="/auth/createEntry" element={<CreateEntryPage />} />
         </Route>
         </Routes>
       </Router>

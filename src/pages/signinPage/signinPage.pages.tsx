@@ -9,6 +9,7 @@ import { Footer } from "../../components/footer/footer.components"
 import ErrorMessage from "../../components/ErrorMessage"
 import { userStore } from "../../stores/user.stores"
 import { AuthContext } from "../../context/authContext/authContext"
+import { FaEye, FaEyeSlash } from "react-icons/fa"
 
 export const check = async({username, password}:any): Promise<any> => {
   const checkResult = await userStore.SignIn({username, password})
@@ -19,9 +20,13 @@ export const check = async({username, password}:any): Promise<any> => {
  const SignInPage = ({userStore}: any) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
+    const [showPassword, setShowPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState(null)
     const { user, updateUser} = useContext(AuthContext)
     const navigate = useNavigate()
+    const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+    };
 
      const {SignIn} = userStore
       console.log(userStore)
@@ -81,11 +86,20 @@ export const check = async({username, password}:any): Promise<any> => {
                    onChange={e => setUsername(e.target.value)}
                    required/>
             <p className="signin-detail">Password</p>
+            <div>
             <input className="signin-input" 
-                   type="password" 
+                   type={showPassword ? "text" : "password"} 
                    placeholder="password" 
                    onChange= {e => setPassword(e.target.value)}
                    required/>
+            </div>
+            <button
+              className="toggle-password-visibility"
+              type="button"
+              onClick={togglePasswordVisibility}
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </button>
             <p> If you don't have an account, please <Link to="/signup"> sign up </Link>  </p>
             <button type="button" onClick = {(e) => handleSubmit(e)}> Sign In </button>
             </form>

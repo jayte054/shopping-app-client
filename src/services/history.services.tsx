@@ -54,7 +54,7 @@ export class ListInput {
 }
 
 export const CreateList = async (listInput:ListInput, accessToken:any ): Promise<any> => {
-    const url = `${BASE_URL}/shopper/createlist`
+    //const url = `${BASE_URL}/shopper/createlist`
      accessToken = localStorage.getItem("accessToken")
     const config = {
         headers: {
@@ -65,8 +65,8 @@ export const CreateList = async (listInput:ListInput, accessToken:any ): Promise
         // const response = await axios.get(url, {item, price}, config)
       const response = await axios.post(`${BASE_URL}/shopper/createlist`, listInput, config);
         console.log(accessToken)
-      console.log(response.data)
-      console.log(response.data)
+      console.log("Here : ", response.data)
+      //console.log(response.data)
     //   return response.data;
     } catch (error) {
         console.log(error)

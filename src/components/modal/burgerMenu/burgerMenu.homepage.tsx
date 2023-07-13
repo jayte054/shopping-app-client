@@ -41,12 +41,12 @@ export const BurgerMenu = (props: {displayBurgerMenu: any,
             </span>
             </div>
         <div className="link-container">
-        <Link className="" 
+        <Link className="link" 
               to="/auth/shoppinghistory">
                 Shopping History
         </Link>
         <hr style={{marginRight: "1rem"}}/>
-        <Link  
+        <Link className="link"
               to = "/auth/profile" >
                  Profile 
         </Link>
