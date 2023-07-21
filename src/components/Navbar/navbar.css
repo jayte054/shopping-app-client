@@ -6,6 +6,8 @@
     justify-content: space-between;
     /* width:100%; */
     z-index:1;
+    border-radius: 10px;
+    margin:1rem;
 }
 .navbar-title{
     color: black;
@@ -34,6 +36,9 @@
       width:132.5% ; 
       padding-left: 1rem ;
       z-index: 1;
+      /* border-radius: 10px;
+      margin:1rem; */
+
     }
   
     .navbar-title{
@@ -94,7 +99,7 @@
   @media(max-width: 390px) {
     .navbar-containers{
         padding: 1rem 3.2rem 0rem;
-        width:141%;
+        width:140%;
     }
 
     .navbar-title{
@@ -128,7 +133,7 @@
             align-items: flex-start; 
             justify-content: flex-start; 
             padding-bottom: 1rem;
-            width: 115%
+            width: 116.5%
           }
           
           .navbar-title {
@@ -157,7 +162,7 @@
             height: 3rem;
             display: flex;
             flex-direction: column;
-            padding: 0rem 10.5rem 0rem 2rem;
+            padding: 0rem 4.5rem 0rem 2rem;
             z-index: 2
           }
           .navbar-title{
@@ -181,7 +186,7 @@
             justify-content: space-between;
             font-size:0.8rem;
             margin-left:-4rem;
-            width:134%;
+            width:139%;
             height: 4rem;
             z-index: 2
           }

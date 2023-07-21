@@ -5,6 +5,8 @@
     padding-left: 3rem;
     /* z-index: 1; */
     /* width: 100% */
+    border-radius: 10px;
+    margin:1rem;
 }
 
 .fetchHistory-button{
@@ -140,11 +142,12 @@
       }
   }
 
-  @media(max-widt: 412px) {
+  @media(max-width: 412px) {
     .shoppingHistory-container {
         background-color: azure;
         padding: 1rem;
-        padding-left: 2rem; /* Adjust padding for smaller screens */
+        padding-left: 2rem;
+        /* width:108% Adjust padding for smaller screens */
       }
       
       .fetchHistory-button {
@@ -272,18 +275,24 @@
   
   @media(max-width: 540px) {
     .shoppingHistory-containers{
-        width: 103%
+        width: 107.5%
     }
   }
 
   @media(max-width: 280px) {
     .shoppingHistory-containers{
-      padding: 1rem 7.5rem 1rem 3rem;
+      padding: 1rem 2rem 1rem 1rem;
     }
   }
 
   @media(max-width: 360px){
     .shoppingHistory-containers{
-      width: 94%;
-    } 
+      width: 105%;
+      padding: 2rem;
+    }
+  }
+    @media(max-width: 393px){
+      .shoppingHistory-containers{
+        width: 108%;
+      }
   }

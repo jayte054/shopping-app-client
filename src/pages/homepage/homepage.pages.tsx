@@ -315,13 +315,15 @@ export interface CreateListDto {
             </div>
             <div style={{}} className="socialsShareContainer">
                 <p> Share on: <br /> 
+                
                 <div>
                 <ShareData description = {shareData()} />
-                                <WhatsappShareButton
-                                url={`${(shareData())}`}
-                                >  
-                                    <WhatsappIcon  size="32" round color="black"/>
-                                </WhatsappShareButton>
+                <WhatsappShareButton
+                        className="whatsapp"
+                        url={`${(shareData())}`}
+                >  
+                <WhatsappIcon  size="32" round color="black"/>
+                </WhatsappShareButton>
                 </div>
                                 
                 </p>
