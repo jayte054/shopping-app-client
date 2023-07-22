@@ -67,7 +67,7 @@ export interface CreateListDto {
         return (
             <>
             <h3><SlNote style={{fontWeight: "bold"}}/>Shopping Manager</h3>
-             <span>My shopping list</span>
+             <span>{username + "'s" ? username + "'s" : "My"} shopping list</span>
             <ul>
             {itemList.map((item, index) => (
                 <li key={index}>{item}</li>
@@ -83,11 +83,8 @@ export interface CreateListDto {
 
     const shareData: any = () => {
         const itemList = inputFields.map(item => `${item.item} - ₦${item.price}`);
-        const cart = `
-        Shopping Manager
-        My shopping list:
-        ${itemList.join("\n")}
-        Total: ₦${totalPrice}`;
+        const cart = `Shopping Manager\n${username + "'s" ? username + "'s" : "My"} shopping list:\n` +
+        itemList.join("\n") + `\nTotal: ₦${totalPrice}`;
       
         return cart;
       };

@@ -23,6 +23,8 @@
     text-transform: uppercase;
     font-weight: bold;
     padding-bottom: 1rem;
+    border-radius: 10px;
+    border-color: black;
   }
   
   .form-elements {
@@ -40,11 +42,20 @@
     width: 7rem;
     height: 2rem;
   }
+
+  .price-input{
+    border-radius: 5px;
+  }
+
+  .item-input{
+    border-radius: 5px;
+  }
   
   .print-input {
     width: 20rem;
     height: 15rem;
     margin-left: 6rem;
+    border-radius: 10px;
   }
   
   .landingpage-print-container {
@@ -74,6 +85,7 @@
     line-height: 1.5rem;
     padding-left: 1rem;
     overflow: auto;
+    border-radius: 8px;
   }
   
   @media (max-width: 375px) {

@@ -101,6 +101,7 @@ export const check = async({username, password}:any): Promise<any> => {
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </button>
             <p> If you don't have an account, please <Link to="/signup"> sign up </Link>  </p>
+            <p> Forgotten password, no problem,<Link to = "/resetPassword"> click here </Link> </p>
             <button type="button" onClick = {(e) => handleSubmit(e)}> Sign In </button>
             </form>
         </div>

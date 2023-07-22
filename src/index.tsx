@@ -8,7 +8,7 @@ import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {signinService, signoutService, signupService, removeToken, loadToken, saveToken} from './services/auth.service';
+import {signinService, signoutService, signupService, removeToken, loadToken, saveToken, resetPaswordEmailService, resetPasswordService} from './services/auth.service';
 import { CreateList, fetchShoppingLists } from './services/history.services';
 import {userStore} from './stores/user.stores';
 import { historyStore } from './stores/history.stores';
@@ -26,7 +26,7 @@ const browserHistory = createBrowserHistory();
 const history = syncHistoryWithStore(browserHistory, 
                                     stores.routerStore);
 
-const authService = { signinService, signoutService, signupService, removeToken, loadToken, saveToken };
+const authService = { signinService, signoutService, signupService, removeToken, loadToken, saveToken, resetPaswordEmailService, resetPasswordService };
 const historyService = {CreateList, fetchShoppingLists}
 const profileService = {CreateProfile}
 const directoryService = {fetchDirectory}

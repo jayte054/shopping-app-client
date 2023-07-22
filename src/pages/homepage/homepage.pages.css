@@ -18,7 +18,7 @@
 }
 .print-container{
     margin-top: 5.5rem;
-    padding-right:7rem;
+    padding-right:3rem;
     display: flex;
     justify-content: space-between;
 }
@@ -32,7 +32,7 @@
 .homepage-print-input{
     border-color: black;
     border-style: double;
-    width:18rem;
+    width:16rem;
     text-transform: uppercase;
     padding-bottom: 2rem;
     background-color: white;
@@ -192,9 +192,10 @@
       background-color: azure;
       margin-top: -1rem;
       padding-top: 0.5rem;
-      margin-bottom: -1rem;
+      margin-bottom: 1rem;
       padding-bottom: 0.5rem;
-      width:100%;
+      width: 100%;
+      
     }
     
     WhatsappIcon {
@@ -211,6 +212,7 @@
         display: flex;
         flex-direction: column; /* Change flex direction for smaller screens */
         width: 115%;
+        margin:2rem
         
       }
       
@@ -284,9 +286,8 @@
       .socialsShareContainer {
         text-align: center;
         background-color: azure;
-        margin-top: -1rem;
+        margin: 2rem;
         padding-top: 0.5rem;
-        margin-bottom: -1rem;
         padding-bottom: 0.5rem;
       }
       
@@ -397,7 +398,7 @@
 @media(max-width: 540px) {
     .homepage-container {
         background-color: azure;
-        margin-top: -0.5rem;
+        margin: 1rem;
         padding-left: 1rem; /* Adjust padding for smaller screens */
         padding-top: 1rem;
         display: flex;
@@ -475,7 +476,7 @@
       .socialsShareContainer {
         text-align: center;
         background-color: azure;
-        margin-top: -1rem;
+        margin: 1rem;
         padding-top: 0.5rem;
         margin-bottom: -1rem;
         padding-bottom: 0.5rem;
@@ -583,7 +584,7 @@
 @media(max-width: 412px) {
     .homepage-container {
         background-color: azure;
-        margin-top: -0.5rem;
+        margin-top: 1rem;
         padding-left: 1.1rem; /* Adjust padding for smaller screens */
         padding-top: 1rem; /* Adjust padding for smaller screens */
         display: flex;
@@ -664,9 +665,10 @@
         background-color: azure;
         margin-top: -1rem;
         padding-top: 0.5rem;
-        margin-bottom: -1rem;
+        margin-bottom: 1rem;
         padding-bottom: 0.5rem;
         width: 123%;
+        margin-top: 1rem;
       }
       
       WhatsappIcon {
@@ -678,6 +680,7 @@
 @media(max-width: 393px){
   .homepage-container{
     width:119%;
+    margin-top: 1rem;
   }
 }
 

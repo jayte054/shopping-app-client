@@ -1,9 +1,10 @@
 .benefit-container {
-    margin-top: -1rem;
+    margin: 1rem;
     padding-bottom: 1rem;
     background-color: darkgray;
     display: flex;
     justify-content: space-between;
+    border-radius: 10px;
   }
   
   .dynamic-icon-container {

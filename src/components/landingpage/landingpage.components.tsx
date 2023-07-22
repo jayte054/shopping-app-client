@@ -102,7 +102,7 @@ const LandingPage = () => {
             <button
               type="button"
               style={{
-                width: "5rem",
+                width: "3rem",
                 paddingBottom: "-2rem",
                 paddingRight: ".5rem",
                 paddingLeft: "0",
@@ -110,12 +110,17 @@ const LandingPage = () => {
                 marginTop: "1rem",
                 marginBottom: "1.5rem",
                 textAlign: "center",
+                borderColor: "black",
+                borderRadius: "5px"
               }}
               onClick={handleTotalClick}
             >
               Total
             </button>
-            <input type="number" value={total} readOnly />
+            <input style={{width: "10%",
+                           borderColor: "black",
+                           borderRadius: "5px"}} 
+                    type="number" value={total} readOnly />
           </form>
           <div className="landingpage-print-container">
             <div style={{ display: "flex", flexDirection: "column", margin: "1rem" }}>

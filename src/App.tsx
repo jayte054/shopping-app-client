@@ -13,6 +13,7 @@ import  ShoppingHistoryPage  from './pages/ShoppingHistoryPage/shoppingHistory.p
 import { UserProvider } from './context/authContext/authContext';
 import { DirectoryPage } from './pages/DirectoryPage/directoryPage';
 import { CreateEntryPage } from './pages/DirectoryPage/createDirectoryentryPage';
+import { ResetPassword } from './pages/resetPassword/resetPassword';
 
 
  function App() {
@@ -25,6 +26,7 @@ import { CreateEntryPage } from './pages/DirectoryPage/createDirectoryentryPage'
         <Route path ="/" element = {<LandingPage />} />
         <Route path ="/signup" element ={<SignUpPage />} />
         <Route path="/signin" element = {<SignInPage />} />
+        <Route path="/resetPassword" element = {<ResetPassword />} />
         <Route element={<ProtectAuthRoute />}>
         <Route path="/auth/homepage"  element={<Homepage />} />
         <Route path="/auth/profile" element={<Profile />} />

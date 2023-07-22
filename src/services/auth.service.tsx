@@ -24,6 +24,16 @@ export const signupService = async (username: string, password: string): Promise
   return result.data.username;
 };
 
+export const resetPaswordEmailService = async (username: string): Promise<string> => {
+  const response = await axios.post(`${BASE_URL}/auth/resetEmail`, {username})
+  return response.data
+}
+
+export const resetPasswordService = async ({newPassword, token}: any): Promise<string> => {
+  const result = await axios.post(`${BASE_URL}/auth/resetPassword`, {newPassword, token})
+  return result.data
+}
+
 export const signoutService = () => {
  return removeToken();
 };
