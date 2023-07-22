@@ -180,8 +180,8 @@ const SignUpPage = ({ userStore, routerStore }: any) => {
 
   return (
     <React.Fragment>
-      <div className="signup-container">
         <NavBarSignUp />
+      <div className="signup-container">
         <h2>please provide your sign up details below</h2>
 
         {errorMessage && <ErrorMessage message={errorMessage} />}

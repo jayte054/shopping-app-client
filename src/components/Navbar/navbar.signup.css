@@ -1,16 +1,16 @@
-.nav-container{
+.navbar-container{
     position:relative;
     background-color: rgb(66, 173, 245);
     display: flex;
     align-items:center;
     justify-content: space-between;
     /* width:100%; */
-    z-index:1;
-    border-radius: 10px;
     margin:1rem;
+    border-radius: 10px;
+    z-index:1;
 }
 
-.nav-title{
+.navbar-titles{
     color: black;
     margin: 1rem 1rem;
 }
@@ -21,39 +21,56 @@
 }
 
  @media(max-width: 375px){
-    .nav-container{
+    .navbar-container{
         width:100%;
         font-size: .6rem;
        margin: 0rem 0rem 0rem 0rem;
     }
-    .nav-title{
+    .navbar-titles{
         padding:0rem;
         margin: .5rem 0rem .5rem 1rem;
     }
 
-    .nav-auth{
+    .navbar-auths{
         margin: 1rem 0rem 1rem 0rem
     }
 }
 
  @media(max-width: 414px){
-    .nav-container{
+    .navbar-container{
         width:100%;
-
+        margin: 1rem;
     }
-    .nav-title{
+    .navbar-titles{
         padding-top:0rem;
        margin-left: 1rem;
         font-size: 1.6rem;
     }
 
-    .nav-auth{
-        margin: 1.7rem 0rem 1.3rem 0rem
+    .navbar-auths{
+        margin: 1.7rem 1rem 1.3rem 0rem
     }
 } 
 
 @media(max-width: 540px){
-    .nav-container{
+    .navbar-container{
         width: 100%;
+    }
+}
+
+@media(max-width: 280px){
+    .navbar-container{
+        width: 154%;
+    }
+}
+
+@media(max-width: 360px) {
+    .navbar-container{
+        width: 90%;
+        margin-left: 1rem;
+    }
+
+    .navbar-titles{
+        margin-right: 1rem;
     }
 }

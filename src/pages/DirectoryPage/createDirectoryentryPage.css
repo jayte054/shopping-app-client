@@ -3,6 +3,9 @@
         flex-direction: row; 
         justify-content: space-between;
         padding: 1rem; 
+        border-radius: 10px;
+        margin: 1rem;
+        background-color: azure;
         
 }
 
@@ -17,6 +20,7 @@
     border-top: none;
     padding-top:1rem;
     width: 150%;
+    background-color: azure;
 }
 
 .table-container1{

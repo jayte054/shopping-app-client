@@ -54,7 +54,10 @@ export const DirectoryPage = ()=> {
         <React.Fragment>
             <div>
                 <NavbarDirecotry />
-                <div style={{padding: "1rem"}}>
+                <div style={{padding: "1rem", 
+                             backgroundColor: "azure", 
+                             margin: "1rem", 
+                             borderRadius: "10px"}}>
                 <h1>Shopping Manager Directory</h1>
                 <p>You can check for the stores and/or traders closest to you</p>
                 <button type="button" onClick= {fetchDirectory}>
