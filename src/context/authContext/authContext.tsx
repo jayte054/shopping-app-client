@@ -14,8 +14,6 @@
 
    const updateUser = (userData: any) => {
      setUser(userData);
-     console.log(userData)
-      // return userData
    };
    
  

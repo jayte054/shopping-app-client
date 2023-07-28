@@ -12,6 +12,7 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
   const [itenary, setItenary] = useState<any>([]);
   const [currentPage, setCurrentPage] = useState<any>(1)
   const [count, setCount] = useState(0)
+  
 
   const username = user && user.user ? user.user.username : ""
   const recordsPerPage = 10;
@@ -20,6 +21,8 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
   const records = itenary.slice(firstIndex, lastIndex)
   const nPage = Math.ceil(itenary.length / recordsPerPage)
   const numbers = Array.from({ length: nPage }, (_, i) => i + 1);
+
+ 
 
 
   const fetchShoppingLists = async () => {
@@ -90,6 +93,7 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
            
         <div className="shoppingHistory-sub-container">
             <h3>{`${username ? username : "My"}`} shopping history</h3>
+            
             <table className ="table-container">
           <thead className="table-header">
             <tr>

@@ -3,7 +3,6 @@ import  {signinService, removeToken, signupService, resetPaswordEmailService, re
 
    async function SignIn({username, password}: any): Promise<any> {
     const result = await signinService({username, password});
-    console.log(result)
     return result
   }
 

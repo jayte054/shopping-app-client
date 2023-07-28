@@ -26,7 +26,6 @@ export const checkLoginStatus = () => {
 
 export const  ProtectAuthRoute = () => {
     const isAuthenticated = checkLoginStatus()
-    console.log(isAuthenticated)
      return (
         <>
             {isAuthenticated === true ? (

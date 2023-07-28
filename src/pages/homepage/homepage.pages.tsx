@@ -21,15 +21,7 @@ export interface CreateListDto {
  const Homepage = () => {
     const {user} = useContext(AuthContext)
     const username = user && user.user ? user.user.username : "";
-    const location = useLocation()
-     console.log(location.state)
-    //   const name = location.state && location.state.data.user.username
-    // name.push(location.state && location.state.data.user.username)
-    //  console.log(state)
-    //  const username = state
-    //  console.log(username)
    
-    // console.log(user.user.username)
  
     const [inputFields, setInputFields] = useState([
         {
@@ -77,7 +69,6 @@ export interface CreateListDto {
             </>
         )
     }
-    console.log(inputFields)    
     setInputFields2(item)
     }
 
@@ -98,64 +89,6 @@ export interface CreateListDto {
     }
 
     
-      
-    // const savePrintCart = useCallback(
-    //     async (e: React.MouseEvent<HTMLButtonElement>) => {
-    //       const userDetails = user.accessToken;
-    //       e.preventDefault();
-    //       const token = localStorage.getItem("accessToken");
-    //       console.log("print");
-    //       console.log(userDetails);
-    
-    //       const shoppingListItems: any[] = inputFields.map(
-    //         (fields) => fields.item
-    //       );
-    //       const shoppingListPrices: any[] = inputFields.map(
-    //         (fields) => fields.price
-    //       );
-    
-    //       const { CreateList_HistoryStore } = historyStore;
-    //       try {
-    //         const response = await CreateList_HistoryStore(
-    //           shoppingListItems,
-    //           shoppingListPrices,
-    //           userDetails
-    //         );
-    //         console.log(response);
-    //         window.alert("Shopping List saved successfully");
-    //       } catch (error) {
-    //         console.log(error);
-    //         window.alert("Failed to save Shopping List");
-    //       }
-    //     },
-    //     [inputFields, user.accessToken]
-    //   );
-
-    //  useEffect(() =>{
-    //     function save(){
-    //         const userDetails = user.accessToken
-    //          // e.preventDefault()
-    //          const token = localStorage.getItem( "accessToken")
-    //          console.log("print")
-    //         console.log(userDetails)
-              
-    //          const shoppingListItems: any[] = inputFields.map((fields) => fields.item);
-    //          const shoppingListPrices: any[] = inputFields.map((fields) => fields.price);
-                  
-    //           const {CreateList_HistoryStore} = historyStore
-    //          try {
-    //            const response = await CreateList_HistoryStore(shoppingListItems, shoppingListPrices, userDetails);
-    //               console.log(response)
-    //            window.alert("Shopping List saved successfully");
-    //          } catch (error) {
-    //            console.log(error);
-    //            window.alert("Failed to save Shopping List");
-    //          }
-    //        };
-    //         save()
-
-    // }
-    //   }, [inputFields, user.accessToken]);
 
     const savePrintCart = async (e:any) => {
         e.preventDefault()
@@ -177,7 +110,6 @@ export interface CreateListDto {
                     window.alert("Shopping List already exists");
                     return;
                   }
-             console.log(response)
           toastify({
             text : "Shopping List saved successfully", 
             gravity: "top",
@@ -186,7 +118,6 @@ export interface CreateListDto {
             close: true
           }).showToast();
         } catch (error) {
-          console.log(error);
           toastify({
             text: "shopping list unsuccessfully saved",
             gravity: "top",
@@ -196,52 +127,7 @@ export interface CreateListDto {
           }).showToast();
         }
       };
-
-    // const savePrintCart = async (e: any) => {
-    //     e.preventDefault();
-    //     const userDetails = user.accessToken;
-      
-    //     const shoppingListItems: any[] = inputFields.map((fields) => fields.item);
-    //     const shoppingListPrices: any[] = inputFields.map((fields) => fields.price);
-      
-    //     const { CreateList_HistoryStore } = historyStore;
-    //     try {
-    //       const existingList = await CreateList_HistoryStore(
-    //         shoppingListItems,
-    //         shoppingListPrices,
-    //         userDetails
-    //       );
-      
-    //       if (existingList && existingList.length > 0) {
-    //         toastify({
-    //           text: "Shopping List already exists",
-    //           gravity: "top",
-    //           backgroundColor: "red",
-    //           duration: 3000,
-    //           close: true
-    //         }).showToast();
-    //         // return;
-    //       }
-      
-    //       toastify({
-    //         text: "Shopping List saved successfully",
-    //         gravity: "top",
-    //         backgroundColor: "green",
-    //         duration: 3000,
-    //         close: true
-    //       }).showToast();
-    //     } catch (error) {
-    //       console.log(error);
-    //       toastify({
-    //         text: "Shopping list unsuccessfully saved",
-    //         gravity: "top",
-    //         duration: 3000,
-    //         close: true,
-    //         backgroundColor: "red"
-    //       }).showToast();
-    //     }
-    //   };
-    
+  
     return (
         <div>
             <NavBar />

@@ -29,19 +29,14 @@ export const check = async({username, password}:any): Promise<any> => {
     };
 
      const {SignIn} = userStore
-      console.log(userStore)
-       console.log(user)
+      
 
       const handleSubmit = async (e: React.SyntheticEvent) => {
         e.preventDefault();
-      console.log("hit")
       
         try {
-          console.log(username, password)
            const userData = await SignIn({username, password});
-           console.log(userData)
            updateUser(userData)
-          console.log(user)
           toastify({
             text:`${username} signin successful`,
             backgroundColor: "green",
@@ -52,7 +47,6 @@ export const check = async({username, password}:any): Promise<any> => {
            navigate("/auth/homepage", { state: { data: userData.user.username }, replace: true }) ;
           
         } catch (error: any) {
-          console.log(error)
           const errorMessage = error.response?.data?.message;
           toastify({
             text: "signin unsuccessful",
@@ -61,7 +55,6 @@ export const check = async({username, password}:any): Promise<any> => {
             gravity: "top",
             close: true
           }).showToast()
-          console.log(errorMessage)
           setErrorMessage(errorMessage);
         }
       };

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import toastify from "toastify-js"
 import AuthContext from "../../context/authContext/authContext";
 import { inject, observer } from "mobx-react";
@@ -12,7 +12,24 @@ export const DirectoryPage = ()=> {
     const [directoryList, setDirectoryList] = useState<any>([])
     const [currentPage, setCurrentPage] = useState<any>(1)
     const [count, setCount] = useState(0)
+    const [searchQuery, setSearchQuery] = useState('')
+    const [filteredRecords, setFilteredRecords] = useState([])
 
+ 
+    
+      useEffect(() => {
+        const searchFunction = () => {
+          if (searchQuery.trim() === ""){
+            setFilteredRecords(directoryList)
+          }else{
+            const filtered: any = directoryList.filter((item: any) => 
+                item.name && item.name.toLowerCase().includes(searchQuery.toLowerCase())
+            )
+            setFilteredRecords(filtered)
+          }
+        }
+        searchFunction()
+    }, [searchQuery, directoryList])
 
     const recordsPerPage = 20
     const lastIndex = currentPage * recordsPerPage;
@@ -63,8 +80,25 @@ export const DirectoryPage = ()=> {
                 <button type="button" onClick= {fetchDirectory}>
                     Fetch Directory
                 </button>
+
+                {/* <span> */}
+               
+              
                 <div>
+                {/* <div> */}
+                <input type = "text"
+                     value = {searchQuery} 
+                     onChange = {(e) => setSearchQuery(e.target.value)}
+                     placeholder = "search..."
+              />
+              {/* <button type="button"
+                      onClick={searchFunction}>
+                    Search
+              </button> */}
+            {/* </span> */}
+                {/* </div> */}
                     <table className="table-container">
+                        
                         <thead className="table-header">
                             <tr>
                                 <th>ID</th>
@@ -75,8 +109,8 @@ export const DirectoryPage = ()=> {
                             </tr>
                         </thead>
                         <tbody>
-                            {records && records.length > 0 ? (
-                                records.map((item: any, index: number) =>(
+                            {filteredRecords && filteredRecords.length > 0 ? (
+                                filteredRecords.map((item: any, index: number) =>(
                                     <tr key={item.id}>
                                         <td>{index + 1}</td>
                                         <td>{item.name}</td>
