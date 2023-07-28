@@ -3,13 +3,12 @@ import NavBar from "../../components/Navbar/navbar.landingpage"
 import { Footer } from "../../components/footer/footer.components"
 import { userStore } from "../../stores/user.stores"
 import toastify from "toastify-js"
-import { Navigate } from "react-router"
-import {useNavigate} from "react-router-dom"
+// import {useNavigate} from "react-router-dom"
 import { FaEye, FaEyeSlash } from "react-icons/fa"
 import "./resetPassword.css"
 
 export const ResetPassword = () => {
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     const {ResetEmail, ResetPassword} = userStore
     const [username, setUsername] = useState("")
     const [showPassword, setShowPassword] = useState(false)
@@ -55,7 +54,7 @@ export const ResetPassword = () => {
                 backgroundColor: "grey",
                 close: true
             }).showToast()
-            navigate("/signin")
+            document.location.href = ("signin")
         }catch(error){
             toastify({
                 text:"password reset unsuccessful",

@@ -290,7 +290,7 @@ export interface CreateListDto {
             />
             <h4 style={{marginBottom:"0rem"}}>Note</h4>
             <p >To expeirence payments without any charge , please use  
-                <a style={{fontWeight:"bold", marginLeft:"5px", color:"green"}} 
+                <a className="wallet" style={{fontWeight:"bold", marginLeft:"5px", color:"green"}} 
                 href="https://mywallet.enaira.gov.ng/registration/" 
                 target="_blank">
                 e₦aira Wallet

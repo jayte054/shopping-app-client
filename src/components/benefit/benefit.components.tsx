@@ -12,10 +12,10 @@ export const Benefit = () => {
             <h2> Benefits of having an account with us </h2>
             <ul className="list-container"> 
                 <li> Unlimited number of items to be collated </li>
-                <li> Regular news updates on our upgrades </li>
                 <li> Real time options on how you want to use your list of collated items </li>
-                <li> Ability to communicate with vendors who have an online presence</li>
-                <li> Real time messaging to your private email</li>
+                <li> Ability to communicate with retailers who have an online presence</li>
+                <li> Regular news updates on our upgrades </li>
+
             </ul>
             <p>Why don't you <Link to="/signup"> sign up </Link></p>
             </div>

@@ -15,7 +15,7 @@ import { historyStore } from './stores/history.stores';
 import { CreateProfile } from './services/profileService';
 import { profileStore } from './stores/profileStore';
 import { UserProvider } from './context/authContext/authContext';
-import { fetchDirectory } from './services/directoryServices';
+import { createDirectoryEntry, fetchDirectory, registerOnDirectoryMail } from './services/directoryServices';
 import { directoryStore } from './stores/directory.stores';
 
 let stores: any = {}
@@ -29,7 +29,7 @@ const history = syncHistoryWithStore(browserHistory,
 const authService = { signinService, signoutService, signupService, removeToken, loadToken, saveToken, resetPaswordEmailService, resetPasswordService };
 const historyService = {CreateList, fetchShoppingLists}
 const profileService = {CreateProfile}
-const directoryService = {fetchDirectory}
+const directoryService = {fetchDirectory, createDirectoryEntry, registerOnDirectoryMail, }
 stores.authService = authService;
 stores.historyService = historyService
 stores.profileService = profileService

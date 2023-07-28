@@ -4,8 +4,49 @@ import {BsFacebook} from "react-icons/bs"
 import {GiLion} from "react-icons/gi"
 import "./footer-components.css"
 import { Link } from "react-router-dom"
+import toastify from "toastify-js"
+import { useState } from "react"
+import { directoryMailInput } from "../../services/directoryServices"
+import { directoryStore } from "../../stores/directory.stores"
 
 export const Footer = () => {
+    const [username, setUsername] = useState("")
+
+    const handleSendMail = (e: React.FormEvent) => {
+        e.preventDefault()
+        return sendMail(e)
+    }
+
+    const sendMail =  async (e: React.FormEvent) => {
+        e.preventDefault()
+        const input: directoryMailInput = {username}
+       const accessToken: any = localStorage.getItem("accessToken")
+
+       const {directoryMail_Store} = directoryStore
+    try{
+       const response:any =  await directoryMail_Store(input, accessToken )
+        toastify({
+            text: "directory request mail sent successfully!",
+            duration: 3000,
+            gravity: "top", 
+            backgroundColor: "green",
+            close: true,
+        }).showToast()
+        setUsername(username)
+    }catch(error){
+        console.log(error)
+        toastify({
+            text: "directory request mail sent unsuccessfully!",
+            duration: 3000,
+            gravity: "top", 
+            backgroundColor: "red",
+            close: true,
+        }).showToast()
+    }
+   
+    }
+
+
     return (
         <div>
         <div className="container">
@@ -25,11 +66,24 @@ export const Footer = () => {
             <p><a className="link" href="#"> <BsFacebook /> @shoppingapp </a></p>
            </div>
            <div className="footer-end">
-           <p> You could also sign up for our news letters</p>
+           <p> for entry into the directory page, please contact us at</p>
             <span>Email</span> <br />
-            <input type="email" placeholder="email address" required /> <br />
-            <button>Submit</button>
-            <p>contact us @ <a className="link" href="#"> shoppingmanager317@gmail.com </a></p>
+            <input style={{width: "30%"}} 
+                   type="email" 
+                   placeholder="email address" 
+                   value = {username}
+                   onChange={(e) => setUsername(e.target.value)}
+                   required /> <br />
+            <button type="button"
+                   onClick={(e) => handleSendMail(e)}
+                    >
+                        Submit
+                    </button>
+            <p>  contact us @ 
+                <a className="link" href="#"> 
+                shoppingmanager317@gmail.com 
+                </a>
+            </p>
            </div>
             <span style={{marginLeft: "2rem"}}>
                   <Link  to="/auth/createEntry" className="link"> 

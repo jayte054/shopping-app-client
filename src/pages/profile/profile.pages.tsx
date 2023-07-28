@@ -24,7 +24,7 @@ import { AuthContext } from "../../context/authContext/authContext"
     
    
     const getProfile = async (profileId: string, accessToken: any): Promise<void> => {
-        console.log("get")
+        
       profileId  = user.profileId 
       console.log(profileId)
       accessToken = localStorage.getItem("accessToken")

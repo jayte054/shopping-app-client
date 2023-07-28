@@ -13,6 +13,7 @@ export const BurgerMenu = (props: {displayBurgerMenu: any,
                                     toggleVisibility:any}) => {
     const {SignOut} = userStore
     const {setDisplayBurgerMenu, showIcon, toggleVisibility} = props
+    
     const closeMenu = () => {
         setDisplayBurgerMenu((pre:any) => !pre)
         toggleVisibility()

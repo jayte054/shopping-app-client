@@ -84,6 +84,20 @@
     position: relative;
 }
 
+.wallet:hover::after{
+  content: "create an e-wallet";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  animation: fadeOut 4s forwards;
+}
+
 .whatsapp:hover::after{
   content: "click on the Shopping Manager Directory to view stores closest to you";
   position: absolute;

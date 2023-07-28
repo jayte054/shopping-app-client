@@ -1,6 +1,6 @@
 import React from 'react';
 // import {Navigate, useLocation} from "react-router-dom";
-import {Route, BrowserRouter as Router, Routes, Navigate, useLocation} from "react-router-dom"
+import {Route, BrowserRouter as Router, Routes} from "react-router-dom"
 import './App.css';
 import LandingPage from "./components/landingpage/landingpage.components"
 import  SignUpPage  from './pages/signup-page/signupPage.pages';
@@ -43,4 +43,4 @@ import { ResetPassword } from './pages/resetPassword/resetPassword';
   ;
 }
 
-export default (App);
+ export default App

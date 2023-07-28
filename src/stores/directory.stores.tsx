@@ -1,4 +1,4 @@
-import { fetchDirectory, directoryInput, createDirectoryEntry } from "../services/directoryServices"
+import { fetchDirectory, directoryInput, createDirectoryEntry, directoryMailInput, registerOnDirectoryMail } from "../services/directoryServices"
 
  const FetchDirectory_Store = async(accessToken: any): Promise<any> => {
     try{
@@ -17,7 +17,18 @@ import { fetchDirectory, directoryInput, createDirectoryEntry } from "../service
     }
 }
 
+    const directoryMail_Store = async(directoryMailInput: directoryMailInput, accessToken: string): Promise<string> => {
+        const {username} = directoryMailInput
+        try{
+            await registerOnDirectoryMail(directoryMailInput, accessToken)
+            return "mail sent successfully"
+        }catch(error){
+            throw new Error(`${username} directory mail unsuccessful`)
+        }
+    }
+
 export const directoryStore = {
     FetchDirectory_Store,
-    createDirectory_Store
+    createDirectory_Store,
+    directoryMail_Store
 }

@@ -24,7 +24,7 @@ export const checkLoginStatus = () => {
     }
 }
 
-export const ProtectAuthRoute = () => {
+export const  ProtectAuthRoute = () => {
     const isAuthenticated = checkLoginStatus()
     console.log(isAuthenticated)
      return (
