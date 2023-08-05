@@ -29,12 +29,9 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
     try {
       const accessToken = user.accessToken;
       const lists = await  FetchLists_HistoryStore(accessToken);
-      console.log( typeof lists)
-    //   const parsedLists = JSON.parse(lists); // Parse the JSON string response
     const Lists = lists.split(",")
     const parsedLists = JSON.parse(Lists)
     parsedLists.sort((a:any,b: any) => b - a)
-      console.log("Shopping Lists:", parsedLists);
       setItenary(parsedLists);
       setCount(parsedLists.length)
       toastify({
@@ -54,7 +51,6 @@ const ShoppingHistoryPage = ({ historyStore }: any) => {
             close: true,
             duration: 3000
           }).showToast()
-      console.log(error);
     }
   };
 

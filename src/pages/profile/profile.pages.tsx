@@ -26,9 +26,7 @@ import { AuthContext } from "../../context/authContext/authContext"
     const getProfile = async (profileId: string, accessToken: any): Promise<void> => {
         
       profileId  = user.profileId 
-      console.log(profileId)
       accessToken = localStorage.getItem("accessToken")
-        console.log(localStorage.getItem("accessToken"))
         const { getProfile } = profileStore;
         try {
           const profileData = await getProfile(profileId, accessToken);
@@ -36,7 +34,6 @@ import { AuthContext } from "../../context/authContext/authContext"
           setLastName(profileData.lastName);
           setPhoneNumber(profileData.phoneNumber);
           setAddress(profileData.address);
-          console.log(profileData.firstName, profileData.lastName, profileData.phoneNumber, profileData.address)
           
           toastify({
             text: "profile data retrieved successfully!",
@@ -56,7 +53,6 @@ import { AuthContext } from "../../context/authContext/authContext"
               backgroundColor: "red",
               close: true
             }).showToast()
-            console.log('Profile not found');
           
           } else {
             toastify({
@@ -98,9 +94,11 @@ import { AuthContext } from "../../context/authContext/authContext"
               backgroundColor: "green",
               close: true
           }).showToast()
-            
+          setFirstName("")
+          setLastName("")
+          setPhoneNumber("")
+          setAddress("")  
         }catch(error: any){
-            console.log(error)
             toastify({
               text:"profile update unsuccessful",
               duration:3000,

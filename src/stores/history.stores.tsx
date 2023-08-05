@@ -1,11 +1,6 @@
 import AuthContext from "../context/authContext/authContext";
 import { CreateList, fetchShoppingLists, ListInput } from "../services/history.services";
-import {useContext} from "react"
-// let itenary: any[] = []
-// const createList_HistoryStore = async({item, price}: any) => {
-//     const result = await createList({item, price})
-//     return itenary.push(result.data)
-// }
+
 
 
 let Itenary: any[] = [];
@@ -26,7 +21,6 @@ export const CreateList_HistoryStore = async (
       results.push(result);
     }
     Itenary.push(results);
-    // return results;
   } catch (error) {
     throw error;
   }
