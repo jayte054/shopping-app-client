@@ -28,7 +28,6 @@ export const CreateList_HistoryStore = async (
     Itenary.push(results);
     // return results;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };
@@ -36,17 +35,9 @@ export const CreateList_HistoryStore = async (
 export const FetchLists_HistoryStore = async (accessToken: any): Promise<any> => {
   try {
     const response = await fetchShoppingLists(accessToken);
-    console.log(response)
-
-    // if (response) {
-    //   const itenary = JSON.stringify(response.data); // Assign the response data to a variable
-    //   console.log(typeof itenary)
-    //   return itenary; // Return the variable
-    // }
-    console.log(typeof response)
+    
     return response;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };

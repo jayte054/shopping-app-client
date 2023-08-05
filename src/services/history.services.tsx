@@ -17,14 +17,10 @@ export const CreateList = async (listInput:ListInput, accessToken:any ): Promise
         }
     }
     try {
-        // const response = await axios.get(url, {item, price}, config)
-      const response = await axios.post(`${BASE_URL}/shopper/createlist`, listInput, config);
-        console.log(accessToken)
-      console.log("Here : ", response.data)
-      //console.log(response.data)
-    //   return response.data;
+       await axios.post(`${BASE_URL}/shopper/createlist`, listInput, config);
+     
     } catch (error) {
-        console.log(error)
+        
       throw error;
     }
   };

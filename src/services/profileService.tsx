@@ -10,8 +10,7 @@ import { userStore } from "../stores/user.stores";
 }
 
 export const CreateProfile = async(profileInput: profileInput, accessToken: any) => {
-    // const token = localStorage.getItem("accessToken")
-    // accessToken = token
+  
     try{
         const response = await axios.post(`${BASE_URL}/profile/createprofile`, profileInput, {
             headers: {
@@ -20,7 +19,6 @@ export const CreateProfile = async(profileInput: profileInput, accessToken: any)
         })
         return response.data
     }catch(error){
-        console.log(error)
         throw error
     }
     

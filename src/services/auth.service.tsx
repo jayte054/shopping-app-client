@@ -2,7 +2,7 @@
 
 import axios from "axios";
 
-export const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3002"
+export const BASE_URL = process.env.REACT_APP_BASE_URL || "https://shopping-manager-backend.onrender.com"
 
 export const signinService = async ({username, password}:any): Promise<any> => {
   const result = await axios.post(`${BASE_URL}/auth/signin`, { username, password });
@@ -58,5 +58,3 @@ export const saveToken = (accessToken: string) => {
   export const removeToken: any = () => {
     localStorage.removeItem("accessToken");
   };
-
-// export default authService

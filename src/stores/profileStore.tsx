@@ -14,7 +14,6 @@ const getProfile = async(profileId: any, accessToken: any): Promise<any> => {
       const profileData =  await GetProfile(profileId, accessToken)
       return profileData
     }catch(error: any){
-        console.log(error)
         throw error
     }
 }
