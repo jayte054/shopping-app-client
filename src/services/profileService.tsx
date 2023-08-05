@@ -28,8 +28,8 @@ export const CreateProfile = async(profileInput: profileInput, accessToken: any)
 
 export const GetProfile = async(id: any, accessToken:any):Promise<any> => {
     console.log(localStorage.getItem("accessToken"))
-    //  profileId = localStorage.getItem("id")
-    const url = `https://shopping-manager-backend.onrender.com/${id}`;
+     //  profileId = localStorage.getItem("id")
+    // const url = `${BASE_URL}/profile/${id}`;
      accessToken = localStorage.getItem("accessToken");
     
     const config = {
@@ -39,11 +39,10 @@ export const GetProfile = async(id: any, accessToken:any):Promise<any> => {
     };
     
     try {
-      const response = await axios.get(url, config);
-      console.log(response.data);
+      const response = await axios.get(`${BASE_URL}/profile/${id}`, config);
+      
       return response.data;
     } catch (error) {
-      console.log(error);
       throw error;
     }
   }
