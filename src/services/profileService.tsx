@@ -29,7 +29,7 @@ export const CreateProfile = async(profileInput: profileInput, accessToken: any)
 export const GetProfile = async(id: any, accessToken:any):Promise<any> => {
     console.log(localStorage.getItem("accessToken"))
     //  profileId = localStorage.getItem("id")
-    const url = `http://localhost:3002/profile/${id}`;
+    const url = `${BASE_URL}/${id}`;
      accessToken = localStorage.getItem("accessToken");
     
     const config = {
