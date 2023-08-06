@@ -1,10 +1,8 @@
 import { Link, Outlet, useNavigate } from "react-router-dom"
-import "./navbar.css"
+import "./navbar.homepage.css"
 import {SlNote} from "react-icons/sl"
-import Signout from "../signout"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { inject, observer } from "mobx-react"
-import toastify from "toastify-js"
 import "toastify-js/src/toastify.css"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { BurgerMenu } from "../modal/burgerMenu/burgerMenu.homepage"
@@ -17,9 +15,7 @@ const NavBar = ({userStore}: any) => {
     const navigate = useNavigate()
     const {SignOut} = userStore
 
-    const openModal = () => {
-        setShowModal(!showModal)
-    }
+  
 
     const displayBurger = () => {
         setDisplayBurgerMenu((pre) => !pre)
@@ -30,19 +26,6 @@ const NavBar = ({userStore}: any) => {
         setShowIcon(!showIcon)
     }
 
-    const Signout = async(e: any) => {
-        e.preventDefault()
-        console.log("hit")
-        await SignOut()
-        toastify({
-            text:"signout successful",
-            duration:3000,
-            gravity:"top",
-            backgroundColor: "green",
-            close: true
-        }).showToast()
-        navigate("/")
-    }
  
     return (
         <div  className="navbar-containers">
