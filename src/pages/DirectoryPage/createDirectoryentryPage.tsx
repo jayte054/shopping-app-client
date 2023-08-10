@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import toastify from "toastify-js"
 import NavbarDirecotry from "../../components/Navbar/navbar.direcotry"
 import { directoryInput } from "../../services/directoryServices"
@@ -6,6 +6,7 @@ import { directoryStore } from "../../stores/directory.stores"
 import AuthContext from "../../context/authContext/authContext"
 import { Footer } from "../../components/footer/footer.components"
 import "./createDirectoryentryPage.css"
+import { IoLocation } from "react-icons/io5"
 
 
 export const CreateEntryPage = () => {
@@ -13,6 +14,9 @@ export const CreateEntryPage = () => {
     const [number, setNumber] = useState("")
     const [walletId, setWalletId] = useState("")
     const [address, setAddress] = useState("")
+    const [latitude, setLatitude] = useState("")
+    const [longitude, setLongitude] = useState("")
+    // const [markerPosition, setMarkerPosition] = useState({ lat: 0, lng: 0 });
     const {user} = useContext(AuthContext)
     const {FetchDirectory_Store} = directoryStore
     const [directoryList, setDirectoryList] = useState<any>([])
@@ -35,7 +39,21 @@ export const CreateEntryPage = () => {
             parsedDirectory.sort((a:any, b:any) => a - b)
             setDirectoryList(parsedDirectory)
             setCount(parsedDirectory.length)
+            toastify({
+                text:"directory fetched successfully",
+                duration: 3000,
+                gravity:"top",
+                backgroundColor: "green",
+                close: true
+            }).showToast()
         }catch(error){
+            toastify({
+                text:"fetching data unsuccessful",
+                duration: 3000,
+                gravity: "top",
+                backgroundColor: "red",
+                close: true 
+            }).showToast()
             throw error
         }
     }
@@ -56,14 +74,29 @@ export const CreateEntryPage = () => {
         }
     }
 
+    // useEffect(() => {
+    //     // Convert string lat and long to numbers and set the marker position
+    //     if (directoryList.length > 0) {
+    //       const firstEntry = directoryList[0];
+    //       setMarkerPosition({
+    //         lat: parseFloat(firstEntry.latitude),
+    //         lng: parseFloat(firstEntry.longitude),
+    //       });
+    //     }
+    //   }, [directoryList]);
+
     
     const createEntry = async(e:any) => {
         e.preventDefault()
+
+        
         const input: directoryInput = {
             name,
             number,
             walletId,
-            address
+            address,
+            latitude, 
+            longitude
         }
 
         const {createDirectory_Store} = directoryStore
@@ -78,6 +111,12 @@ export const CreateEntryPage = () => {
                     backgroundColor: "green",
                     close: true
                 }).showToast()
+                setName("")
+                setAddress("")
+                setNumber("")
+                setWalletId("")
+                setLatitude("")
+                setLongitude("")
             }else{
             toastify({
                 text:"entry unsuccessful, admin priviledge required",
@@ -100,6 +139,22 @@ export const CreateEntryPage = () => {
             throw error
         }
     }
+
+    const openGoogleMaps = (latitude: string, longitude: string) => {
+        console.log("Received latitude:", latitude);
+        console.log("Received longitude:", longitude);
+
+        const parsedLatitude = parseFloat(latitude);
+        const parsedLongitude = parseFloat(longitude);
+
+        if (isNaN(parsedLatitude) || isNaN(parsedLongitude)) {
+            console.log("Invalid latitude or longitude.");
+            return;
+        }
+
+        const googleMapsLink = `https://www.google.com/maps/place/${parsedLatitude},${parsedLongitude}`;
+        window.open(googleMapsLink, '_blank');
+      };
     
     return (
         <div >
@@ -137,6 +192,20 @@ export const CreateEntryPage = () => {
                            onChange={e => setAddress(e.target.value)}  
                            required
                            className="entryInput"/><br/>
+                           <li className="entryList">Latitude</li>
+                    <input type="text"
+                           placeholder="latitude"
+                           value={latitude}
+                           onChange={e => setLatitude(e.target.value)}  
+                           required
+                           className="entryInput"/><br/>
+                           <li className="entryList">Longitude</li>
+                    <input type="text"
+                                  placeholder="longitude"
+                                  value={longitude}
+                                  onChange={e => setLongitude(e.target.value)}  
+                                  required
+                                  className="entryInput"/><br/>        
                     <button onClick={(e) => createEntry(e)}>
                         Create Entry 
                     </button>
@@ -166,7 +235,10 @@ export const CreateEntryPage = () => {
                                         <td>{item.name}</td>
                                         <td>{item.number}</td>
                                         <td>{item.walletId}</td>
-                                        <td>{item.address}</td>
+                                        <td>{item.address}
+                                            {" "} 
+                                            {<IoLocation onClick={ () => openGoogleMaps(item.latitude, item.longitude)} />}
+                                            </td>
                                     </tr>
                                     ))
                                 ):(

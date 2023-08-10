@@ -23,7 +23,7 @@ const NavBar = ({userStore}: any) => {
     }
  
     return (
-        <div  className="navbar-containers">
+        <div  className="navbar-container">
         <h1 className="navbar-title"> 
         <Link style={{color: "black"}} to = "/auth/homepage">
         <SlNote />

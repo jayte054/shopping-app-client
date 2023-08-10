@@ -5,7 +5,9 @@ export interface directoryInput {
     name: string,
     number: string,
     walletId: string,
-    address: string
+    address: string,
+    latitude: string,
+    longitude: string
 }
 
 export interface directoryMailInput {

@@ -1,5 +1,5 @@
 import { Link, Outlet } from "react-router-dom"
-import "./navbar.css"
+import "./navbar.shoppingpage.css"
 import {SlNote} from "react-icons/sl"
 import {GiHamburgerMenu} from "react-icons/gi"
 import Signout from "../signout"
@@ -43,15 +43,17 @@ const NavBar = ({userStore}: any) => {
     }
  
     return (
-        <div className="navbar-containers">
+        <div className="navbar-shopping-container">
+            <div>
         <h1 className="navbar-title"> 
-        <Link  to = "/auth/homepage">
+        <Link style={{color: "black"}}  to = "/auth/homepage">
         <SlNote />
         Shopping Manager
         </Link>
         </h1>
+        </div>
         <div  className="burger-div">
-            {showIcon && <GiHamburgerMenu className="burger-icon"
+            {showIcon && <GiHamburgerMenu className="burger-icons"
                             onClick={displayBurger}
             />}
             {displayBurgerMenu && (

@@ -34,8 +34,8 @@ export const BurgerMenu = (props: {displayBurgerMenu: any,
         }).showToast()
     }
     return(
-        <div className="burgerMenu-container">
-            <div className="closeMenu">
+        <div className="burgerMenu-containers">
+            <div className="closeMenu-home">
              <span onClick={closeMenu} 
                   >
                     X

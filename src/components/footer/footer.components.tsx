@@ -52,9 +52,8 @@ export const Footer = () => {
         <div className="container">
             <div>
                 <div>
-                <Link style={{ marginLeft: "1rem"}} 
-                      to="/auth/directory" 
-                      className="link"
+                <Link to="/auth/directory" 
+                      className="linkdirectory"
                       >
                             Shopping Manager Directory
                 </Link>
@@ -79,14 +78,14 @@ export const Footer = () => {
                     >
                         Submit
                     </button>
-            <p>  contact us @ 
-                <a className="link" href="#"> 
-                shoppingmanager317@gmail.com 
+            <p>  contact us @  
+                <a className="link" href="#" style={{marginLeft: ".5rem"}}> 
+                 shoppingmanager317@gmail.com 
                 </a>
             </p>
            </div>
-            <span style={{marginLeft: "2rem"}}>
-                  <Link  to="/auth/createEntry" className="link"> 
+            <span>
+                  <Link  to="/auth/createEntry" className="linkdirectory"> 
                     Admin Directory
                   </Link>
             </span>

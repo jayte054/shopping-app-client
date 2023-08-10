@@ -1,7 +1,7 @@
-.signup-container{
+.signup-containers{
     background-color: azure;
     text-align: center;
-    padding-bottom: 1rem;
+    padding: 1rem;
     border-radius: 10px;
     margin: 1rem;
 }
@@ -24,19 +24,27 @@
 }
 
 @media(max-width: 414px){
-    .signup-container{
-        width:116%;
+    .signup-containers{
+        width:110%;
     }
 }
 
 @media(max-width: 540px){
-    .signup-container{
-        width: 116%
+    .signup-containers{
+        width: 114%
+    }
+}
+
+
+
+@media(max-width:412px){
+    .signup-containers{
+        width:112%;
     }
 }
 
 @media(max-width:280px){
-    .signup-container{
-        width:154%;
+    .signup-containers{
+        width:130%;
     }
 }

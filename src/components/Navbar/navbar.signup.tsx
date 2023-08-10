@@ -5,8 +5,8 @@ import {SlNote} from "react-icons/sl"
 const NavBarSignUp = () => {
  
     return (
-        <div className="navbar-container">
-        <h1 className="navbar-titles">
+        <div className="navbar-signup-container">
+        <h1 className="navbar-signup-titles">
         <Link style={{color: "black"}} to = "/">
         <SlNote />
         Shopping Manager

@@ -5,7 +5,7 @@ import {SlNote} from "react-icons/sl"
 const NavBarSignIn = () => {
  
     return (
-        <div className="navbar-container">
+        <div className="navbar-signin-container">
         <h1 className="navbar-titles">
         <Link style={{color:"black"}} to = "/">
         <SlNote />

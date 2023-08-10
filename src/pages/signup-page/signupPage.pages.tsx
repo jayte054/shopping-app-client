@@ -51,7 +51,7 @@ const SignUpPage = ({ userStore, routerStore }: any) => {
   return (
     <React.Fragment>
         <NavBarSignUp />
-      <div className="signup-container">
+      <div className="signup-containers">
         <h2>please provide your sign up details below</h2>
 
         {errorMessage && <ErrorMessage message={errorMessage} />}

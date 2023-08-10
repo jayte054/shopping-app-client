@@ -1,0 +1,30 @@
+.directory-client{
+        padding: 1rem; 
+        background-color:azure ;
+        margin: 1rem;
+        border-radius: 10px
+}
+
+.table-containers{
+    justify-content: center;
+    align-items: center;
+    margin:2rem;
+    width: 90%;
+    height: 100%;
+    background-color: rgb(169, 169, 240);
+    text-align: justify;
+    border-collapse: collapse;
+
+}
+
+.table-containers th, .table-containers td {
+    border: 1px solid black;
+    padding-top: 1rem;
+    padding-left: 1rem;
+  }
+
+@media(max-width: 768px) {
+    .directory-client{
+        width: 31rem;
+    }
+}

@@ -1,26 +1,28 @@
-.burgerMenu-container{
+.burgerMenu-profile-container{
     position:absolute;
     background-color: rgb(116, 184, 230);
     display: flex;
     flex-direction: column;
-    top: 4.6rem;
-    right:1rem;
+    top: 6.6rem;
+    /* left:15rem; */
+    right:2rem;
     width: 8rem;
     padding-bottom:1rem;
     border-radius: 10px;
     z-index: 10;
 }
 
-.closeMenu{
-    color: black; 
+.closeMenu-profile{
+    color: rgb(10, 10, 10); 
     text-align: right;
-    margin-right:.5rem;
+    margin-top: .7rem;
+    padding-right:.5rem;
     font-size: .9rem;
     cursor:pointer;
 }
 
-.link-container{
-    /* font-weight: bold; */
+.link-profile-container{
+    font-weight: bold;
     margin-left: 1rem;
 }
 
@@ -28,15 +30,74 @@
     display: flex;
     flex-wrap: wrap;
     margin-left: .1rem;
+    /* font-weight: bold; */
 }
 
-@media(max-width: 375px){
-    #shoppingHistory-link{
-        margin-left: -1rem;
-    }
+@media(max-width: 768px){
+  .burgerMenu-profile-container{
+    right:2rem;
+      top: 6.6rem;
+     
 }
+ }
+
+ @media(max-width: 540px){
+  .burgerMenu-profile-container{
+    right:-6.5rem;
+      top: 6.6rem;    
+}
+
+ }
+
+ @media(max-width: 414px){
+  .burgerMenu-profile-container{
+    right:-5.3rem;
+      top: 6.6rem;    
+}
+
+ }
 
  @media(max-width: 412px){
+  .burgerMenu-profile-container{
+    right:-5.7rem;
+      top: 6.6rem;    
+}
+
+ }
+
+ @media(max-width: 390px){
+  .burgerMenu-profile-container{
+    right:-5.3rem;
+      top: 6.6rem;    
+}
+
+ }
+
+ @media(max-width: 375px){
+  .burgerMenu-profile-container{
+    right:-5.5rem;
+      top: 6.4rem;    
+}
+
+ }
+
+ @media(max-width: 360px){
+  .burgerMenu-profile-container{
+    right:-5.1rem;
+      top: 6.4rem;    
+}
+
+ }
+
+ @media(max-width: 280px){
+  .burgerMenu-profile-container{
+    right:-4.5rem;
+      top: 6.1rem;    
+}
+
+ }
+
+ /* @media(max-width: 412px){
   .burgerMenu-container{
     right: 4.5rem;
     color: white;
@@ -50,7 +111,7 @@
 
  @media(max-width: 414px){
   .burgerMenu-container{
-    right:.1rem;
+    right:.2rem;
     margin-top: .2rem
   }
 
@@ -59,7 +120,7 @@
   }
 
   .closeMenu{
-    padding-top:.5rem;
+    padding-top:1.3rem;
   }
  }
 
@@ -106,4 +167,4 @@
     .burgerMenu-container{
         margin-top: 1rem
     }
-  }
+  } */

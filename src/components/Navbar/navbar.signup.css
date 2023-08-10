@@ -1,18 +1,20 @@
-.navbar-container{
+.navbar-signup-container{
     position:relative;
     background-color: rgb(66, 173, 245);
     display: flex;
-    align-items:center;
+    flex-direction: row;
+    /* align-items:center; */
     justify-content: space-between;
-    /* width:100%; */
+    /* width:116%; */
     margin:1rem;
     border-radius: 10px;
     z-index:1;
 }
 
-.navbar-titles{
+.navbar-signup-titles{
     color: black;
     margin: 1rem 1rem;
+    font-size: 1.3rem;
 }
 
 .navbar-auths{
@@ -21,10 +23,10 @@
 }
 
  @media(max-width: 375px){
-    .navbar-container{
-        width:100%;
+    .navbar-signup-container{
+        width:118%;
         font-size: .6rem;
-       margin: 0rem 0rem 0rem 0rem;
+       
     }
     .navbar-titles{
         padding:0rem;
@@ -32,13 +34,14 @@
     }
 
     .navbar-auths{
+        font-size: 1rem;
         margin: 1rem 0rem 1rem 0rem
     }
 }
 
  @media(max-width: 414px){
-    .navbar-container{
-        width:100%;
+    .navbar-signup-container{
+        width:118%;
         margin: 1rem;
     }
     .navbar-titles{
@@ -53,14 +56,14 @@
 } 
 
 @media(max-width: 540px){
-    .navbar-container{
-        width: 100%;
+    .navbar-signup-container{
+        width: 120%;
     }
 }
 
 @media(max-width: 280px){
-    .navbar-container{
-        width: 154%;
+    .navbar-signup-container{
+        width: 141%;
     }
 }
 

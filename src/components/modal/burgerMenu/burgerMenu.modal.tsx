@@ -33,19 +33,19 @@ export const BurgerMenu = (props: {displayBurgerMenu: any,
         }).showToast()
     }
     return(
-        <div className="burgerMenu-container">
-            <div className="closeMenu">
+        <div className="burgerMenu-shopping-container">
+            <div className="closeMenu-shopping">
              <span onClick={closeMenu} 
                   >
                     X
             </span>
             </div>
-        <div className="link-container">
+        <div className="link-shopping-container">
         <Link  className="link"
               to = "/auth/profile" >
                  Profile 
         </Link>
-        <hr style={{marginRight: "1rem"}}/>
+        <hr style={{marginRight: "3rem"}}/>
         <span className="modalSignout-link"
               onClick={(e) => Signout(e)}> 
               Signout 

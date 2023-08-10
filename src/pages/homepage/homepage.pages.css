@@ -409,6 +409,98 @@
       
 }
 
+@media(max-width: 768px) {
+  .homepage-container {
+      background-color: azure;
+      margin: 1rem;
+      padding-left: 1rem; /* Adjust padding for smaller screens */
+      padding-top: 1rem;
+      display: flex;
+      flex-direction: column; /* Change flex direction for smaller screens */
+      width: 94%;
+      padding-bottom: 1rem;
+    }
+    
+    .homepage-form {
+      padding-left: 1rem; /* Adjust padding for smaller screens */
+      font-weight: bold;
+    }
+    
+    .print-container {
+      margin-top: 2rem; /* Adjust margin for smaller screens */
+      padding-right: 1rem; /* Adjust padding for smaller screens */
+      display: flex;
+      flex-direction: column; /* Change flex direction for smaller screens */
+      width:50%;
+    }
+
+    
+    .homepage-print-button {
+      margin-right: 1.5rem; /* Adjust margin for smaller screens */
+      width: 7rem;
+      height: 2rem;
+      border-radius: 5rem;
+      font-weight: bold;
+    }
+    
+    .homepage-print-input {
+      border-color: black;
+      border-style: double;
+      width: 100%; /* Adjust width for smaller screens */
+      text-transform: uppercase;
+      padding-bottom: 1rem; /* Adjust padding for smaller screens */
+      background-color: white;
+      line-height: 1.5rem;
+      padding-left: 1rem;
+      overflow: auto;
+    }
+    
+    .add-button {
+      font-weight: bold;
+      height: 2rem;
+      margin-left: 3px;
+    }
+    
+    .remove-button {
+      font-weight: bold;
+      height: 2rem;
+      margin-left: 3px;
+    }
+    
+    .total-container {
+      margin-top: 1rem;
+      margin-left: 1rem;
+    }
+    
+    .total-container button {
+      font-weight: bold;
+    }
+    
+    .homepage-item-input {
+      height: 2rem;
+      margin-left: 6px;
+    }
+    
+    .homepage-price-input {
+      height: 2rem;
+      width: 5rem;
+      margin-left: 6px;
+    }
+    
+    .socialsShareContainer {
+      text-align: center;
+      background-color: azure;
+      margin: 1rem;
+      padding-top: 0.5rem;
+      margin-bottom: -1rem;
+      padding-bottom: 0.5rem;
+      width:97%;
+      
+    }
+    
+    
+}
+
 @media(max-width: 540px) {
     .homepage-container {
         background-color: azure;
@@ -497,9 +589,6 @@
         width:118.8%;
       }
       
-      WhatsappIcon {
-        color: black;
-      }
       
 }
 
@@ -603,7 +692,7 @@
         padding-top: 1rem; /* Adjust padding for smaller screens */
         display: flex;
         flex-direction: column; /* Change flex direction for smaller screens */
-        width: 119%;
+        width: 114%;
         padding-bottom: 1rem; /* Adjust padding for smaller screens */
       }
       
@@ -681,7 +770,7 @@
         padding-top: 0.5rem;
         margin-bottom: 1rem;
         padding-bottom: 0.5rem;
-        width: 123%;
+        width: 118%;
         margin-top: 1rem;
       }
       
@@ -693,16 +782,16 @@
 
 @media(max-width: 393px){
   .homepage-container{
-    width:119%;
+    width:113%;
     margin-top: 1rem;
   }
 }
 
 @media(max-width: 360px){
   .homepage-container{
-    padding:0.5rem
+    padding:1.18rem
   }
   .socialsShareContainer{
-    padding:0rem;
+    padding:.8rem;
   }
 }

@@ -1,27 +1,25 @@
-.navbar-homepage-containers{
+.navbar-shopping-container{
     background-color: rgb(66, 173, 245);
     border-radius: 1rem;
     margin: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    z-index: 0;
   }
   
   .navbar-title{
-    /* margin:1rem; */
+    margin:1rem;
     color:black;
   }
   
   .burger-icons{
-    position: relative;
     margin:2rem;
     font-size: 1.3rem;
   }
   
   @media(max-width: 768px) {
-    .navbar--homepage-containers{
-      width: 130%;
+    .navbar-shopping-container{
+      width: 96%;
     }
   
     .navbar-title{
@@ -31,32 +29,38 @@
   }
   
   @media(max-width: 540px) {
-    .navbar-homepage-containers{
+    .navbar-shopping-container{
       margin: 1rem;
-      width: 118.5%;
-    }
-  }
-    @media(max-width: 414px) {
-        .navbar-homepage-containers{
-          margin: 1rem;
-          width: 123%;
-        }
+      width: 117%;
     }
 
-  @media(max-width: 412px) {
-      .navbar-homepage-containers{
-        width: 122%
-      }
+    @media(max-width:414px) {
+        .navbar-shopping-container{
+            width:121%
+        }
     }
   
+  @media(max-width: 412px) {
+      .navbar-shopping-container{
+        width: 124%
+      }
+    }
+
+    @media(max-width: 393px) {
+        .navbar-shopping-container{
+          width: 120%;
+        }
+      }
+  
   @media(max-width: 390px) {
-    .navbar-homepage-containers{
-      width: 121%;
+    .navbar-shopping-container{
+      width: 120%;
     }
   }
+
   @media(max-width: 375px) {
-    .navbar-homepage-containers{
-      width: 121%;
+    .navbar-shopping-container{
+      width: 120%;
     }
   
     .navbar-title{
@@ -65,20 +69,22 @@
   }
   
   @media(max-width: 360px) {
-    .navbar-homepage-containers{
-      width: 123%;
+    .navbar-shopping-container{
+      width: 117%;
     }
     .navbar-title{
-      font-size: 1.6rem;
+      font-size: 1.8rem;
     }
   }
   
     @media(max-width: 280px) {
-      .navbar-homepage-containers{
-        width: 125%;
+      .navbar-shopping-container{
+        width: 123%;
       }
       .navbar-title{
         font-size: 1.6rem;
       }
     }
   
+    
+  }

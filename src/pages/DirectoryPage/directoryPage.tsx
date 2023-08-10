@@ -5,6 +5,8 @@ import { inject, observer } from "mobx-react";
 import { directoryStore } from "../../stores/directory.stores";
 import NavbarDirecotry from "../../components/Navbar/navbar.direcotry";
 import { Footer } from "../../components/footer/footer.components";
+import {IoLocation} from "react-icons/io5"
+import "./directorypage.css"
 
 export const DirectoryPage = ()=> {
     const {FetchDirectory_Store} = directoryStore;
@@ -47,7 +49,21 @@ export const DirectoryPage = ()=> {
             parsedDirectory.sort((a: any, b: any) => b - a)
             setDirectoryList(parsedDirectory)
             setCount(parsedDirectory.length)
+            toastify({
+                text:"directory fetched successfully",
+                duration: 3000,
+                gravity:"top",
+                backgroundColor: "green",
+                close: true
+            }).showToast()
         }catch(error){
+            toastify({
+                text:"entry unsuccessful, admin priviledge required",
+                duration: 3000,
+                gravity: "top",
+                backgroundColor: "red",
+                close: true 
+            }).showToast()
             throw error
         }
     }
@@ -67,14 +83,18 @@ export const DirectoryPage = ()=> {
             setCurrentPage(currentPage - 1)
         }
     }
+
+    const openGoogleMaps = (latitude: number, longitude: number) => {
+        const googleMapsLink = `https://www.google.com/maps/place/${latitude},${longitude}`;
+        window.open(googleMapsLink, '_blank');
+      };
+
+
     return (
         <React.Fragment>
             <div>
                 <NavbarDirecotry />
-                <div style={{padding: "1rem", 
-                             backgroundColor: "azure", 
-                             margin: "1rem", 
-                             borderRadius: "10px"}}>
+                <div className = "directory-client">
                 <h1>Shopping Manager Directory</h1>
                 <p>You can check for the stores and/or traders closest to you</p>
                 <button type="button" onClick= {fetchDirectory}>
@@ -97,7 +117,7 @@ export const DirectoryPage = ()=> {
               </button> */}
             {/* </span> */}
                 {/* </div> */}
-                    <table className="table-container">
+                    <table className="table-containers">
                         
                         <thead className="table-header">
                             <tr>
@@ -116,7 +136,10 @@ export const DirectoryPage = ()=> {
                                         <td>{item.name}</td>
                                         <td>{item.number}</td>
                                         <td>{item.walletId}</td>
-                                        <td>{item.address}</td>
+                                        <td>{item.address} 
+                                            {" "} 
+                                            {<IoLocation onClick={ () => openGoogleMaps(item.latitude, item.longitude)} />}
+                                        </td>
                                     </tr>
                                 ))
                             ): (

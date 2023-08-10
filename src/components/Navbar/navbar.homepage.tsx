@@ -28,15 +28,17 @@ const NavBar = ({userStore}: any) => {
 
  
     return (
-        <div  className="navbar-containers">
+        <div  className="navbar-homepage-containers">
+            <div>
         <h1 className="navbar-title"> 
         <Link style={{color: "black"}} to = "/auth/homepage">
         <SlNote />
         Shopping Manager
         </Link>
         </h1>
+        </div>
         <div  className="burger-div">
-            {showIcon && <GiHamburgerMenu className="burger-icon"
+            {showIcon && <GiHamburgerMenu className="burger-icons"
                             onClick={displayBurger}
             />}
             {displayBurgerMenu && (
