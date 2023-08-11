@@ -15,6 +15,7 @@ export const Benefit = () => {
                 <li> Real time options on how you want to use your list of collated items </li>
                 <li> Ability to communicate with retailers who have an online presence</li>
                 <li> Regular news updates on our upgrades </li>
+                <li> Real time location of stores close to you </li>
 
             </ul>
             <p>Why don't you <Link to="/signup"> sign up </Link></p>

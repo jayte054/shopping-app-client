@@ -3,7 +3,7 @@ import {BsTwitter} from "react-icons/bs"
 import {BsFacebook} from "react-icons/bs"
 import {GiLion} from "react-icons/gi"
 import "./footer-components.css"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import toastify from "toastify-js"
 import { useState } from "react"
 import { directoryMailInput } from "../../services/directoryServices"
@@ -11,6 +11,15 @@ import { directoryStore } from "../../stores/directory.stores"
 
 export const Footer = () => {
     const [username, setUsername] = useState("")
+    const navigate = useNavigate()
+
+    const directory = () => {
+        navigate("/auth/directory")
+    }
+
+    const adminDirectory = () => {
+        navigate("/auth/createEntry")
+    }
 
     const handleSendMail = (e: React.FormEvent) => {
         e.preventDefault()
@@ -51,19 +60,31 @@ export const Footer = () => {
         <div>
         <div className="container">
             <div>
-                <div>
-                <Link to="/auth/directory" 
+                {/* <div>
+                <span onClick={() => {console.log("here"); navigate("/auth/directory")}} 
                       className="linkdirectory"
                       >
                             Shopping Manager Directory
-                </Link>
-                </div>
+                </span>
+                </div> */}
             <span className="footer-title"> please follow and engage us with your feedbacks on any of the platforms below </span>
+            
            <div className="socials">
            <p><a  className="link"href="https://www.instagram.com/shoppingmanager317/" target="blank"> <BsInstagram /> @shoppingmanager317 </a></p>
             <p><a className="link" href="https://twitter.com/Shoppingapp317" target="blank"> <BsTwitter /> @shoppingapp317 </a></p>
             <p><a className="link" href="#"> <BsFacebook /> @shoppingapp </a></p>
            </div>
+           <div>
+                <span onClick={directory} 
+                      className="linkdirectory"
+                      >
+                            Shopping Manager Directory
+                </span> <br />
+                <span onClick={adminDirectory}
+                        className="linkdirectory">
+                    Admin Directory    
+            </span>
+                </div>
            <div className="footer-end">
            <p> for entry into the directory page, please contact us at</p>
             <span>Email</span> <br />
@@ -84,11 +105,7 @@ export const Footer = () => {
                 </a>
             </p>
            </div>
-            <span>
-                  <Link  to="/auth/createEntry" className="linkdirectory"> 
-                    Admin Directory
-                  </Link>
-            </span>
+          
             </div>
           
            <div className="developer-column">

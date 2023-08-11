@@ -87,105 +87,14 @@
     overflow: auto;
     border-radius: 8px;
   }
-  
-  @media (max-width: 375px) {
-    .landingpage-container{
-        padding: .9rem;
-        width: 123%;
-    }
-    .form-elements {
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
+
+  @media(max-width: 912px){
+    .item-input{
+        width: 25%
     }
 
-    .item-input{
-        width: 17%
-    }
     .price-input{
         width: 15%
-    }
-  
-    .print {
-      padding-right: 0;
-      margin-bottom: 1rem;
-    }
-  
-    .print-input {
-      width: 100%;
-      margin-left: 0;
-      margin-bottom: 1rem;
-    }
-  
-    .landingpage-print-container {
-      padding-right: 0rem;
-    }
-  
-    .landingpage-print-button {
-      margin-right: 0;
-      align-self: center;
-    }
-  
-    .landingpage-print-input {
-      width: 100%;
-      padding-bottom: 1rem;
-    }
-  }
-
-  @media(max-width: 412px) {
-    .landingpage-container{
-        padding: .9rem;
-        width: 122%
-    }
-  }
-
-  @media (max-width: 414px) {
-    .landingpage-container{
-        padding: 1rem;
-        width: 123%;
-    }
-    .form-elements {
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-    }
-
-    .item-input{
-        width: 17%
-    }
-    .price-input{
-        width: 15%
-    }
-  
-    .print {
-      padding-right: 0;
-      margin-bottom: 1rem;
-    }
-  
-    .print-input {
-      width: 100%;
-      margin-left: 0;
-      margin-bottom: 1rem;
-    }
-  
-    .landingpage-print-container {
-      padding-right: 0;
-    }
-  
-    .landingpage-print-button {
-      margin-right: 0;
-      align-self: center;
-    }
-  
-    .landingpage-print-input {
-      width: 100%;
-      padding-bottom: 1rem;
-    }
-  }
-
-  @media(max-width: 360px){
-    .landingpage-container{
-        padding:.3rem
     }
   }
 
@@ -202,18 +111,6 @@
     .landingpage-container
     .item-input{
         width: 15%
-    }
-
-    .price-input{
-        width: 15%
-    }
-  }
-
-  @media(max-width: 912px){
-    
-
-    .item-input{
-        width: 25%
     }
 
     .price-input{
@@ -251,7 +148,7 @@
     }
   
     .landingpage-print-container {
-      padding-right: 0;
+      margin-right: 0rem;
     }
   
     .landingpage-print-button {
@@ -262,6 +159,114 @@
     .landingpage-print-input {
       width: 100%;
       padding-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 414px) {
+    .landingpage-container{
+        padding: 1rem;
+        width: 123%;
+    }
+    .form-elements {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .item-input{
+        width: 17%
+    }
+    .price-input{
+        width: 15%
+    }
+  
+    .print {
+      padding-right: 0;
+      margin-bottom: 1rem;
+    }
+  
+    .print-input {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 1rem;
+    }
+  
+    .landingpage-print-container {
+      padding-right: 6rem;
+    }
+  
+    .landingpage-print-button {
+      margin-right: 0;
+      align-self: center;
+    }
+  
+    .landingpage-print-input {
+      width: 100%;
+      padding-bottom: 1rem;
+    }
+  }
+
+  @media(max-width: 412px) {
+    .landingpage-container{
+        padding: .9rem;
+        width: 122%
+    }
+  }
+
+  @media(max-width:393px) {
+    .landingpage-print-container{
+      margin-left: 1rem;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .landingpage-container{
+        padding: .9rem;
+        width: 123%;
+    }
+    .form-elements {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .item-input{
+        width: 17%
+    }
+    .price-input{
+        width: 15%
+    }
+  
+    .print {
+      padding-right: 0;
+      margin-bottom: 1rem;
+    }
+  
+    .print-input {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 1rem;
+    }
+  
+    .landingpage-print-container {
+      margin-left: 2rem;
+    }
+  
+    .landingpage-print-button {
+      margin-right: 0;
+      align-self: center;
+    }
+  
+    .landingpage-print-input {
+      width: 100%;
+      padding-bottom: 1rem;
+    }
+  }
+ 
+
+  @media(max-width: 360px){
+    .landingpage-container{
+        padding:.3rem
     }
   }
 
